@@ -103,16 +103,46 @@ namespace Caponeras.App.Views.Veniculos
             }
         }
 
-        private void gridViewAseguradoras_KeyDown(object sender, KeyEventArgs e)
+        public void AddAseguradora()
         {
-            if (e.KeyCode != Keys.Delete || gridViewAseguradoras.GetFocusedRow() is not AseguradorasDto selected)
+            gridViewAseguradoras.AddNewRow();
+            gridViewAseguradoras.ShowEditForm();
+        }
+
+        public void EditarAseguradoraSeleccionada()
+        {
+            if (gridViewAseguradoras.GetFocusedRow() is not AseguradorasDto)
+            {
+                _viewModel.ShowMessage(TypeAlert.Warning, "Agencias de seguros", "Seleccione una agencia para editar.");
+                return;
+            }
+
+            gridViewAseguradoras.ShowEditForm();
+        }
+
+        public async Task EliminarAseguradoraSeleccionadaAsync()
+        {
+            if (gridViewAseguradoras.GetFocusedRow() is not AseguradorasDto selected)
+            {
+                _viewModel.ShowMessage(TypeAlert.Warning, "Agencias de seguros", "Seleccione una agencia para eliminar.");
+                return;
+            }
+
+            if (XtraMessageBox.Show("¿Desea eliminar esta agencia? Si tiene pólizas, se conservará desactivada.",
+                    "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            await _viewModel.Delete(selected);
+        }
+
+        private async void gridViewAseguradoras_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Delete)
                 return;
 
             e.Handled = true;
             e.SuppressKeyPress = true;
-            if (XtraMessageBox.Show("¿Desea eliminar esta agencia? Si tiene pólizas, se conservará desactivada.",
-                    "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                _ = _viewModel.Delete(selected);
+            await EliminarAseguradoraSeleccionadaAsync();
         }
     }
 }

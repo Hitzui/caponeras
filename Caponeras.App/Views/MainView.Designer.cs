@@ -600,6 +600,7 @@
             barButtonItem1.Id = 41;
             barButtonItem1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem1.ImageOptions.SvgImage");
             barButtonItem1.Name = "barButtonItem1";
+            barButtonItem1.ItemClick += barButtonItemAgregarAseguradora_ItemClick;
             // 
             // barButtonItem2
             // 
@@ -607,6 +608,7 @@
             barButtonItem2.Id = 42;
             barButtonItem2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem2.ImageOptions.SvgImage");
             barButtonItem2.Name = "barButtonItem2";
+            barButtonItem2.ItemClick += barButtonItemEditarAseguradora_ItemClick;
             // 
             // barButtonItem3
             // 
@@ -614,6 +616,7 @@
             barButtonItem3.Id = 43;
             barButtonItem3.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem3.ImageOptions.SvgImage");
             barButtonItem3.Name = "barButtonItem3";
+            barButtonItem3.ItemClick += barButtonItemEliminarAseguradora_ItemClick;
             // 
             // MainView
             // 
