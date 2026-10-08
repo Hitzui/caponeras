@@ -38,6 +38,7 @@
             colCorreo = new DevExpress.XtraGrid.Columns.GridColumn();
             colSitioWeb = new DevExpress.XtraGrid.Columns.GridColumn();
             colDireccion = new DevExpress.XtraGrid.Columns.GridColumn();
+            colActivo = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridViewAseguradoras).BeginInit();
             ((System.ComponentModel.ISupportInitialize)aseguradorasDtoBindingSource).BeginInit();
@@ -56,12 +57,19 @@
             // 
             // gridViewAseguradoras
             // 
-            gridViewAseguradoras.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colNombre, colNombreCorto, colTelefono, colCorreo, colSitioWeb, colDireccion });
+            gridViewAseguradoras.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colNombre, colNombreCorto, colTelefono, colCorreo, colSitioWeb, colDireccion, colActivo });
             gridViewAseguradoras.GridControl = gridControl1;
             gridViewAseguradoras.Name = "gridViewAseguradoras";
             gridViewAseguradoras.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             gridViewAseguradoras.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             gridViewAseguradoras.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
+            gridViewAseguradoras.OptionsEditForm.FormCaptionFormat = "Datos de la agencia vendedora";
+            gridViewAseguradoras.OptionsEditForm.ShowOnDoubleClick = DevExpress.Utils.DefaultBoolean.True;
+            gridViewAseguradoras.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
+            gridViewAseguradoras.OptionsEditForm.ShowOnF2Key = DevExpress.Utils.DefaultBoolean.True;
+            gridViewAseguradoras.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+            gridViewAseguradoras.EditFormHidden += gridViewAseguradoras_EditFormHidden;
+            gridViewAseguradoras.KeyDown += gridViewAseguradoras_KeyDown;
             // 
             // aseguradorasDtoBindingSource
             // 
@@ -70,6 +78,7 @@
             // colNombre
             // 
             colNombre.FieldName = "Nombre";
+            colNombre.Caption = "Agencia / Aseguradora";
             colNombre.Name = "colNombre";
             colNombre.Visible = true;
             colNombre.VisibleIndex = 0;
@@ -77,6 +86,7 @@
             // colNombreCorto
             // 
             colNombreCorto.FieldName = "NombreCorto";
+            colNombreCorto.Caption = "Nombre corto";
             colNombreCorto.Name = "colNombreCorto";
             colNombreCorto.OptionsEditForm.Caption = "Nombre Abr.:";
             colNombreCorto.Visible = true;
@@ -85,6 +95,7 @@
             // colTelefono
             // 
             colTelefono.FieldName = "Telefono";
+            colTelefono.Caption = "Teléfono";
             colTelefono.Name = "colTelefono";
             colTelefono.Visible = true;
             colTelefono.VisibleIndex = 2;
@@ -92,6 +103,7 @@
             // colCorreo
             // 
             colCorreo.FieldName = "Correo";
+            colCorreo.Caption = "Correo";
             colCorreo.Name = "colCorreo";
             colCorreo.Visible = true;
             colCorreo.VisibleIndex = 3;
@@ -99,6 +111,7 @@
             // colSitioWeb
             // 
             colSitioWeb.FieldName = "SitioWeb";
+            colSitioWeb.Caption = "Sitio web";
             colSitioWeb.Name = "colSitioWeb";
             colSitioWeb.Visible = true;
             colSitioWeb.VisibleIndex = 4;
@@ -106,9 +119,18 @@
             // colDireccion
             // 
             colDireccion.FieldName = "Direccion";
+            colDireccion.Caption = "Dirección";
             colDireccion.Name = "colDireccion";
             colDireccion.Visible = true;
             colDireccion.VisibleIndex = 5;
+            // 
+            // colActivo
+            // 
+            colActivo.Caption = "Activa";
+            colActivo.FieldName = "Activo";
+            colActivo.Name = "colActivo";
+            colActivo.Visible = true;
+            colActivo.VisibleIndex = 6;
             // 
             // AseguradorasFormView
             // 
@@ -117,7 +139,8 @@
             ClientSize = new Size(752, 491);
             Controls.Add(gridControl1);
             Name = "AseguradorasFormView";
-            Text = "AseguradorasFormView";
+            Text = "Agencias vendedoras de seguros";
+            Load += AseguradorasFormView_Load;
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridViewAseguradoras).EndInit();
             ((System.ComponentModel.ISupportInitialize)aseguradorasDtoBindingSource).EndInit();
@@ -135,5 +158,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCorreo;
         private DevExpress.XtraGrid.Columns.GridColumn colSitioWeb;
         private DevExpress.XtraGrid.Columns.GridColumn colDireccion;
+        private DevExpress.XtraGrid.Columns.GridColumn colActivo;
     }
 }
