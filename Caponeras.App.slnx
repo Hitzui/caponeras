@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Caponeras.App/Caponeras.App.csproj" />
+  <Project Path="Caponeras.Data/Caponeras.Data.csproj" />
+  <Project Path="Caponeras.Insfraestructura/Caponeras.Insfraestructura.csproj" />
+</Solution>

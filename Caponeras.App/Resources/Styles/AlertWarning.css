@@ -1,0 +1,79 @@
+﻿.container {
+    width: 378px;
+    height: auto;
+    padding: 7px 12px 12px 7px;
+}
+
+.popup {
+    background-color: @Window/0.95;
+    border-radius: 6px;
+    border-style: solid;
+    border-width: 1px 1px 1px 0px;
+    /*You can change this color to any RGBA value or skinned color (for example, "@Warning").
+	If this value is "@Black", the custom demo code replaces this color with the primary color of the notification icon.*/
+    box-shadow: 2px 2px 12px #F6BD60/0.7;
+    border-color: #F6BD60;
+    display: flex;
+    flex-direction: row;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #F6BD60/0.015;
+}
+
+.stripe {
+    width: 3px;
+    background-color: #F6BD60;
+    height: 100%;
+    border-radius: 6px 0px 0px 6px;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    font-family: 'Segoe UI';
+    color: @WindowText;
+}
+
+.icon-container {
+    padding: 8px;
+}
+
+.icon {
+    width: 22px;
+    height: 22px;
+}
+
+.caption {
+    font-size: 11pt;
+    font-weight: bold;
+    padding: 6px;
+}
+
+.text {
+    font-size: 10.5pt;
+    padding: 0px 6px 6px 6px;
+}
+
+.close-button {
+    padding: 8px;
+    border-radius: 4px 0px 0px 4px;
+}
+
+    .close-button:hover {
+        background-color: @Black/0.1;
+    }
+
+    .close-button:active {
+        background-color: @Black/0.2;
+    }
+
+.close-icon {
+    width: 20px;
+    height: 22px;
+}

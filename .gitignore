@@ -1,0 +1,30 @@
+# Build outputs
+[Bb]in/
+[Oo]bj/
+**/[Bb]in/
+**/[Oo]bj/
+publish/
+
+# IDE and local workspace state
+.vs/
+.idea/
+.cr/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Local configuration and credentials
+Caponeras.App/appsettings.json
+Caponeras.Data/appsettings.json
+Caponeras.Insfraestructura/appsettings.json
+Caponeras.App/App.config
+**/*.secrets.json
+.env
+.env.*
+!.env.example
+
+# Personal publish settings, generated/backup files, harness binary
+**/Properties/PublishProfiles/*.pubxml.user
+*.bak
+/opencode.exe

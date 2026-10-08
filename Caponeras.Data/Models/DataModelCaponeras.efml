@@ -1,0 +1,1730 @@
+<?xml version="1.0" encoding="utf-8"?>
+<efcore context-namespace="Caponeras.Data.Models" namespace="Caponeras.Data.Models" p1:name="DataContextCaponeras" p1:Guid="43938c9c-cb62-47c4-b836-a013bc6538ca" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0">
+  <class name="$EnumTypes">
+    <EnumType Name="TipoMovimiento" class="TipoMovimiento" p1:Guid="de968194-d83a-457b-bdc2-e3d8b6d07226">
+      <Member Name="ENTRADA" p1:Guid="2a95df15-ac91-40ca-9d6d-b5bc09d63b71" />
+      <Member Name="SALIDA" p1:Guid="de134845-da7c-4cc7-8cff-7a23bf7cb698" />
+      <Member Name="AJUSTE" p1:Guid="3b494947-ec56-418e-ad2f-64f725cd2ebc" />
+      <Member Name="NINGUNO" p1:Guid="437f63c7-d626-4e33-a27e-ce6dd126432e" />
+    </EnumType>
+    <EnumType Name="EstadoCompra" class="EstadoCompra" p1:Guid="37f34ac6-424c-4dc3-bab4-8e8fa8df135b">
+      <Member Name="Anulada" p1:Guid="3dc9396d-d0be-4297-a9bf-d15cebf32df9" />
+      <Member Name="Proforma" p1:Guid="11ac8bd3-ed17-49b0-8a44-526f8be67849" />
+      <Member Name="Parcial" p1:Guid="cb7041c2-aaa5-462d-86a7-3a0d5629cbaa" />
+      <Member Name="Pagada" p1:Guid="fdba30d5-b9a7-410d-9955-fe6d26a45b02" />
+      <Member Name="Aprobada" p1:Guid="6f631c32-6b43-4252-9ddd-86c3cf9b8694" />
+    </EnumType>
+    <EnumType Name="TipoManoObra" class="TipoManoObra" p1:Guid="42f175a5-2892-4258-908c-188939c503e0">
+      <Member Name="Anulada" p1:Guid="db04511c-aa82-4382-92b0-82919798eb51" />
+      <Member Name="Pendiente" p1:Guid="f5a6645e-0f16-4780-8b07-e42891909b26" />
+      <Member Name="Pagada" p1:Guid="9fbc4a48-f342-462a-98f2-9bbf90fc81ae" />
+    </EnumType>
+    <EnumType Name="EstadoCxp" class="EstadoCxp" p1:Guid="05b5f291-593c-4900-8cc2-3010bca9ee47">
+      <Member Name="PARCIAL" p1:Guid="539f5b79-83b7-4288-bfd0-e06a5b740077" />
+      <Member Name="PAGADA" p1:Guid="75dfd831-b9cc-4dea-b4a1-f0c4dcb7bcdf" />
+      <Member Name="ANULADA" p1:Guid="bef9a2b6-10a3-4d81-a7fa-4bafa0711767" />
+    </EnumType>
+    <EnumType Name="EstadoCaja" class="EstadoCaja" p1:Guid="fc23202d-0210-44b9-bb3b-818e9b08833d">
+      <Member Name="Cerrada" p1:Guid="23047b77-eb64-4fcd-9674-5c4518653f53" />
+      <Member Name="Abierta" p1:Guid="978757b2-b335-4263-9f8b-5a7e635fa4cd" />
+    </EnumType>
+    <EnumType Name="RubroNaturaleza" class="RubroNaturaleza" p1:Guid="4a45b660-5754-457f-b40f-80638e319257">
+      <Member Name="Egreso" p1:Guid="199fea4a-eda5-4c04-b73d-6dc5e710a836" />
+      <Member Name="Ingreso" p1:Guid="763dd554-8d9d-43cc-a376-ef462e86f68a" />
+    </EnumType>
+    <EnumType Name="ReferenciaInventario" class="ReferenciaInventario" p1:Guid="3befb443-c9ed-444b-84fa-8b43be08d44a">
+      <Member Name="Compra" p1:Guid="76c03325-ec47-4332-b559-df4bb1b0a4e3" />
+      <Member Name="Mantenimiento" p1:Guid="63498328-d2ba-45a0-86d3-7c4ef0546b47" />
+      <Member Name="Ninguno" p1:Guid="409aea30-6f9e-40aa-99b2-9cea9af9f3bc" />
+    </EnumType>
+    <EnumType Name="EstadoCadete" class="EstadoCadete" p1:Guid="55b30257-d29b-4e20-9cee-b7c5627b238d">
+      <Member Name="ACTIVO" Value="1" p1:Guid="074ebc0f-7463-4fd2-b110-a0da10d172bd" />
+      <Member Name="SUSPENDIDO" Value="2" p1:Guid="8574cd38-f831-447e-a177-56b2c494bc95" />
+      <Member Name="INACTIVO" Value="3" p1:Guid="04647c5d-84d0-41bc-9b84-03780dd1345d" />
+    </EnumType>
+  </class>
+  <class name="Agencias" entity-set="Agencias" table="agencia" schema="caponeras" p1:Guid="a53cb710-bbee-4970-a0d1-a1af37f21b07">
+    <id name="Idagencia" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="ee449d99-9bf8-4dd8-8a49-c35e6ab92df6">
+      <column name="idagencia" not-null="True" precision="11" scale="0" sql-type="int" unique="True" p1:unicode="False" />
+    </id>
+    <property name="Codagencia" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="f2f38f22-eda3-4d8c-85fc-0b058670f0f4">
+      <column name="codagencia" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Descripcion" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="3075fbad-b728-480c-879f-4648bb216090">
+      <column name="descripcion" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Ruc" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="214e43b2-cd95-445c-bccd-ca42c9c75eba">
+      <column name="ruc" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Activio" type="Boolean" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="a28be482-19dd-4074-a3af-f1d7319c562b">
+      <column name="activio" default="NULL" not-null="False" precision="1" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Cajas" entity-set="Cajas" table="caja" schema="caponeras" p1:Guid="f088ce0b-56aa-4413-ac95-1741933fe644">
+    <id name="Idcaja" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="d31cfa2c-cb43-4b87-aac1-c9ea5d7d7773">
+      <column name="idcaja" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Codcaja" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="a4057822-7ea4-46fc-9096-49800ab89f6d">
+      <column name="codcaja" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Descripcion" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="5cf93d4f-795d-467b-ad77-d679cad8aa79">
+      <column name="descripcion" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Idagencia" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="3553cf0e-e38a-428b-ac5b-a9b80ec9ca1a">
+      <column name="idagencia" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="CategoriasProductos" entity-set="CategoriasProductos" table="categorias_producto" schema="caponeras" p1:Guid="637f7097-7483-4b28-b6b8-81485cd6ed62">
+    <id name="IdCategoria" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="479f84bb-c1fb-4207-bce9-2ed33cdc0795">
+      <column name="id_categoria" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="100" p1:ValidateRequired="true" p1:Guid="28d74b71-c773-4e43-b872-299aa9b00e89">
+      <column name="nombre" not-null="True" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Descripcion" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="24ad75ca-0f91-4cbf-ad84-043163cb1cd7">
+      <column name="descripcion" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="IdCategoriaPadre" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="2a6ca947-424c-49cd-8110-a21ae00e94eb">
+      <column name="id_categoria_padre" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="f7630465-2487-47bb-ac5e-80bd8bac48dc">
+      <column name="activo" default="1" not-null="False" precision="1" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Compras" entity-set="Compras" table="compra" schema="caponeras" p1:Guid="0e9a5b0b-3708-4225-86d3-ce3d587a5923">
+    <id name="Idcompra" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="c0dabefd-c1de-4f3c-95ac-f34fcec178db">
+      <column name="idcompra" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Frecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="19bcfaf2-bb2c-4567-b207-4a254ce521d8">
+      <column name="frecha" not-null="True" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="NumeroDocumento" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="783a4640-caa8-456b-baa2-f364a30b42e0">
+      <column name="numero_documento" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Idproveedor" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="d461d964-2e3d-4139-9cf6-3293dc820d72">
+      <column name="idproveedor" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Total" type="Decimal" p1:ValidateRequired="true" p1:Guid="eb2456c2-e7be-4fdc-9cef-f839beefa132">
+      <column name="total" default="0.00" not-null="True" precision="19" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Subtotal" type="Decimal" p1:ValidateRequired="true" p1:Guid="d85335f5-a436-4ceb-9bb9-df7f30aa67ae">
+      <column name="subtotal" default="0.00" not-null="True" precision="19" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Iva" type="Decimal" p1:ValidateRequired="true" p1:Guid="e19e4e10-9953-412b-ade2-565747347085">
+      <column name="iva" default="0.00" not-null="True" precision="19" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="CreatedBy" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="5843eb1c-816b-44c7-9727-83f164ff9476">
+      <column name="created_by" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="8974d27c-627d-4218-a5fc-8a1f849dd672">
+      <column name="created_at" default="current_timestamp()" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UpdatedBy" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="297606cc-55f5-4ef0-8824-81a8e3b6f4d6">
+      <column name="updated_by" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="UpdatedAt" type="DateTime" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="1a08a378-0311-4109-89bd-922936a491d3">
+      <column name="updated_at" default="current_timestamp()" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Estado" type="Caponeras.Data.Models.EstadoCompra" p1:ValidateRequired="true" p1:Guid="b5ee1024-fb45-4822-8b48-0c2fa8ed34b8">
+      <column name="estado" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="CuotaConfiguracions" entity-set="CuotaConfiguracions" table="cuota_configuracion" schema="caponeras" p1:Guid="50c25237-8864-4379-b5e8-d284c8b36898">
+    <id name="IdCuota" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="3ba07ce3-a2bc-45a9-8fa3-18b511b6f7e5">
+      <column name="id_cuota" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="MontoDiario" type="Decimal" p1:ValidateRequired="true" p1:Guid="4348baa2-345d-4a93-8246-6877cc0dc53c">
+      <column name="monto_diario" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Idconductor" type="Int32" p1:ValidateRequired="true" p1:Guid="265a1134-4a8a-4928-a436-4178a654b442">
+      <column name="idconductor" not-null="True" precision="11" scale="0" sql-type="int" unique="True" p1:unicode="False" />
+    </property>
+    <property name="Observaciones" type="String" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="true" p1:Guid="871651a7-a62f-4059-b153-a9daf118b508">
+      <column name="observaciones" default="''" not-null="True" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Activo" type="Boolean" p1:ValidateRequired="true" p1:Guid="7b956347-8d77-4e51-9775-dbfefcd7d47d">
+      <column name="activo" default="1" not-null="True" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+    <property name="CreatedBy" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="813f5e89-420c-4d1e-992b-46184943a8e4">
+      <column name="created_by" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="d22d0de4-2b9f-4835-92e9-76b0dd2fe53d">
+      <column name="created_at" default="current_timestamp()" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="CuotaDiarias" entity-set="CuotaDiarias" table="cuota_diaria" schema="caponeras" p1:Guid="8392fa69-a8a8-4268-8034-d49c2f6e8017">
+    <id name="IdCuotaDiaria" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="07d24f97-5eec-44c3-987d-d3efe347817f">
+      <column name="id_cuota_diaria" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="9d4d64d1-45f6-43a2-8181-514e724e376f">
+      <column name="fecha" not-null="True" sql-type="date" unique-key="fecha" p1:unicode="False" />
+    </property>
+    <property name="IdVehiculo" type="Int32" p1:ValidateRequired="true" p1:Guid="37c1e4df-957b-4e72-9d95-dfdeb3172d2e">
+      <column name="id_vehiculo" not-null="True" precision="11" scale="0" sql-type="int" unique-key="fecha" p1:unicode="False" />
+    </property>
+    <property name="MontoCuota" type="Decimal" p1:ValidateRequired="true" p1:Guid="d0864c52-484e-4aa7-a325-0e39c4c13ca1">
+      <column name="monto_cuota" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="MontoEntregado" type="Decimal" p1:ValidateRequired="true" p1:Guid="159ae9ba-a335-4c8c-92a1-b597d1ea66d4">
+      <column name="monto_entregado" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Diferencia" type="Decimal" p1:ValidateRequired="true" p1:Guid="d6c368e2-888b-4b8c-ba9b-85b7899025ce">
+      <column name="diferencia" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Porcentaje" type="Decimal" p1:ValidateRequired="true" p1:Guid="7dc91335-db2b-49fd-9517-8dd53d44d2f1">
+      <column name="porcentaje" not-null="True" precision="5" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Observaciones" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="062fafd4-9aef-4d29-8778-3b090007b4cc">
+      <column name="observaciones" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="CreatedBy" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="11ded338-aa53-47fb-824c-d5ee524fbf51">
+      <column name="created_by" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="1520e208-f799-42c9-bea9-2fb3e57df79c">
+      <column name="created_at" default="current_timestamp()" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Idconductor" type="Int32" p1:ValidateRequired="true" p1:Guid="41843b21-cb87-47af-a5be-101d2bc8b328">
+      <column name="idconductor" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="DetalleCompras" entity-set="DetalleCompras" table="detalle_compra" schema="caponeras" p1:Guid="855cece6-77e9-4eec-99dd-532871c9eeca">
+    <id name="Iddetalle" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="d6713fb0-4c1c-4fc4-bccb-2922690c8909">
+      <column name="iddetalle" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Idcompra" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="697dbcaf-1b99-435b-8981-ee458a0b99ab">
+      <column name="idcompra" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Idproducto" type="Int32" p1:ValidateRequired="true" p1:Guid="478b13eb-bdbe-4ab5-a1f9-b0d786e0215b">
+      <column name="idproducto" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Cantidad" type="Decimal" p1:ValidateRequired="true" p1:Guid="2d3d5aad-d60c-4de9-9683-c9c493a85fe9">
+      <column name="cantidad" not-null="True" precision="19" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="PrecioUnitario" type="Decimal" p1:ValidateRequired="true" p1:Guid="1230eae0-3088-480a-8596-8b42f42f50bc">
+      <column name="precio_unitario" not-null="True" precision="19" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Importe" type="Decimal" p1:ValidateRequired="true" p1:Guid="7e962a3c-fc8c-4ccf-b537-5d3791703ea1">
+      <column name="importe" not-null="True" precision="19" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="DetaMovimientos" entity-set="DetaMovimientos" table="deta_movimientos" schema="caponeras" p1:Guid="f91f4659-76e0-4c41-aa9b-e3400288e1f9">
+    <id name="Iddetamovimientos" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="cc6e2bc7-9e06-4646-b8f3-facf5d021f41">
+      <column name="iddetamovimientos" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Idmaestrocaja" type="Int32" p1:ValidateRequired="true" p1:Guid="f227d22e-9af3-4eac-b045-826645acbdcf">
+      <column name="idmaestrocaja" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="5e4fb23d-a780-42d4-992f-08c681c149a6">
+      <column name="fecha" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Concepto" type="Clob" p1:ValidateRequired="true" p1:Guid="c102ccad-6b1d-4fbd-8c53-d25aeab81575">
+      <column name="concepto" not-null="True" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="Idmovimiento" type="Int32" p1:ValidateRequired="true" p1:Guid="2c480632-5346-43b4-a753-5ead31eda717">
+      <column name="idmovimiento" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="ReferenciaTipo" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="5eb764a3-f3ff-4e32-afe1-dd5208c370fe">
+      <column name="referencia_tipo" default="NULL" not-null="False" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="ReferenciaId" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="6af8ea62-cb28-4946-a240-9e86b2ccd4b6">
+      <column name="referencia_id" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Efectivo" type="Decimal" p1:ValidateRequired="true" p1:Guid="3591c81f-af8b-4ea5-846b-5a84a9f6a0a6">
+      <column name="efectivo" default="0.000" not-null="True" precision="12" scale="3" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Transferencia" type="Decimal" p1:ValidateRequired="true" p1:Guid="d0a68056-1dc6-45c0-9edc-8ed584b0d3f3">
+      <column name="transferencia" default="0.000" not-null="True" precision="12" scale="3" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Tipocambio" type="Decimal" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="21c91342-f692-4b37-9b10-1a909069e0aa">
+      <column name="tipocambio" default="NULL" not-null="False" precision="12" scale="3" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="CreatedBy" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="a42a85be-9bfd-40cd-afdb-0147768c98f3">
+      <column name="created_by" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="29bf2970-1d07-4d90-8326-9540fa228c4e">
+      <column name="created_at" default="current_timestamp()" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UpdatedBy" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="fc433aff-2ee8-4a4b-8728-c1a72b0d7c8b">
+      <column name="updated_by" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="UpdatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="344c08c7-3245-4db0-b463-82a0b30e77d3">
+      <column name="updated_at" default="current_timestamp()" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="MaestroCajas" entity-set="MaestroCajas" table="maestro_caja" schema="caponeras" p1:Guid="a548dc12-7f8d-430b-85bc-5ace6a2266d5">
+    <id name="Idmaestrocaja" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="8cbe0018-3176-4aad-913d-88085d7e4bff">
+      <column name="idmaestrocaja" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Idcaja" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="aa2349d5-c2af-421a-bf22-b41af4911e4c">
+      <column name="idcaja" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="451d718f-a96e-4c89-9cc2-c986dfb809e2">
+      <column name="fecha" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Estado" type="Caponeras.Data.Models.EstadoCaja" p1:ValidateRequired="true" p1:Guid="9493a76e-14f6-44de-9b30-69073df9e6ec">
+      <column name="estado" not-null="True" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+    <property name="SaldoInicial" type="Decimal" p1:ValidateRequired="true" p1:Guid="a65c9e1a-03f0-4edb-bbab-6bd9e0fa9aa3">
+      <column name="saldo_inicial" not-null="True" precision="12" scale="3" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Entradas" type="Decimal" p1:ValidateRequired="true" p1:Guid="3e943da5-a9c6-4881-8015-e04fc0b4f487">
+      <column name="entradas" not-null="True" precision="12" scale="3" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Salidas" type="Decimal" p1:ValidateRequired="true" p1:Guid="878787f3-cd50-4558-b44a-71d86a064564">
+      <column name="salidas" not-null="True" precision="12" scale="3" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="SaldoFinal" type="Decimal" p1:ValidateRequired="true" p1:Guid="ad9cfdbb-3d3d-4d9e-8547-972ff71d28d3">
+      <column name="saldo_final" not-null="True" precision="12" scale="3" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="TipoCambio" type="Decimal" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="7ad7bbee-b574-4884-bcab-2bce476b7190">
+      <column name="tipo_cambio" default="1.000" not-null="False" precision="12" scale="3" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Observaciones" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="f906cc26-ed96-48f7-b11c-78e9f232c486">
+      <column name="observaciones" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="CreatedBy" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="fae140fd-b7d6-44b6-9a65-3285d8784ec2">
+      <column name="created_by" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="63b1736a-b82a-4bf9-9872-5a74f351e4b9">
+      <column name="created_at" default="current_timestamp()" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UpdatedBy" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="d91465d1-ca24-41fc-99b5-f246963b1681">
+      <column name="updated_by" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="UpdatedAt" type="DateTime" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="8deae5de-9323-405d-9c81-561513d8523a">
+      <column name="updated_at" default="current_timestamp()" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="ManoObras" entity-set="ManoObras" table="mano_obra" schema="caponeras" p1:Guid="a921c186-614d-4933-b529-c6df9d26f873">
+    <id name="IdManoObra" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="6fed50fc-3cb6-43c7-b98b-fb9fece51335">
+      <column name="id_mano_obra" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="0f1c7296-1f3c-4334-a806-c0cfc4fa74c6">
+      <column name="fecha" not-null="True" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="DescripcionTrabajo" type="Clob" p1:ValidateRequired="true" p1:Guid="0cc0ed1e-88a0-451b-ba1d-867bdb08e229">
+      <column name="descripcion_trabajo" not-null="True" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="Monto" type="Decimal" p1:ValidateRequired="true" p1:Guid="3689b29b-4cd3-4924-8fb7-2ab64d3214ba">
+      <column name="monto" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Estado" type="Caponeras.Data.Models.TipoManoObra" p1:ValidateRequired="true" p1:Guid="012db638-b6fa-4cf7-a570-4a565f8029f0">
+      <column name="estado" default="1" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Observaciones" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="189b1ade-fe5b-49d0-809c-e4dd5155d2fe">
+      <column name="observaciones" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="IdmantenimientoProveedor" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="1b4a9a11-c52d-4736-8bac-6c01c2252110">
+      <column name="idmantenimiento_proveedor" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="IdUsuario" type="Int32" p1:ValidateRequired="true" p1:Guid="69b9fdaf-f917-4c7f-8b76-9b4d02980848">
+      <column name="id_usuario" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="46ec0931-f6db-41d9-a433-788a39b2615a">
+      <column name="created_at" default="current_timestamp()" not-null="True" sql-type="timestamp" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Mantenimientos" entity-set="Mantenimientos" table="mantenimiento" schema="caponeras" p1:Guid="8a53e394-8159-4f40-8a87-a575a4f2cc86">
+    <id name="Idmantenimineto" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="d73aafbd-12bf-41c8-9e1a-e223f47db26d">
+      <column name="idmantenimineto" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Idvehiculo" type="Int32" p1:ValidateRequired="true" p1:Guid="e18ca4d6-f869-406c-bdd9-b7b952546796">
+      <column name="idvehiculo" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Idtipomantenimiento" type="Int32" p1:ValidateRequired="true" p1:Guid="c0bf852b-74ca-4210-bbf1-bf28356a5fc8">
+      <column name="idtipomantenimiento" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Titulo" type="String" p1:ValidateMaxLength="150" p1:ValidateRequired="true" p1:Guid="f4d5e346-3c7c-4afc-9417-9ab1630b14fc">
+      <column name="titulo" not-null="True" length="150" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="FechaInicio" type="DateTime" p1:ValidateRequired="true" p1:Guid="9f6b5404-9b26-4082-89f5-890eb17bf9ce">
+      <column name="fecha_inicio" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="FechaFin" type="DateTime" p1:ValidateRequired="true" p1:Guid="34710444-10c3-4a98-bd9f-c1feae96cb5a">
+      <column name="fecha_fin" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Descripcion" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="348f9ff7-431e-4cdd-8ba9-fc6fa0ab25d9">
+      <column name="descripcion" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="Observaciones" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="29731c06-2ab1-470b-80d9-4c1c20b56e76">
+      <column name="observaciones" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="Color" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="20" p1:ValidateRequired="false" p1:Guid="ead9219b-6851-4bdd-90f8-38f9205b2c83">
+      <column name="color" default="NULL" not-null="False" length="20" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Idusuario" type="Int32" p1:ValidateRequired="true" p1:Guid="821e08ad-1a6c-4dff-b6a3-b5ec91ae6830">
+      <column name="idusuario" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Idlabel" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="115b2cf6-21f6-4505-9aca-bc87b5613b18">
+      <column name="idlabel" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Idstatus" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="df2044b7-49b4-4ad4-807b-8c4bbd432728">
+      <column name="idstatus" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="d04dec37-9118-4617-a016-ad2c2ff0dd7b">
+      <column name="created_at" default="current_timestamp()" not-null="True" sql-type="timestamp" p1:unicode="False" />
+    </property>
+    <property name="UpdatedAt" type="DateTime" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="b758b735-bddc-4776-8f36-9fc21e2023f4">
+      <column name="updated_at" default="current_timestamp()" not-null="True" sql-type="timestamp" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="MantenimientoDetalles" entity-set="MantenimientoDetalles" table="mantenimiento_detalle" schema="caponeras" p1:Guid="d9651225-6a0c-4c77-a294-606e3fb3d544">
+    <id name="Iddetalle" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="681f7564-8ff9-41fd-a959-cc5739f52b21">
+      <column name="iddetalle" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Idmantenimiento" type="Int32" p1:ValidateRequired="true" p1:Guid="5794aa0f-6ada-449f-8ddc-344264493cec">
+      <column name="idmantenimiento" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Actividad" type="Clob" p1:ValidateRequired="true" p1:Guid="c916f989-7611-4804-a863-4810710b163c">
+      <column name="actividad" not-null="True" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="Estado" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="98d4ef68-a5ae-4805-a61b-49da69a7572e">
+      <column name="estado" default="'PENDIENTE'" not-null="False" sql-type="enum" p1:unicode="True" />
+    </property>
+    <property name="HorasEstimadas" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="3aee602f-04c2-443c-abe8-e725264fdb37">
+      <column name="horas_estimadas" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="HorasReales" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="7633265b-8a9f-4d99-9d80-cf2758ac8e64">
+      <column name="horas_reales" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Observaciones" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="38843048-dd90-422d-b745-97fecb61e219">
+      <column name="observaciones" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="MantenimientoHistorials" entity-set="MantenimientoHistorials" table="mantenimiento_historial" schema="caponeras" p1:Guid="a78cf723-9b34-4a24-b998-722fdf553e4d">
+    <id name="Idhistorial" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="06d66ea3-f9b9-4b61-92c7-8ba5d0b6aef8">
+      <column name="idhistorial" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Idmantenimiento" type="Int32" p1:ValidateRequired="true" p1:Guid="055e07ff-0dd2-41a5-86a2-b0b4764b2da2">
+      <column name="idmantenimiento" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="EstadoAnterior" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="45c02aa1-09bc-494a-8652-490a47362d21">
+      <column name="estado_anterior" default="NULL" not-null="False" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="EstadoNuevo" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="b98e9df2-7b9a-4363-ae46-7478642488e4">
+      <column name="estado_nuevo" default="NULL" not-null="False" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Observacion" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="ee2573b6-9c39-4b8e-8ed2-385ae6d2baee">
+      <column name="observacion" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="FechaCambio" type="DateTime" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="7ccf68bf-a881-47b9-aeec-62110b24f8d4">
+      <column name="fecha_cambio" default="current_timestamp()" not-null="True" sql-type="timestamp" p1:unicode="False" />
+    </property>
+    <property name="Idusuario" type="Int32" p1:ValidateRequired="true" p1:Guid="73b33fba-3777-4862-9e8b-3756fd21f634">
+      <column name="idusuario" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="MantenimientoLabels" entity-set="MantenimientoLabels" table="mantenimiento_label" schema="caponeras" p1:Guid="54fcb064-c378-4fec-bd38-816901b78a35">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="be7a57d8-3af7-4c61-a691-909c673de3d2">
+      <column name="id" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Color" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="b9d3fcee-9c75-448c-a887-f92605294398">
+      <column name="color" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="DisplayName" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="100" p1:ValidateRequired="false" p1:Guid="e235e74b-83d5-4640-93a1-87b411373447">
+      <column name="display_name" default="NULL" not-null="False" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="MenuCaption" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="05095e0d-0e0b-431f-8ffb-7d65ac18458f">
+      <column name="menu_caption" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="MantenimientoProveedors" entity-set="MantenimientoProveedors" table="mantenimiento_proveedor" schema="caponeras" p1:Guid="109a6231-cbf2-40f7-8a1e-32e1bcc8906f">
+    <id name="IdmantenimientoProveedor" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="f1e770f2-b94f-49b2-a70f-c02bad435bcf">
+      <column name="idmantenimiento_proveedor" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Idproveedor" type="Int32" p1:ValidateRequired="true" p1:Guid="11764542-d651-4406-a3fe-79e476cd0cb7">
+      <column name="idproveedor" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Idmantenimiento" type="Int32" p1:ValidateRequired="true" p1:Guid="6b74f07a-a54e-4dd2-a468-fb491a125b2c">
+      <column name="idmantenimiento" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="FechaInicio" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="a42f1be1-5768-4116-a29d-b71744287445">
+      <column name="fecha_inicio" default="NULL" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="FechaFin" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="2322743e-42d5-41c3-ad98-e46ee6b069ad">
+      <column name="fecha_fin" default="NULL" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Observaciones" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="c532567b-6e54-46d3-a3b2-ce4564a73305">
+      <column name="observaciones" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="MantenimientoRepuestos" entity-set="MantenimientoRepuestos" table="mantenimiento_repuestos" schema="caponeras" p1:Guid="cf83f75a-6e50-4c98-8bae-7c634c09db85">
+    <id name="Idmantenimientorepuestos" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="947903f2-b100-4856-ab83-88e1aaf349ae">
+      <column name="idmantenimientorepuestos" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Idmantenimiento" type="Int32" p1:ValidateRequired="true" p1:Guid="4abf31b0-1b68-4935-87aa-053f822add59">
+      <column name="idmantenimiento" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Idproducto" type="Int32" p1:ValidateRequired="true" p1:Guid="3258d4d2-929d-4e9d-a6aa-97efac6d4a11">
+      <column name="idproducto" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Cantidad" type="Decimal" p1:ValidateRequired="true" p1:Guid="9d5b01f4-af8b-40fd-9cc3-9de9502beb4f">
+      <column name="cantidad" not-null="True" precision="10" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="IdUnidadMedida" type="Int32" p1:ValidateRequired="true" p1:Guid="40f6eee0-fc89-4be8-935e-04701ac56c15">
+      <column name="id_unidad_medida" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Observaciones" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="e4debaca-7051-48d9-ac4b-973b234655d9">
+      <column name="observaciones" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="MantenimientoStatuses" entity-set="MantenimientoStatuses" table="mantenimiento_status" schema="caponeras" p1:Guid="b95e7ad7-3fa3-4169-83ba-bbb4160621cc">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="2db05b6f-f52b-4c10-9960-92026b1f77d5">
+      <column name="id" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Brush" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="06841251-dedc-4cc3-8f61-67435422e506">
+      <column name="brush" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="DisplayName" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="100" p1:ValidateRequired="false" p1:Guid="672f7e6e-d51a-4b96-b74a-2fce4a220a1b">
+      <column name="display_name" default="NULL" not-null="False" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="MenuCaption" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="ff731e4b-a175-419b-9958-b65cb51ecacf">
+      <column name="menu_caption" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="AllowDrag" type="Boolean" p1:ValidateRequired="true" p1:Guid="1bbd2751-20bc-4884-9e2c-b772195451ed">
+      <column name="allow_drag" default="1" not-null="False" precision="1" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="MovCajas" entity-set="MovCajas" table="mov_caja" schema="caponeras" p1:Guid="3a985b56-c052-45b3-bc3e-8f4ba238c163">
+    <id name="Idmovcaja" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="bf1de32d-9467-4b33-bafb-e668040c4643">
+      <column name="idmovcaja" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Descripcion" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="ed0c3bd1-0155-4091-8f99-f4f56c42bae3">
+      <column name="descripcion" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Idrubro" type="Int32" p1:ValidateRequired="true" p1:Guid="d60d113d-1735-4178-bd8b-56168a747332">
+      <column name="idrubro" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Productos" entity-set="Productos" table="productos" schema="caponeras" p1:Guid="195c9eaa-c0c7-4ee5-a623-620bd19a9f60">
+    <id name="IdProducto" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="ae595d81-0e23-43fe-882d-c24f7a8a9b7f">
+      <column name="id_producto" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Codigo" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="5bccfa4c-c706-4acb-8fc3-ad1b1e4c6969">
+      <column name="codigo" not-null="True" length="50" sql-type="varchar" unique="True" p1:unicode="True" />
+    </property>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="150" p1:ValidateRequired="true" p1:Guid="16001fee-27c0-48c9-84a5-63b685c97bd6">
+      <column name="nombre" not-null="True" length="150" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Descripcion" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="372e31ea-e1d3-469e-a6ad-65fa7c840014">
+      <column name="descripcion" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="IdCategoria" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="73675b70-4005-47dd-a8c1-6c45e94ad0ad">
+      <column name="id_categoria" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="IdUnidadMedida" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="a09eb5f5-e034-44c9-8f1c-d3289a0a414b">
+      <column name="id_unidad_medida" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="StockMinimo" type="Decimal" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="6174bbc5-79ba-4e7f-957f-a002df7d6816">
+      <column name="stock_minimo" default="0.00" not-null="False" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="StockActual" type="Decimal" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="0cdf80e3-b233-41ae-96e4-e4ac4b25f008">
+      <column name="stock_actual" default="0.00" not-null="False" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="PrecioCosto" type="Decimal" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="c8654ca6-7c55-486a-91d8-a0dfe0dab1f5">
+      <column name="precio_costo" default="NULL" not-null="False" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="PrecioVenta" type="Decimal" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="43475684-f1d9-456f-9c4b-35a5e46b33dc">
+      <column name="precio_venta" default="NULL" not-null="False" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="e25cb381-0c36-48f8-9587-2444b1bb3f05">
+      <column name="activo" default="1" not-null="False" precision="1" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+    <property name="UrlImage" type="String" p1:nullable="True" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="38c7a95f-2afe-4282-bb98-474515f60528">
+      <column name="url_image" default="''" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Inventariable" type="Boolean" p1:ValidateRequired="true" p1:Guid="d8e449c5-0eef-48f9-a50b-732b135604fc">
+      <Documentation>
+        <Summary>Indica si afecta el inventario</Summary>
+      </Documentation>
+      <column name="inventariable" default="1" not-null="True" precision="1" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Proveedores" entity-set="Proveedores" table="proveedores" schema="caponeras" p1:Guid="bc31483d-45b3-41af-8940-f40c45776e0b">
+    <id name="Idproveedor" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="e9107b4e-170d-48ec-9dd8-9bcf161af76a">
+      <column name="idproveedor" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="150" p1:ValidateRequired="true" p1:Guid="70ce846d-ca7b-4823-ad0a-6d15bf238367">
+      <column name="nombre" not-null="True" length="150" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Ruc" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="20" p1:ValidateRequired="false" p1:Guid="b149ece2-6680-410d-9557-dfc8e59428dd">
+      <column name="ruc" default="NULL" not-null="False" length="20" sql-type="varchar" unique="True" p1:unicode="True" />
+    </property>
+    <property name="Telefono" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="20" p1:ValidateRequired="false" p1:Guid="c359c606-9b5d-4c29-b1a2-4685bce4f21b">
+      <column name="telefono" default="NULL" not-null="False" length="20" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Email" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="100" p1:ValidateRequired="false" p1:Guid="b7049765-481e-4d9d-868f-592692f0d3ec">
+      <column name="email" default="NULL" not-null="False" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Direccion" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="250" p1:ValidateRequired="false" p1:Guid="ccfcc433-2c7e-444d-b36d-2d61b97aeb8d">
+      <column name="direccion" default="NULL" not-null="False" length="250" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Contacto" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="250" p1:ValidateRequired="false" p1:Guid="1ee1a1f1-37e8-40ec-a57e-6fabed40d8b3">
+      <column name="contacto" default="NULL" not-null="False" length="250" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="FechaRegistro" type="DateTime" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="92d6197e-0518-4e1a-88cb-a9900e586fe1">
+      <column name="fecha_registro" default="current_timestamp()" not-null="True" sql-type="timestamp" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="6d6fc911-9edb-45eb-82dc-28b389393ad5">
+      <column name="activo" default="1" not-null="False" precision="1" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+    <property name="CreatedBy" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="e1038769-89cc-4ca1-b7c0-5fffc4c75a82">
+      <column name="created_by" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="e4e0a7fe-738e-42bc-bf36-98125cb52e43">
+      <column name="created_at" default="current_timestamp()" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UpdatedBy" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="e772a61c-4f6d-4a41-a832-a6d70a62c6a8">
+      <column name="updated_by" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="UpdatedAt" type="DateTime" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="21b4d8af-d547-4582-8f2b-211e4f96a837">
+      <column name="updated_at" default="current_timestamp()" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Rubros" entity-set="Rubros" table="rubro" schema="caponeras" p1:Guid="b3322618-48c2-4acb-b261-5b854de1dba5">
+    <id name="Idrubro" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="9ecee14e-5af5-409c-b82a-6ca76976c738">
+      <column name="idrubro" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Codrubro" type="String" p1:ValidateMaxLength="10" p1:ValidateRequired="true" p1:Guid="ccfc3e2e-7c63-419d-bc10-ba71f4e7b719">
+      <column name="codrubro" not-null="True" length="10" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Descripcion" type="String" p1:ValidateMaxLength="255" p1:ValidateRequired="true" p1:Guid="45ff3a1d-bf6e-4383-b6f6-13362687e6d4">
+      <column name="descripcion" not-null="True" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Naturaleza" type="Caponeras.Data.Models.RubroNaturaleza" p1:ValidateRequired="true" p1:Guid="c9881afc-def8-4748-a276-5c5cad5805da">
+      <column name="naturaleza" not-null="True" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Rutas" entity-set="Rutas" table="ruta" schema="caponeras" p1:Guid="86c0bc07-ed86-4a02-b01d-61b3d61e2618">
+    <id name="Idruta" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="b4587c5e-ce16-476d-970c-516d45bd51f5">
+      <column name="idruta" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Codigo" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="20" p1:ValidateRequired="false" p1:Guid="9a2d0a1c-62fb-4c91-950d-4c6eed285761">
+      <column name="codigo" default="NULL" not-null="False" length="20" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="100" p1:ValidateRequired="true" p1:Guid="ebf29ccc-effd-4364-9e32-526b03eb25e1">
+      <column name="nombre" not-null="True" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Descripcion" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="71ab01ab-22fb-4f24-962d-a02e04f20a31">
+      <column name="descripcion" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Activo" type="SByte" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="9966d9b5-bf4a-4cd2-8df5-cfacc23669a3">
+      <column name="activo" default="1" not-null="False" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="TipoMantenimientos" entity-set="TipoMantenimientos" table="tipo_mantenimiento" schema="caponeras" p1:Guid="3636d5f3-f40e-4169-af7e-89b361dad581">
+    <id name="IdtipoMantenimiento" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="045c7c15-b762-480c-9634-b9d24eca30be">
+      <column name="idtipo_mantenimiento" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="100" p1:ValidateRequired="true" p1:Guid="4dfea890-b1c1-46f4-a081-119bd2adf623">
+      <column name="nombre" not-null="True" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Tipo" type="String" p1:ValidateRequired="true" p1:Guid="dfef8f26-35c5-4ef0-9be3-925a4eabe9e0">
+      <column name="tipo" not-null="True" sql-type="enum" p1:unicode="True" />
+    </property>
+    <property name="FrecuenciaKm" type="Decimal" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="0f2cfd41-1a63-40dd-9359-35c53e858955">
+      <column name="frecuencia_km" default="NULL" not-null="False" precision="10" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="FrecuenciaMeses" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="d3269961-f580-43e1-a3b5-4b32b7c25b53">
+      <column name="frecuencia_meses" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Descripcion" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="56163c8d-98c0-445a-a8cf-ac342ff290da">
+      <column name="descripcion" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="UnidadesMedidas" entity-set="UnidadesMedidas" table="unidades_medida" schema="caponeras" p1:Guid="bf91a317-e72c-4e1e-a71c-aa77f2485ada">
+    <id name="IdUnidad" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="f60556f3-5a76-4496-b7ab-c7dcc786fc4d">
+      <column name="id_unidad" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="d8a9ada1-bbe9-4f32-ad8c-692a0b5bd623">
+      <column name="nombre" not-null="True" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Simbolo" type="String" p1:ValidateMaxLength="10" p1:ValidateRequired="true" p1:Guid="15ce5f73-2707-4324-bf20-1c643305ddb7">
+      <column name="simbolo" not-null="True" length="10" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Activo" type="Boolean" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="cf26de8a-0d86-4bec-af75-f43cb9721944">
+      <column name="activo" default="1" not-null="False" precision="1" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Usuarios" entity-set="Usuarios" table="usuario" schema="caponeras" p1:Guid="c4b2e890-c355-48e1-a367-e9d1c6e69025">
+    <id name="Idusuario" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="c17d57c6-f1d9-467f-8375-c9c226228ac7">
+      <column name="idusuario" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Activo" type="Boolean" p1:ValidateRequired="true" p1:Guid="71eeca72-8140-4838-a778-7e29d7a532da">
+      <column name="activo" not-null="True" precision="1" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="Email" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="4a2fe0cd-912e-4547-81aa-bd026357cded">
+      <column name="email" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Nombre" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="b9123700-499d-4009-bb4c-f2dee3de1c0b">
+      <column name="nombre" not-null="True" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Password" type="String" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="true" p1:Guid="dad24a63-b0d4-42c8-8c35-4466ce70809e">
+      <column name="`password`" not-null="True" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Titulo" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="51ac6313-036e-430f-9c56-26df4b22079d">
+      <column name="titulo" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Username" type="String" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="true" p1:Guid="c70a9a0d-18a7-497b-9f08-3382ed90780d">
+      <column name="username" not-null="True" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="7c8ed0f6-abba-421e-88f5-5432ca7448db">
+      <column name="created_at" default="current_timestamp()" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UpdatedAt" type="DateTime" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="5416263d-f79a-4ef7-9d9b-f2e159d004b1">
+      <column name="updated_at" default="current_timestamp()" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="AuthKey" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="6aaa2033-f0c2-459b-bf96-aa8b1ac13823">
+      <column name="auth_key" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="AccessToken" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="539cbbeb-8968-435c-ba89-523c0270866e">
+      <column name="access_token" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Idcaja" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="67a7b6b7-fb9f-4f33-b1cf-9facd2d2333f">
+      <column name="idcaja" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Vehiculos" entity-set="Vehiculos" table="vehiculo" schema="caponeras" p1:Guid="8f8ef3a6-7148-4f35-b8b4-6df9e4031391">
+    <id name="Idvehiculo" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="e2e63e62-51b1-444a-b443-f0ad3aab3882">
+      <column name="idvehiculo" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Codigo" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="265c84c1-81a2-440b-86cf-a301f49295a0">
+      <column name="codigo" not-null="True" length="50" sql-type="varchar" unique="True" p1:unicode="True" />
+    </property>
+    <property name="Placa" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="20" p1:ValidateRequired="false" p1:Guid="ac3f282f-c8eb-4b6d-9545-2a45d6f3906b">
+      <column name="placa" default="NULL" not-null="False" length="20" sql-type="varchar" unique="True" p1:unicode="True" />
+    </property>
+    <property name="Descripcion" type="String" p1:ValidateMaxLength="150" p1:ValidateRequired="true" p1:Guid="483b9c06-4560-4f7b-830f-8c15788f70e1">
+      <column name="descripcion" not-null="True" length="150" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Tipo" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="e561a2a9-d741-4885-b770-ba8bc2cf7b8b">
+      <column name="tipo" not-null="True" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Marca" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="4c85f14d-0bf5-4fc4-820b-990de458bb2c">
+      <column name="marca" default="NULL" not-null="False" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Modelo" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="684d0f30-5ab4-412d-941e-4a92b46277f6">
+      <column name="modelo" default="NULL" not-null="False" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Anio" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="81699d95-6969-47e1-affc-227afe063fdf">
+      <column name="anio" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Idagencia" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="82e641b9-2e4e-4313-b94e-3bfa47d30a7b">
+      <column name="idagencia" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Estado" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="17a7af93-e1ec-4363-a448-940f4a531631">
+      <column name="estado" default="'ACTIVO'" not-null="False" sql-type="enum" p1:unicode="True" />
+    </property>
+    <property name="KmActual" type="Decimal" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="a697d5dd-4f75-4bc2-b540-15a257c3c438">
+      <column name="km_actual" default="0.00" not-null="False" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Observaciones" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="5b28d44a-8409-40ff-b2e7-9ee5d18f22c8">
+      <column name="observaciones" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="fe61880e-086b-4693-8eef-2ea3baf56eaf">
+      <column name="created_at" default="current_timestamp()" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UpdatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="6163c18b-7967-489e-a3ce-bf69857746eb">
+      <column name="updated_at" default="current_timestamp()" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="VehiculoConductors" entity-set="VehiculoConductors" table="vehiculo_conductor" schema="caponeras" p1:Guid="53f2de52-99d4-477d-9b20-c248236679e8">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="b328257b-a07f-4a48-99ee-fecc644c2967">
+      <column name="id" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Idvehiculo" type="Int32" p1:ValidateRequired="true" p1:Guid="47653c13-7441-43f7-86dd-65c7449f5e7e">
+      <column name="idvehiculo" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Idconductor" type="Int32" p1:ValidateRequired="true" p1:Guid="9a829508-2f36-413a-973a-95eaa257486e">
+      <column name="idconductor" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="FechaInicio" type="DateTime" p1:ValidateRequired="true" p1:Guid="000385fb-2292-4f9b-b02d-949ed7f5e932">
+      <column name="fecha_inicio" not-null="True" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="FechaFin" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="1400fb41-9fe1-4fe5-9461-5609f4f0a1d5">
+      <column name="fecha_fin" default="NULL" not-null="False" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="SByte" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="d89277e0-ce4f-4c60-9a3b-1a1340f7dab7">
+      <column name="activo" default="1" not-null="False" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+    <property name="Idzona" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="a0cd8482-0b71-4680-a287-891e3ca5bb00">
+      <column name="idzona" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="DeletedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="576d8c87-38a3-40b5-b4cc-df5e1ffb01fd">
+      <column name="deleted_at" default="NULL" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="VehiculoRutas" entity-set="VehiculoRutas" table="vehiculo_ruta" schema="caponeras" p1:Guid="3c8ff259-9f3e-4339-bd8a-ea01b02c9f60">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="b14afd50-c0c5-4342-8923-1c51fd0e4358">
+      <column name="id" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Idvehiculo" type="Int32" p1:ValidateRequired="true" p1:Guid="2ceba40e-5d2b-4f2d-b7f8-6e7fcbb7dbf2">
+      <column name="idvehiculo" not-null="True" precision="11" scale="0" sql-type="int" unique-key="idvehiculo" p1:unicode="False" />
+    </property>
+    <property name="Idruta" type="Int32" p1:ValidateRequired="true" p1:Guid="7d7e8b42-c35c-4d5e-957c-bfda36175151">
+      <column name="idruta" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="FechaInicio" type="DateTime" p1:ValidateRequired="true" p1:Guid="e03da053-fa8a-4aa1-8c20-00b3614d5f06">
+      <column name="fecha_inicio" not-null="True" sql-type="date" unique-key="idvehiculo" p1:unicode="False" />
+    </property>
+    <property name="FechaFin" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="7b126943-8de0-4fd2-bc6e-da36775e6cba">
+      <column name="fecha_fin" default="NULL" not-null="False" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="SByte" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="bd5175ba-4105-48d1-8ac4-c11db9610389">
+      <column name="activo" default="1" not-null="False" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="CxpTipoOrigens" entity-set="CxpTipoOrigens" table="cxp_tipo_origen" schema="caponeras" p1:Guid="c1420bc6-1e39-4f44-b437-ae5143bda132">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="44576660-490e-4246-adf7-854b618882e3">
+      <column name="id" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="71f28004-7364-4c22-a967-0b751d1ebd49">
+      <column name="nombre" default="NULL" not-null="False" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="Parametros" entity-set="Parametros" table="parametros" schema="caponeras" p1:Guid="9cd216a2-2247-4fb0-a2a4-8c6784102eba">
+    <id name="Idparametro" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="f069e6c5-bae1-4c71-94c1-3f1e00d8cda3">
+      <column name="idparametro" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="AperturaCaja" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="6b43e9b1-a58f-4cfa-beb9-8bf3b9bbc639">
+      <column name="apertura_caja" default="0" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CierreCaja" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="226d90ee-89e7-4e93-b3cb-d9768c882a03">
+      <column name="cierre_caja" default="0" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Compra" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="58874e9b-ba27-4101-9cef-9ccd6f66ec03">
+      <column name="compra" default="0" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="AnulacionCompra" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="c6d26501-c066-4fdb-b688-fc9a3e7e2d86">
+      <column name="anulacion_compra" default="0" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="AnulacionManoObra" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="06fb3ec7-13e8-405e-85d3-742e8d9bf544">
+      <column name="anulacion_mano_obra" default="0" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="AjusteManoObra" type="Int32" p1:ValidateRequired="true" p1:Guid="d46ef5fc-e07d-44df-87fd-d53f0d390a8b">
+      <column name="ajuste_mano_obra" default="0" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="PagoCuotaCadete" type="Int32" p1:ValidateRequired="true" p1:Guid="b713d085-b3dd-45fe-8013-64525060c82e">
+      <column name="pago_cuota_cadete" default="0" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="TransactionCxps" entity-set="TransactionCxps" table="transaction_cxp" schema="caponeras" p1:Guid="75f4f451-8015-4d3a-85f0-cd7b19a648d4">
+    <id name="IdtransactionCxp" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="2d73fe95-7579-4e98-9e9b-a8656a889cfc">
+      <column name="idtransaction_cxp" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="TipoOrigen" type="Int32" p1:ValidateRequired="true" p1:Guid="ed6b0f82-9489-487f-aa88-5100575c59df">
+      <column name="tipo_origen" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="IdOrigen" type="Int32" p1:ValidateRequired="true" p1:Guid="5264c28e-c916-4101-8352-9fe027fdf7a3">
+      <column name="id_origen" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="IdTercero" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="07677ce1-14c0-44b7-ae3b-d2a1a78b03d7">
+      <column name="id_tercero" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="FechaEmision" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="6862b72f-e23a-4148-bec2-cc5d2af70ad6">
+      <column name="fecha_emision" default="NULL" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="FechaVencimiento" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="19160847-8f5b-44ee-b73c-1350fd00a7c9">
+      <column name="fecha_vencimiento" default="NULL" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="MontoTotal" type="Decimal" p1:ValidateRequired="true" p1:Guid="5e982d7c-8022-4627-9824-f72116ad4309">
+      <column name="monto_total" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="SaldoPendiente" type="Decimal" p1:ValidateRequired="true" p1:Guid="4e830503-6b05-4bea-bd71-333d2a4257f0">
+      <column name="saldo_pendiente" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Estado" type="Caponeras.Data.Models.EstadoCxp" p1:ValidateRequired="true" p1:Guid="f4dd4906-0ca3-4c6c-8b7e-b8781b6eb23a">
+      <column name="estado" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="4199f151-ba95-4188-a955-60c5448e36b6">
+      <column name="created_at" default="current_timestamp()" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UpdatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="e202a080-666a-43a3-ba46-52a69832501d">
+      <column name="updated_at" default="current_timestamp()" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="CreatedBy" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="857b83aa-7714-4f3e-a1ed-fcb2239dad5c">
+      <column name="created_by" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="UpdatedBy" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="d1b30270-4644-4329-b8c4-a1d7bebf1a06">
+      <column name="updated_by" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="TransactionDetailCxps" entity-set="TransactionDetailCxps" table="transaction_detail_cxp" schema="caponeras" p1:Guid="8a232a10-c0ed-481d-b0a0-e2125a4163c4">
+    <id name="Idtransactiondetail" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="86be1b2a-00f1-4c1c-88ff-a33c5dc1ea8e">
+      <column name="idtransactiondetail" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="IdtrasactionCxp" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="dea87610-501f-4ecc-b65a-0361fbda0afe">
+      <column name="idtrasaction_cxp" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Fecha" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="e688f990-f587-4a4f-a70c-25efa644a594">
+      <column name="fecha" default="NULL" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Monto" type="Decimal" p1:ValidateRequired="true" p1:Guid="1c9d0bd5-ce6f-4663-9447-e973ed5fe1d7">
+      <column name="monto" default="0.00" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Iddetamovimiento" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="09039e4d-7e97-4887-9477-c8e534525e86">
+      <column name="iddetamovimiento" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="MetodoPago" type="String" p1:ValidateMaxLength="255" p1:ValidateRequired="true" p1:Guid="cea06295-b6f4-4c6b-ac5d-2126e66d9a31">
+      <column name="metodo_pago" default="'EFECTIVO'" not-null="True" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Saldo" type="Decimal" p1:ValidateRequired="true" p1:Guid="478f891f-4ab8-49e8-8061-0c0ee030f66c">
+      <column name="saldo" default="0.00" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Manoobraproveedorcxpviews" entity-set="Manoobraproveedorcxpviews" table="manoobraproveedorcxpview" schema="caponeras" query-type="True" p1:Guid="b8dd89a1-f46e-4530-8ab6-b8f9cc8224a1">
+    <Documentation>
+      <Summary>VIEW</Summary>
+    </Documentation>
+    <property name="IdManoObra" type="Int32" p1:ValidateRequired="true" p1:Guid="eedd5eb1-fc39-4fc1-bd6a-a442408d1e8f">
+      <column name="id_mano_obra" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="IdmantenimientoProveedor" type="Int32" p1:ValidateRequired="true" p1:Guid="8892c853-c34b-4628-bbaf-42b51e4a3e40">
+      <column name="idmantenimiento_proveedor" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Idmantenimiento" type="Int32" p1:ValidateRequired="true" p1:Guid="1e49cd80-ae34-4d49-b969-ee81e0be1265">
+      <column name="idmantenimiento" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="IdtransactionCxp" type="Int32" p1:ValidateRequired="true" p1:Guid="317c31c4-04a8-4f67-94c2-f0a8116a6aeb">
+      <column name="idtransaction_cxp" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="MontoTotal" type="Decimal" p1:ValidateRequired="true" p1:Guid="80709d57-e7ec-4993-9654-117aaa9dcf40">
+      <column name="monto_total" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="SaldoPendiente" type="Decimal" p1:ValidateRequired="true" p1:Guid="709957d8-5e5a-42e8-8885-64ae245e8928">
+      <column name="saldo_pendiente" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Estado" type="Int32" p1:ValidateRequired="true" p1:Guid="d46ba8cc-376c-46b9-946c-122b054c6f38">
+      <column name="estado" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="ProveedoresManoObras" entity-set="ProveedoresManoObras" table="proveedores_mano_obra" schema="caponeras" query-type="True" p1:Guid="5893db2f-21a9-412a-a3a9-d7ad78b074a0">
+    <Documentation>
+      <Summary>VIEW</Summary>
+    </Documentation>
+    <property name="IdmantenimientoProveedor" type="Int32" p1:ValidateRequired="true" p1:Guid="5e8323c3-315f-4525-8b6c-e790356a6d9e">
+      <column name="idmantenimiento_proveedor" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Idmantenimiento" type="Int32" p1:ValidateRequired="true" p1:Guid="156af7fa-ce82-4bcf-9e3c-b6cbbe43445f">
+      <column name="idmantenimiento" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="IdManoObra" type="Int32" p1:ValidateRequired="true" p1:Guid="fbd15255-7d70-4600-a3c1-ea291fe7735c">
+      <column name="id_mano_obra" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="dd85dd44-7a6c-4829-a0e3-593b8de80e41">
+      <column name="fecha" not-null="True" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="Monto" type="Decimal" p1:ValidateRequired="true" p1:Guid="5ad49d44-8006-4549-9f27-ae66678e41cb">
+      <column name="monto" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Idproveedor" type="Int32" p1:ValidateRequired="true" p1:Guid="52345915-13e2-481e-b1e6-544fd395750e">
+      <column name="idproveedor" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="150" p1:ValidateRequired="true" p1:Guid="3d1cb472-bf2f-45b3-a6d2-18b5ba77436a">
+      <column name="nombre" not-null="True" length="150" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Ruc" type="String" p1:nullable="True" p1:ValidateMaxLength="20" p1:ValidateRequired="false" p1:Guid="aca8bbd0-469c-47f9-98aa-9a302753b21c">
+      <column name="ruc" not-null="False" length="20" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Telefono" type="String" p1:nullable="True" p1:ValidateMaxLength="20" p1:ValidateRequired="false" p1:Guid="c6018783-db8f-47da-8f3e-bcb567e0489e">
+      <column name="telefono" not-null="False" length="20" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Email" type="String" p1:nullable="True" p1:ValidateMaxLength="100" p1:ValidateRequired="false" p1:Guid="b854c988-ffe6-4410-9466-64d808c04dea">
+      <column name="email" not-null="False" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Direccion" type="String" p1:nullable="True" p1:ValidateMaxLength="250" p1:ValidateRequired="false" p1:Guid="2927f9cd-35c2-459e-bb16-6f6f2fb7df29">
+      <column name="direccion" not-null="False" length="250" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Contacto" type="String" p1:nullable="True" p1:ValidateMaxLength="250" p1:ValidateRequired="false" p1:Guid="d411cfc0-a6d9-4fd8-8441-b4ba4566de5e">
+      <column name="contacto" not-null="False" length="250" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="FechaRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="a7235488-c614-4850-b914-e56b311e9b06">
+      <column name="fecha_registro" not-null="True" sql-type="timestamp" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="a9763780-6359-42fc-b830-acf52d367838">
+      <column name="activo" not-null="False" precision="1" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+    <property name="CreatedBy" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="3b0c1b8d-442c-428c-9756-07403dbb5dba">
+      <column name="created_by" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:ValidateRequired="true" p1:Guid="cd15896f-229d-4dd4-aafc-573c3413e457">
+      <column name="created_at" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UpdatedBy" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="976ae684-2954-490b-83b6-98df5abffabc">
+      <column name="updated_by" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="UpdatedAt" type="DateTime" p1:ValidateRequired="true" p1:Guid="9ffd1b91-3f05-4292-a763-8d6c59804644">
+      <column name="updated_at" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="MovimientoInventarios" entity-set="MovimientoInventarios" table="movimiento_inventario" schema="caponeras" p1:Guid="39a0a1d1-4438-41f9-bb09-3dd389920f8d">
+    <id name="IdMovimiento" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="55fe9211-a6d1-45f6-ae0d-25769e96fca5">
+      <column name="id_movimiento" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="IdProducto" type="Int32" p1:ValidateRequired="true" p1:Guid="2e158ad2-a1de-4892-a861-c38e29e64c8c">
+      <column name="id_producto" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="74e62d07-c6b8-4a6a-aef8-11dccb247518">
+      <column name="fecha" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="TipoMovimiento" type="Caponeras.Data.Models.TipoMovimiento" p1:ValidateRequired="true" p1:Guid="acfe3095-1690-4e4c-9066-066bb075edc2">
+      <column name="tipo_movimiento" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Entrada" type="Decimal" p1:ValidateRequired="true" p1:Guid="76c3d665-eb3a-49e7-a467-7c35ae54a372">
+      <column name="entrada" default="0.000" not-null="True" precision="12" scale="3" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="IdUnidadMedida" type="Int32" p1:ValidateRequired="true" p1:Guid="7072dc88-0ebd-4d9a-b5ca-01990bebafdb">
+      <column name="id_unidad_medida" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="ReferenciaTipo" type="Caponeras.Data.Models.ReferenciaInventario" p1:ValidateRequired="true" p1:Guid="a3308e46-2114-4284-80d0-a2825d84b962">
+      <column name="referencia_tipo" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="ReferenciaId" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="a5641a5c-4be9-45c3-b3f7-bad658faed1b">
+      <column name="referencia_id" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Observaciones" type="Clob" p1:ValidateRequired="true" p1:Guid="c8d002d4-ca77-4a8f-84bf-5409a67b60eb">
+      <column name="observaciones" not-null="True" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="Salida" type="Decimal" p1:ValidateRequired="true" p1:Guid="9def116d-707f-4ff0-a890-3add554cc40c">
+      <column name="salida" default="0.000" not-null="True" precision="12" scale="3" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="StockAnterior" type="Decimal" p1:ValidateRequired="true" p1:Guid="d08479e8-43bf-4172-95d2-0ad83e18cfdd">
+      <column name="stock_anterior" default="0.000" not-null="True" precision="12" scale="3" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="StockNuevo" type="Decimal" p1:ValidateRequired="true" p1:Guid="562f7b63-5396-4af0-a125-03da82e2b2df">
+      <column name="stock_nuevo" default="0.000" not-null="True" precision="12" scale="3" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="CreatedBy" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="a7029630-46ce-410f-b346-4954ca98af19">
+      <column name="created_by" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="1622948e-0ff8-438e-aa22-f09d119f9f25">
+      <column name="created_at" default="current_timestamp()" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Conductors" entity-set="Conductors" table="conductor" schema="caponeras" p1:Guid="cd90eadd-2326-464e-b186-3bad96b6475f">
+    <id name="Idconductor" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="14c2db84-1c25-412c-b913-95a3a7d779e2">
+      <column name="idconductor" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="100" p1:ValidateRequired="true" p1:Guid="7562b6b4-a573-4c6a-86df-ca307f3262e8">
+      <column name="nombre" not-null="True" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Telefono" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="30" p1:ValidateRequired="false" p1:Guid="6a4663ad-2cf9-463f-a425-b8504d7488d9">
+      <column name="telefono" default="NULL" not-null="False" length="30" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Identificacion" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="76ffc7bd-2f99-4b81-99da-7fa6daf10df8">
+      <column name="identificacion" default="NULL" not-null="False" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Estado" type="Caponeras.Data.Models.EstadoCadete" p1:ValidateRequired="true" p1:Guid="98489f69-f82d-485e-b4cb-895a40ae777d">
+      <column name="estado" default="'ACTIVO'" not-null="False" sql-type="enum" p1:unicode="True" />
+    </property>
+    <property name="Observaciones" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="08460987-5057-4186-80a6-d6606667adc7">
+      <column name="observaciones" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="b5ac14ff-ca6b-4e49-ad08-74c3007712d0">
+      <column name="created_at" default="current_timestamp()" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Direccion" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="3f5f7bb8-1a6d-466e-960b-4ea0a6896700">
+      <column name="direccion" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="Zonas" entity-set="Zonas" table="zonas" schema="caponeras" p1:Guid="8b21310c-685b-4d0f-abf5-89d288c9e569">
+    <id name="Idzonas" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="931becbc-54d0-406b-b804-d021017b1394">
+      <column name="idzonas" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="05b33749-b59e-4176-a21a-d6050e322784">
+      <column name="nombre" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Descripcion" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="ce193ec7-a228-4b08-97ac-9ac317895ba4">
+      <column name="descripcion" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Estado" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="6b54c8eb-1d7f-41e1-af60-a36c35ae8c99">
+      <column name="estado" default="1" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="ConductorLicencias" entity-set="ConductorLicencias" table="conductor_licencia" schema="caponeras" p1:Guid="ebacef4d-1dad-47d0-999c-28b29b2517a0">
+    <id name="Idlicencia" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="57207e26-e0b8-43be-a61b-a8f5d7153a23">
+      <column name="idlicencia" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Idconductor" type="Int32" p1:ValidateRequired="true" p1:Guid="ff0d05d2-91be-4a5d-8e89-afcfe6a4c648">
+      <column name="idconductor" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="NumeroLicencia" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="2cfdc252-9b10-453d-833a-0511fef79beb">
+      <column name="numero_licencia" not-null="True" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Categoria" type="String" p1:ValidateMaxLength="20" p1:ValidateRequired="true" p1:Guid="925fe001-9dc6-4843-860e-8892624577f8">
+      <column name="categoria" not-null="True" length="20" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="FechaEmision" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="f81a37b5-c6f2-437b-a117-59b0bd456790">
+      <column name="fecha_emision" default="NULL" not-null="False" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="FechaVencimiento" type="DateTime" p1:ValidateRequired="true" p1:Guid="093e0c5f-249b-4e4f-a5be-a6c25304d9fb">
+      <column name="fecha_vencimiento" not-null="True" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="Activa" type="Boolean" p1:ValidateRequired="true" p1:Guid="89e32244-b715-4f34-803a-f9c4d82294c6">
+      <column name="activa" default="1" not-null="True" precision="1" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+    <property name="FotoLicenciaFrente" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="3f9e81da-dbb7-476a-8bbb-78c935a8f6b0">
+      <column name="foto_licencia_frente" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="FotoLicenciaReverso" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="00593986-9ffe-4d17-ae02-3f0eecf3cf08">
+      <column name="foto_licencia_reverso" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Observaciones" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="84fe34d5-735d-4c5d-8ae7-5e368b03cd28">
+      <column name="observaciones" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="ee326e93-10c9-47c7-893a-1d60653abe5a">
+      <column name="created_at" default="current_timestamp()" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UpdatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="958a89b1-1537-40a9-887b-029633989f83">
+      <column name="updated_at" default="current_timestamp()" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="ConductorIdentificacions" entity-set="ConductorIdentificacions" table="conductor_identificacion" schema="caponeras" p1:Guid="12f8e2b2-e0d3-4274-a23e-7b91a142ab1f">
+    <id name="Ididentificacion" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="fe202c09-d166-4dd2-a7e7-3c0f5dc1be04">
+      <column name="ididentificacion" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Idconductor" type="Int32" p1:ValidateRequired="true" p1:Guid="ac91541e-8466-46bf-bd6d-8685a5fac0a9">
+      <column name="idconductor" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="NumeroIdentificacion" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="c4dc5270-1b0f-43a7-baec-894732181053">
+      <column name="numero_identificacion" not-null="True" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="FechaEmision" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="7a1ce7e4-be69-49c7-9d6c-b0a95d5840b1">
+      <column name="fecha_emision" default="NULL" not-null="False" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="FechaVencimiento" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="76a10df9-8186-4326-a98b-2a1756e7846a">
+      <column name="fecha_vencimiento" default="NULL" not-null="False" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="Activa" type="Boolean" p1:ValidateRequired="true" p1:Guid="81bc88cb-f1a4-41ce-99b3-bd4099184438">
+      <column name="activa" default="1" not-null="True" precision="1" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+    <property name="FotoFrente" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="c45da9b6-8594-4e42-b26e-da39f65c7862">
+      <column name="foto_frente" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="FotoReverso" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="00df082c-df9e-48bf-8e32-872c64f2d0b2">
+      <column name="foto_reverso" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Observaciones" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="0fc9c60c-caba-474b-b745-19d1293b0787">
+      <column name="observaciones" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="a02dd4f2-af43-42ff-996b-3f428f36108e">
+      <column name="created_at" default="current_timestamp()" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UpdatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="fc67f7e4-c913-4b8d-8c55-065823998569">
+      <column name="updated_at" default="current_timestamp()" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="DireccionDomiciliar" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="415701f1-a61b-4b4e-b9da-270023d1323d">
+      <column name="direccion_domiciliar" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="MunicipioResidencia" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="a49f5d96-4593-4fd5-ac35-d478f2dd684e">
+      <column name="municipio_residencia" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="VwReporteCuotaDiarias" entity-set="VwReporteCuotaDiarias" table="vw_reporte_cuota_diaria" schema="caponeras" query-type="True" p1:Guid="24f328ef-104a-48d2-a7c3-fd7f21856d06">
+    <Documentation>
+      <Summary>VIEW</Summary>
+    </Documentation>
+    <property name="Idzonas" type="Int32" p1:ValidateRequired="true" p1:Guid="abfc3868-ae5c-4e58-af1e-d90acd9479cc">
+      <column name="idzonas" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Zona" type="String" p1:nullable="True" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="3052b029-6c5f-42ec-870f-c568af03c7d2">
+      <column name="zona" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Idconductor" type="Int32" p1:ValidateRequired="true" p1:Guid="bcdf1ccb-6e44-4901-aa1c-3b5eac7d6764">
+      <column name="idconductor" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Cadete" type="String" p1:ValidateMaxLength="100" p1:ValidateRequired="true" p1:Guid="ef4df6ef-db4f-470e-9960-2a52b8aa2336">
+      <column name="cadete" not-null="True" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="78082bd4-2ea7-4f49-9b3c-1076dbd94d60">
+      <column name="fecha" not-null="True" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="Codigo" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="4f3d5dcb-fe01-4cef-a2ad-3a44021e6082">
+      <column name="codigo" not-null="True" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Placa" type="String" p1:nullable="True" p1:ValidateMaxLength="20" p1:ValidateRequired="false" p1:Guid="b1442303-ca23-4a82-b48a-e638e5153994">
+      <column name="placa" not-null="False" length="20" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="MontoCuota" type="Decimal" p1:ValidateRequired="true" p1:Guid="1afeb793-7bec-4d6e-b694-e98639cd456a">
+      <column name="monto_cuota" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="MontoEntregado" type="Decimal" p1:ValidateRequired="true" p1:Guid="6381dfb2-7818-4446-bfd8-760f263446a6">
+      <column name="monto_entregado" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Diferencia" type="Decimal" p1:ValidateRequired="true" p1:Guid="c9bb8aa1-23d8-4f67-9d6e-f5d83590a243">
+      <column name="diferencia" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Porcentaje" type="Decimal" p1:ValidateRequired="true" p1:Guid="d62762d1-c2fb-427d-96e8-cd1e1a58f207">
+      <column name="porcentaje" not-null="True" precision="5" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Observaciones" type="Clob" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="d5de6c35-cc38-453d-9f4d-05e52de709eb">
+      <column name="observaciones" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="FechaInicio" type="DateTime" p1:ValidateRequired="true" p1:Guid="acac3b7b-0023-42cc-9b1c-cae7b92ad451">
+      <column name="fecha_inicio" not-null="True" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="FechaFin" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="25fd97ee-c51a-4b4b-b98c-adee2fca1bdf">
+      <column name="fecha_fin" not-null="False" sql-type="date" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="VwReporteCuotaDiariaResumen" entity-set="VwReporteCuotaDiariaResumen" table="vw_reporte_cuota_diaria_resumen" schema="caponeras" query-type="True" p1:Guid="1cf93a97-c2c6-494a-8c3c-871f88a55c2d">
+    <Documentation>
+      <Summary>VIEW</Summary>
+    </Documentation>
+    <property name="Idzonas" type="Int32" p1:ValidateRequired="true" p1:Guid="d367d328-aff9-43fe-9854-ecf2d392f145">
+      <column name="idzonas" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Zona" type="String" p1:nullable="True" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="2514651b-2249-4a9e-81c4-ec7d13ba2a23">
+      <column name="zona" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Idconductor" type="Int32" p1:ValidateRequired="true" p1:Guid="e73723ba-eab3-4c73-bf5b-8bd8a77a1590">
+      <column name="idconductor" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Cadete" type="String" p1:ValidateMaxLength="100" p1:ValidateRequired="true" p1:Guid="7dd623fe-e93c-4220-93b1-a6da20ec4d5c">
+      <column name="cadete" not-null="True" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Idvehiculo" type="Int32" p1:ValidateRequired="true" p1:Guid="668266f2-48d1-48f6-97cf-5e40d1ecfa02">
+      <column name="idvehiculo" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Codigo" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="6fa2e3dd-9e72-4496-a1b9-263c773a478e">
+      <column name="codigo" not-null="True" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Placa" type="String" p1:nullable="True" p1:ValidateMaxLength="20" p1:ValidateRequired="false" p1:Guid="149d2e62-e24a-451d-bc82-f5b7ea41e1e2">
+      <column name="placa" not-null="False" length="20" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="7325e174-277c-4d67-916b-a572e3b207b7">
+      <column name="fecha" not-null="True" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="MontoCuota" type="Decimal" p1:ValidateRequired="true" p1:Guid="eac72d76-2732-4c59-928a-23a487b1e9f4">
+      <column name="monto_cuota" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="MontoEntregado" type="Decimal" p1:ValidateRequired="true" p1:Guid="7eb2cb49-e715-4942-89d0-0453fbb1cc99">
+      <column name="monto_entregado" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Aseguradoras" entity-set="Aseguradoras" table="aseguradora" schema="caponeras" p1:Guid="1caca107-25b0-4b67-853c-46afc756af1f">
+    <id name="Idaseguradora" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="1f862089-91cb-4db7-811a-419401fc8130">
+      <column name="idaseguradora" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="100" p1:ValidateRequired="true" p1:Guid="4bb378e3-d267-40d5-8d07-5ae30994214a">
+      <column name="nombre" not-null="True" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="NombreCorto" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="30" p1:ValidateRequired="false" p1:Guid="7e9585c6-f7b9-42b6-a816-162dc36e9c46">
+      <column name="nombre_corto" default="NULL" not-null="False" length="30" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Telefono" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="30" p1:ValidateRequired="false" p1:Guid="587f0881-0aca-45bb-b28d-4220bd71c83c">
+      <column name="telefono" default="NULL" not-null="False" length="30" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Correo" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="100" p1:ValidateRequired="false" p1:Guid="2685adb0-406e-4f2f-921e-e8de2bd1d538">
+      <column name="correo" default="NULL" not-null="False" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="SitioWeb" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="150" p1:ValidateRequired="false" p1:Guid="25823093-a252-4c3f-99d2-b7c7e81b8f2a">
+      <column name="sitio_web" default="NULL" not-null="False" length="150" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Direccion" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="c2f41f2c-a977-41b3-88b7-795b678344f9">
+      <column name="direccion" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Activo" type="Boolean" p1:ValidateRequired="true" p1:Guid="a302641e-289a-4d79-8509-b920a7e0260e">
+      <column name="activo" default="1" not-null="True" precision="1" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="337ae81f-8f14-48dc-b2fd-653b69239c33">
+      <column name="created_at" default="current_timestamp()" not-null="False" sql-type="timestamp" p1:unicode="False" />
+    </property>
+    <property name="UpdatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="9ae62703-9753-4414-a1b2-749b64827775">
+      <column name="updated_at" default="current_timestamp()" not-null="False" sql-type="timestamp" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="SeguroVehiculars" entity-set="SeguroVehiculars" table="seguro_vehicular" schema="caponeras" p1:Guid="30f4ccc5-dc70-4188-ba6b-106d20804315">
+    <id name="Idseguro" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="e63ebd2e-dc59-4027-8ef2-045ccc23ad5e">
+      <column name="idseguro" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Idvehiculo" type="Int32" p1:ValidateRequired="true" p1:Guid="8ace1122-622e-4414-b257-af01be2db659">
+      <column name="idvehiculo" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Idaseguradora" type="Int32" p1:ValidateRequired="true" p1:Guid="c8609d54-d3ad-48ed-b5db-9842ab09ba64">
+      <column name="idaseguradora" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="NumeroPoliza" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="fea9b01e-2841-4425-85d1-c9a5a4ce6038">
+      <column name="numero_poliza" not-null="True" length="50" sql-type="varchar" unique="True" p1:unicode="True" />
+    </property>
+    <property name="NumeroCertificado" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="86ca21db-23fd-4997-a18a-6e026286c6a1">
+      <column name="numero_certificado" default="NULL" not-null="False" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="TipoSeguro" type="Int32" p1:ValidateRequired="true" p1:Guid="431a6e24-2e91-4108-b735-a0a9cd9605d6">
+      <column name="tipo_seguro" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="FechaInicio" type="DateTime" p1:ValidateRequired="true" p1:Guid="4e554c08-7dcd-43f1-9588-218d8941d4f4">
+      <column name="fecha_inicio" not-null="True" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="FechaVencimiento" type="DateTime" p1:ValidateRequired="true" p1:Guid="8e313d13-7f00-400b-8be2-b9952ce6f291">
+      <column name="fecha_vencimiento" not-null="True" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="PrimaAnual" type="Decimal" p1:ValidateRequired="true" p1:Guid="d95e4839-43d4-4c9e-bfe0-d4b848a9115b">
+      <column name="prima_anual" not-null="True" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="Moneda" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="9aeacf70-1349-420b-8175-c771507e9b42">
+      <column name="moneda" default="'C$'" not-null="False" sql-type="enum" p1:unicode="True" />
+    </property>
+    <property name="Deducible" type="Decimal" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="0a126bc6-2276-4688-aaaa-84758b8e9e75">
+      <column name="deducible" default="NULL" not-null="False" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="ArchivoPoliza" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="98ccae9b-aaf4-4722-b400-4132fc3ba363">
+      <column name="archivo_poliza" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Observaciones" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="38854681-0530-4a5e-a907-490aa63dab31">
+      <column name="observaciones" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="Estado" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="659b627c-b5ed-4562-b816-75f22422db16">
+      <column name="estado" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="09b41d60-22d2-4d99-923e-4b338855db64">
+      <column name="created_at" default="current_timestamp()" not-null="False" sql-type="timestamp" p1:unicode="False" />
+    </property>
+    <property name="UpdatedAt" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="d1c4c36e-d3c3-4715-8990-5a43c7510d60">
+      <column name="updated_at" default="current_timestamp()" not-null="False" sql-type="timestamp" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="TipoSeguros" entity-set="TipoSeguros" table="tipo_seguro" schema="caponeras" p1:Guid="a10165ff-ab56-4848-8130-27f49898ac71">
+    <id name="Idtiposeguro" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="5a62e7c5-af73-4fad-aa59-e760fc255ee1">
+      <column name="idtiposeguro" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Codigo" type="String" p1:ValidateMaxLength="10" p1:ValidateRequired="true" p1:Guid="27d8e485-f36e-4c0b-b2cc-f7007940e618">
+      <column name="codigo" not-null="True" length="10" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="100" p1:ValidateRequired="true" p1:Guid="9458f58f-adbd-4ec5-80f5-bd07fb298e1e">
+      <column name="nombre" not-null="True" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Descripcion" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="031eef6a-a2e8-433e-93b1-e6768e44bf2a">
+      <column name="descripcion" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="Activo" type="Boolean" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="b677d93a-bf6e-4e72-a7e4-0f6a76279ab7">
+      <column name="activo" default="1" not-null="False" precision="1" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="VwProductosInventarios" entity-set="VwProductosInventarios" table="vw_productos_inventario" schema="caponeras" query-type="True" p1:Guid="bc5a16a9-c6c1-4ed3-b974-8bbb5cfb2079">
+    <Documentation>
+      <Summary>VIEW</Summary>
+    </Documentation>
+    <property name="IdProducto" type="Int32" p1:ValidateRequired="true" p1:Guid="8dcc3c84-eef8-4824-923d-4391a81bbb6f">
+      <column name="id_producto" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Codigo" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="afdb4fcc-69e3-4c14-8536-1f35ffa53100">
+      <column name="codigo" not-null="True" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="150" p1:ValidateRequired="true" p1:Guid="5047aaea-c3aa-4513-88f8-4d6a12f04222">
+      <column name="nombre" not-null="True" length="150" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Descripcion" type="Clob" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="e0efab49-2935-4f2c-b1a3-672bc1b778ee">
+      <column name="descripcion" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="IdCategoria" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="2a19821a-a5bc-4082-b607-a471a22767c7">
+      <column name="id_categoria" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Categoria" type="String" p1:nullable="True" p1:ValidateMaxLength="100" p1:ValidateRequired="false" p1:Guid="5f5751ad-0116-4b1d-a1ec-db2a71939aec">
+      <column name="categoria" not-null="False" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="IdUnidad" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="ea446b02-6dbe-40a8-8320-b5b508f16957">
+      <column name="id_unidad" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="UnidadMedida" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="7fb6d223-9457-4f0a-a8ad-772c540d2b34">
+      <column name="unidad_medida" not-null="False" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Simbolo" type="String" p1:nullable="True" p1:ValidateMaxLength="10" p1:ValidateRequired="false" p1:Guid="1fd12787-c77f-446d-bba1-e8b8e7514076">
+      <column name="simbolo" not-null="False" length="10" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="StockMinimo" type="Decimal" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="41d4f6bc-dd56-4ea8-bf21-e3ecd5c7cfbb">
+      <column name="stock_minimo" not-null="False" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="StockActual" type="Decimal" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="d9fe604c-bb19-431b-bbd6-ff417eb242c4">
+      <column name="stock_actual" not-null="False" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="PrecioCosto" type="Decimal" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="9002e405-3a04-442e-bcf9-191b86e45dc2">
+      <column name="precio_costo" not-null="False" precision="12" scale="2" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="ValorInventario" type="Decimal" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="b2f0a4f2-6107-4747-94a1-3d24ae8cd50e">
+      <column name="valor_inventario" not-null="False" precision="24" scale="4" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="EstadoStock" type="String" p1:nullable="True" p1:ValidateMaxLength="16" p1:ValidateRequired="false" p1:Guid="fa285d71-c107-4566-99b7-1ca8db81ea47">
+      <column name="estado_stock" not-null="False" length="16" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Activo" type="Boolean" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="8b03e2ef-abdf-426e-ac8e-8729a3dca2e6">
+      <column name="activo" not-null="False" precision="1" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+    <property name="Inventariable" type="String" p1:ValidateMaxLength="16" p1:ValidateRequired="true" p1:Guid="22485e1f-8f3e-499a-8f71-9c96043311ce">
+      <column name="inventariable" not-null="True" length="16" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="UrlImage" type="String" p1:nullable="True" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="34cd3a1c-d09f-4ed9-8c20-15495be52f4f">
+      <column name="url_image" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+  </class>
+  <associations>
+    <association name="Agencias_Cajas" cardinality="OneToMany" p1:Guid="1dfe253a-358d-4697-b885-0d5bb80ee3ec">
+      <end1 multiplicity="ZeroOrOne" name="Agencias" class="Cajas" relation-class="Agencias" constrained="True" lazy="False" p1:Guid="29f01775-7cbc-406c-be1f-506137751d93">
+        <property name="Idagencia" />
+      </end1>
+      <end2 multiplicity="Many" name="Cajas" class="Agencias" relation-class="Cajas" lazy="False" p1:Guid="df84f261-8d08-4678-aad4-1dc0aa453a96">
+        <property name="Idagencia" />
+      </end2>
+    </association>
+    <association name="CategoriasProductos_CategoriasProductos" cardinality="OneToMany" on-delete="Restrict" p1:Guid="d303c383-8a3e-4d16-8b6d-9da07f08ae6e">
+      <end1 multiplicity="ZeroOrOne" name="CategoriasProductos_IdCategoriaPadre" class="CategoriasProductos" relation-class="CategoriasProductos" constrained="True" lazy="False" p1:Guid="8e9426ee-65d3-459e-9d2b-7f75a2e0dfa5">
+        <property name="IdCategoria" />
+      </end1>
+      <end2 multiplicity="Many" name="CategoriasProductos_IdCategoriaPadre1" class="CategoriasProductos" relation-class="CategoriasProductos" lazy="False" p1:Guid="9d44b366-6673-4c70-92a8-3b4257c48779">
+        <property name="IdCategoriaPadre" />
+      </end2>
+    </association>
+    <association name="Proveedores_Compras" cardinality="OneToMany" p1:Guid="3431742f-fce4-48bf-ab74-7dc3a2a7dd62">
+      <end1 multiplicity="ZeroOrOne" name="Proveedores" class="Compras" relation-class="Proveedores" constrained="True" lazy="False" p1:Guid="4d5841bf-6431-4c83-afcc-a89cbfbcacd0">
+        <property name="Idproveedor" />
+      </end1>
+      <end2 multiplicity="Many" name="Compras" class="Proveedores" relation-class="Compras" lazy="False" p1:Guid="8c3cd475-9924-4a5d-b11a-c09cbd230001">
+        <property name="Idproveedor" />
+      </end2>
+    </association>
+    <association name="Usuarios_CuotaConfiguracions" cardinality="OneToMany" on-delete="Restrict" p1:Guid="c7aa6adf-1296-4645-a4b6-632c65e30bf9">
+      <end1 multiplicity="ZeroOrOne" name="Usuarios" class="CuotaConfiguracions" relation-class="Usuarios" constrained="True" lazy="False" p1:Guid="8b2153ea-997e-4c7d-ac81-bf450579c196">
+        <property name="Idusuario" />
+      </end1>
+      <end2 multiplicity="Many" name="CuotaConfiguracions" class="Usuarios" relation-class="CuotaConfiguracions" lazy="False" p1:Guid="a16c55cc-cbac-4749-8775-7169a7bffb0d">
+        <property name="CreatedBy" />
+      </end2>
+    </association>
+    <association name="Vehiculos_CuotaDiarias" cardinality="OneToMany" on-delete="Restrict" p1:Guid="051aaa23-0a4f-42b5-b308-09b5e8a17e75">
+      <end1 multiplicity="One" name="Vehiculos" class="CuotaDiarias" relation-class="Vehiculos" constrained="True" lazy="False" p1:Guid="e3026791-b5c2-4855-a682-4e0d60324b61">
+        <property name="Idvehiculo" />
+      </end1>
+      <end2 multiplicity="Many" name="CuotaDiarias" class="Vehiculos" relation-class="CuotaDiarias" lazy="False" p1:Guid="8fbe2e47-bb15-4182-b1f7-2a6bd12c3f7c">
+        <property name="IdVehiculo" />
+      </end2>
+    </association>
+    <association name="Usuarios_CuotaDiarias" cardinality="OneToMany" on-delete="Restrict" p1:Guid="b9fc3cfd-ebd6-44ff-b0ac-25c48cd3a580">
+      <end1 multiplicity="ZeroOrOne" name="Usuarios" class="CuotaDiarias" relation-class="Usuarios" constrained="True" lazy="False" p1:Guid="1dfa305a-d48d-4712-af58-28dbe2142ed0">
+        <property name="Idusuario" />
+      </end1>
+      <end2 multiplicity="Many" name="CuotaDiarias" class="Usuarios" relation-class="CuotaDiarias" lazy="False" p1:Guid="2ce91879-cf96-4941-b79c-3a818cf349a0">
+        <property name="CreatedBy" />
+      </end2>
+    </association>
+    <association name="Compras_DetalleCompras" cardinality="OneToMany" on-delete="Cascade" p1:Guid="183ac4cd-332e-4b48-b4b7-a37d21ba11bc">
+      <end1 multiplicity="ZeroOrOne" name="Compras" class="DetalleCompras" relation-class="Compras" constrained="True" lazy="False" p1:Guid="d78678f1-5386-4383-908f-3c943c88ba9c">
+        <property name="Idcompra" />
+      </end1>
+      <end2 multiplicity="Many" name="DetalleCompras" class="Compras" relation-class="DetalleCompras" lazy="False" p1:Guid="78131660-9536-4847-8744-a238c62a1002">
+        <property name="Idcompra" />
+      </end2>
+    </association>
+    <association name="Productos_DetalleCompras" cardinality="OneToMany" p1:Guid="fe245942-6848-475f-b257-96eb53c384f7">
+      <end1 multiplicity="One" name="Productos" class="DetalleCompras" relation-class="Productos" constrained="True" lazy="False" p1:Guid="c33f454b-1e28-454c-b360-74da710dc233">
+        <property name="IdProducto" />
+      </end1>
+      <end2 multiplicity="Many" name="DetalleCompras" class="Productos" relation-class="DetalleCompras" lazy="False" p1:Guid="2daeaed3-2ca5-406e-af3b-03b1480db9e4">
+        <property name="Idproducto" />
+      </end2>
+    </association>
+    <association name="MaestroCajas_DetaMovimientos" cardinality="OneToMany" p1:Guid="a4b5f323-d7c4-4324-b35a-11bea0f12263">
+      <end1 multiplicity="One" name="MaestroCajas" class="DetaMovimientos" relation-class="MaestroCajas" constrained="True" lazy="False" p1:Guid="5c139ae6-1c19-440b-8e59-1093089d9c1f">
+        <property name="Idmaestrocaja" />
+      </end1>
+      <end2 multiplicity="Many" name="DetaMovimientos" class="MaestroCajas" relation-class="DetaMovimientos" lazy="False" p1:Guid="eeb4e10c-8e86-4485-8c08-40df232895ed">
+        <property name="Idmaestrocaja" />
+      </end2>
+    </association>
+    <association name="MovCajas_DetaMovimientos" cardinality="OneToMany" p1:Guid="0c90dc6b-599b-4405-9592-30baa8397f53">
+      <end1 multiplicity="One" name="MovCajas" class="DetaMovimientos" relation-class="MovCajas" constrained="True" lazy="False" p1:Guid="262fc683-dc13-4bfa-bd25-9a30e7d17cd2">
+        <property name="Idmovcaja" />
+      </end1>
+      <end2 multiplicity="Many" name="DetaMovimientos" class="MovCajas" relation-class="DetaMovimientos" lazy="False" p1:Guid="0f65587d-fc81-45b7-aebe-ac68021e25a2">
+        <property name="Idmovimiento" />
+      </end2>
+    </association>
+    <association name="Usuarios_DetaMovimientos" cardinality="OneToMany" p1:Guid="7742bd1a-e820-4e91-8146-320bce7bf7d6">
+      <end1 multiplicity="ZeroOrOne" name="Usuarios" class="DetaMovimientos" relation-class="Usuarios" constrained="True" lazy="False" p1:Guid="44e0949e-d9fb-4272-a46a-59bca603efb3">
+        <property name="Idusuario" />
+      </end1>
+      <end2 multiplicity="Many" name="DetaMovimientos" class="Usuarios" relation-class="DetaMovimientos" lazy="False" p1:Guid="c6a3e57e-7a05-438a-8d68-7ae4cea210b5">
+        <property name="CreatedBy" />
+      </end2>
+    </association>
+    <association name="Cajas_MaestroCajas" cardinality="OneToMany" p1:Guid="f0df634c-13a5-4ced-b2e2-51d92a0555d8">
+      <end1 multiplicity="ZeroOrOne" name="Cajas" class="MaestroCajas" relation-class="Cajas" constrained="True" lazy="False" p1:Guid="58c179ad-9ea9-4864-b3f5-2ff7da19faf4">
+        <property name="Idcaja" />
+      </end1>
+      <end2 multiplicity="Many" name="MaestroCajas" class="Cajas" relation-class="MaestroCajas" lazy="False" p1:Guid="37f09327-da5a-45d6-8cfc-5976502ce7c5">
+        <property name="Idcaja" />
+      </end2>
+    </association>
+    <association name="Usuarios_ManoObras" cardinality="OneToMany" p1:Guid="3ab103ed-3a7c-4714-9ce1-9c5b216966ea">
+      <end1 multiplicity="One" name="Usuarios" class="ManoObras" relation-class="Usuarios" constrained="True" lazy="False" p1:Guid="d4138920-d278-4a58-844e-6f5428bec3f8">
+        <property name="Idusuario" />
+      </end1>
+      <end2 multiplicity="Many" name="ManoObras" class="Usuarios" relation-class="ManoObras" lazy="False" p1:Guid="57ab2e3b-19f3-403d-8189-aad94226bf03">
+        <property name="IdUsuario" />
+      </end2>
+    </association>
+    <association name="MantenimientoLabels_Mantenimientos" cardinality="OneToMany" p1:Guid="4b204878-efe5-4dab-8bb8-49cdda33561c">
+      <end1 multiplicity="ZeroOrOne" name="MantenimientoLabels" class="Mantenimientos" relation-class="MantenimientoLabels" constrained="True" lazy="False" p1:Guid="deac6af2-6e1e-4600-8db2-694c4ca3a054">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Mantenimientos" class="MantenimientoLabels" relation-class="Mantenimientos" lazy="False" p1:Guid="8f94a555-05f8-4b92-851c-7ad478637c7b">
+        <property name="Idlabel" />
+      </end2>
+    </association>
+    <association name="MantenimientoStatuses_Mantenimientos" cardinality="OneToMany" p1:Guid="f6e3651c-5961-4e7b-a801-500f76e6f99c">
+      <end1 multiplicity="ZeroOrOne" name="MantenimientoStatuses" class="Mantenimientos" relation-class="MantenimientoStatuses" constrained="True" lazy="False" p1:Guid="3b3a55cb-061e-4e84-ad7c-67187e7d836d">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="Mantenimientos" class="MantenimientoStatuses" relation-class="Mantenimientos" lazy="False" p1:Guid="fce653de-6a79-4bbc-ac77-96692e30cd0e">
+        <property name="Idstatus" />
+      </end2>
+    </association>
+    <association name="TipoMantenimientos_Mantenimientos" cardinality="OneToMany" p1:Guid="6131dd91-adf8-412d-9864-f699ec0eeecd">
+      <end1 multiplicity="One" name="TipoMantenimientos" class="Mantenimientos" relation-class="TipoMantenimientos" constrained="True" lazy="False" p1:Guid="5499b775-e55c-404a-8df3-d1dbccd9fb4b">
+        <property name="IdtipoMantenimiento" />
+      </end1>
+      <end2 multiplicity="Many" name="Mantenimientos" class="TipoMantenimientos" relation-class="Mantenimientos" lazy="False" p1:Guid="4bfdc1de-7a7b-43e0-9951-9c2cbd5e5364">
+        <property name="Idtipomantenimiento" />
+      </end2>
+    </association>
+    <association name="Usuarios_Mantenimientos" cardinality="OneToMany" p1:Guid="066fe3a4-428e-42d5-9ad0-5b4dedbdeab2">
+      <end1 multiplicity="One" name="Usuarios" class="Mantenimientos" relation-class="Usuarios" constrained="True" lazy="False" p1:Guid="eb255760-305a-4299-83cc-0b8c10ee2902">
+        <property name="Idusuario" />
+      </end1>
+      <end2 multiplicity="Many" name="Mantenimientos" class="Usuarios" relation-class="Mantenimientos" lazy="False" p1:Guid="7b204a51-d80f-4520-a358-b17ad78acfd2">
+        <property name="Idusuario" />
+      </end2>
+    </association>
+    <association name="Vehiculos_Mantenimientos" cardinality="OneToMany" p1:Guid="532d48e3-5144-4c8b-91f3-c60d37080125">
+      <end1 multiplicity="One" name="Vehiculos" class="Mantenimientos" relation-class="Vehiculos" constrained="True" lazy="False" p1:Guid="b77420a7-6994-4e22-a4fc-fd79ef1daefb">
+        <property name="Idvehiculo" />
+      </end1>
+      <end2 multiplicity="Many" name="Mantenimientos" class="Vehiculos" relation-class="Mantenimientos" lazy="False" p1:Guid="d6ae30e3-cc79-4817-bb8f-c20b13f19a48">
+        <property name="Idvehiculo" />
+      </end2>
+    </association>
+    <association name="Mantenimientos_MantenimientoProveedors" cardinality="OneToMany" p1:Guid="be9f0efd-d78d-4c2b-bfe1-c5b723f788b4">
+      <end1 multiplicity="One" name="Mantenimientos" class="MantenimientoProveedors" relation-class="Mantenimientos" constrained="True" lazy="False" p1:Guid="5329ee68-6824-4672-86ea-de1bedfea989">
+        <property name="Idmantenimineto" />
+      </end1>
+      <end2 multiplicity="Many" name="MantenimientoProveedors" class="Mantenimientos" relation-class="MantenimientoProveedors" lazy="False" p1:Guid="3e2621ac-0df3-4fec-80ac-ef7d6dab0f3d">
+        <property name="Idmantenimiento" />
+      </end2>
+    </association>
+    <association name="Proveedores_MantenimientoProveedors" cardinality="OneToMany" p1:Guid="711ea017-a842-49db-a690-d1005e9223f6">
+      <end1 multiplicity="One" name="Proveedores" class="MantenimientoProveedors" relation-class="Proveedores" constrained="True" lazy="False" p1:Guid="481b20eb-930f-44eb-9dda-d5aea9db3fab">
+        <property name="Idproveedor" />
+      </end1>
+      <end2 multiplicity="Many" name="MantenimientoProveedors" class="Proveedores" relation-class="MantenimientoProveedors" lazy="False" p1:Guid="b46b722f-9ce7-4cc0-b752-e4b3e5efba0a">
+        <property name="Idproveedor" />
+      </end2>
+    </association>
+    <association name="UnidadesMedidas_MantenimientoRepuestos" cardinality="OneToMany" p1:Guid="eccb4d47-0148-4353-83c6-c24c7491c9d8">
+      <end1 multiplicity="One" name="UnidadesMedidas" class="MantenimientoRepuestos" relation-class="UnidadesMedidas" constrained="True" lazy="False" p1:Guid="68ad3ce4-d890-4228-8ead-799bae5d4b81">
+        <property name="IdUnidad" />
+      </end1>
+      <end2 multiplicity="Many" name="MantenimientoRepuestos" class="UnidadesMedidas" relation-class="MantenimientoRepuestos" lazy="False" p1:Guid="24bc52e3-52df-4833-901f-611d051c2221">
+        <property name="IdUnidadMedida" />
+      </end2>
+    </association>
+    <association name="Productos_MantenimientoRepuestos" cardinality="OneToMany" p1:Guid="e084d19b-8f49-4aba-bdba-fec6f05cdf2a">
+      <end1 multiplicity="One" name="Productos" class="MantenimientoRepuestos" relation-class="Productos" constrained="True" lazy="False" p1:Guid="a285a0b8-a9b9-4265-921e-410718097dc4">
+        <property name="IdProducto" />
+      </end1>
+      <end2 multiplicity="Many" name="MantenimientoRepuestos" class="Productos" relation-class="MantenimientoRepuestos" lazy="False" p1:Guid="5d2d8188-d143-4e7b-86a2-67f148cecfc7">
+        <property name="Idproducto" />
+      </end2>
+    </association>
+    <association name="Rubros_MovCajas" cardinality="OneToMany" p1:Guid="c2e5c52c-6e3f-4a66-9141-6e020b139b5c">
+      <end1 multiplicity="One" name="Rubros" class="MovCajas" relation-class="Rubros" constrained="True" lazy="False" p1:Guid="c5eb3cb3-fa8f-4fb1-818a-010108b2934f">
+        <property name="Idrubro" />
+      </end1>
+      <end2 multiplicity="Many" name="MovCajas" class="Rubros" relation-class="MovCajas" lazy="False" p1:Guid="af7b0537-d8be-41d0-ae2c-c5cc1698ebcd">
+        <property name="Idrubro" />
+      </end2>
+    </association>
+    <association name="CategoriasProductos_Productos" cardinality="OneToMany" on-delete="Restrict" p1:Guid="a33b6828-0927-424e-b177-91472577767c">
+      <end1 multiplicity="ZeroOrOne" name="CategoriasProductos" class="Productos" relation-class="CategoriasProductos" constrained="True" lazy="False" p1:Guid="df851725-aee0-431a-81eb-2497328f84aa">
+        <property name="IdCategoria" />
+      </end1>
+      <end2 multiplicity="Many" name="Productos" class="CategoriasProductos" relation-class="Productos" lazy="False" p1:Guid="846cd5e9-b964-48d0-9d47-26cb83baba62">
+        <property name="IdCategoria" />
+      </end2>
+    </association>
+    <association name="UnidadesMedidas_Productos" cardinality="OneToMany" on-delete="Restrict" p1:Guid="688721ae-9f33-47c6-9dbc-2fea524e7a84">
+      <end1 multiplicity="ZeroOrOne" name="UnidadesMedidas" class="Productos" relation-class="UnidadesMedidas" constrained="True" lazy="False" p1:Guid="7e262dc9-b646-4e22-966f-97f692a9b4d5">
+        <property name="IdUnidad" />
+      </end1>
+      <end2 multiplicity="Many" name="Productos" class="UnidadesMedidas" relation-class="Productos" lazy="False" p1:Guid="ab432277-aabc-4967-af08-a7d579fbe7e7">
+        <property name="IdUnidadMedida" />
+      </end2>
+    </association>
+    <association name="Cajas_Usuarios" cardinality="OneToMany" p1:Guid="2f05f27a-0d3c-481d-bd43-d064a3ad617a">
+      <end1 multiplicity="ZeroOrOne" name="Cajas" class="Usuarios" relation-class="Cajas" constrained="True" lazy="False" p1:Guid="033acd66-81eb-4785-84dd-32fc9743dc45">
+        <property name="Idcaja" />
+      </end1>
+      <end2 multiplicity="Many" name="Usuarios" class="Cajas" relation-class="Usuarios" lazy="False" p1:Guid="62ce51aa-38e1-434e-87d7-8834d77b8b86">
+        <property name="Idcaja" />
+      </end2>
+    </association>
+    <association name="Agencias_Vehiculos" cardinality="OneToMany" on-delete="Restrict" p1:Guid="9ee0f5e3-1fb7-4ad1-8d3d-253853bf6e3e">
+      <end1 multiplicity="ZeroOrOne" name="Agencias" class="Vehiculos" relation-class="Agencias" constrained="True" lazy="False" p1:Guid="187e8d99-546c-48c2-aa0d-7fe0524d7bd6">
+        <property name="Idagencia" />
+      </end1>
+      <end2 multiplicity="Many" name="Vehiculos" class="Agencias" relation-class="Vehiculos" lazy="False" p1:Guid="263cfb24-f53c-4524-8939-4578924a27ff">
+        <property name="Idagencia" />
+      </end2>
+    </association>
+    <association name="Vehiculos_VehiculoConductors" cardinality="OneToMany" on-delete="Restrict" p1:Guid="353ddf50-7c52-41dc-a981-a8722c9a40ba">
+      <end1 multiplicity="One" name="Vehiculos" class="VehiculoConductors" relation-class="Vehiculos" constrained="True" lazy="False" p1:Guid="7762dab6-6f8d-40d9-9d92-475cacf5295e">
+        <property name="Idvehiculo" />
+      </end1>
+      <end2 multiplicity="Many" name="VehiculoConductors" class="Vehiculos" relation-class="VehiculoConductors" lazy="False" p1:Guid="dc711515-845e-44b0-ae68-d59551c857e3">
+        <property name="Idvehiculo" />
+      </end2>
+    </association>
+    <association name="Vehiculos_VehiculoRutas" cardinality="OneToMany" on-delete="Restrict" p1:Guid="782d5824-4d23-4fe3-8c89-513f18c6bca2">
+      <end1 multiplicity="One" name="Vehiculos" class="VehiculoRutas" relation-class="Vehiculos" constrained="True" lazy="False" p1:Guid="5b78a9a1-957c-4160-89e6-87da0847e08d">
+        <property name="Idvehiculo" />
+      </end1>
+      <end2 multiplicity="Many" name="VehiculoRutas" class="Vehiculos" relation-class="VehiculoRutas" lazy="False" p1:Guid="9754b191-40a6-4cd7-8847-f1215d46f18d">
+        <property name="Idvehiculo" />
+      </end2>
+    </association>
+    <association name="Rutas_VehiculoRutas" cardinality="OneToMany" on-delete="Restrict" p1:Guid="76c20bb9-bcca-4ee2-948c-707eefc3704b">
+      <end1 multiplicity="One" name="Rutas" class="VehiculoRutas" relation-class="Rutas" constrained="True" lazy="False" p1:Guid="0bf7ecf0-8894-4bfa-84d3-2e177babcc86">
+        <property name="Idruta" />
+      </end1>
+      <end2 multiplicity="Many" name="VehiculoRutas" class="Rutas" relation-class="VehiculoRutas" lazy="False" p1:Guid="7d079f37-3dde-412f-9233-e6476a16347f">
+        <property name="Idruta" />
+      </end2>
+    </association>
+    <association name="MantenimientoProveedors_ManoObras" cardinality="OneToMany" p1:Guid="d23dd416-2877-4a7d-aa77-86d64d925328">
+      <end1 multiplicity="ZeroOrOne" name="MantenimientoProveedors" class="ManoObras" relation-class="MantenimientoProveedors" constrained="True" lazy="False" p1:Guid="4eb883f5-cc3f-45a5-9867-9ff53110be18">
+        <property name="IdmantenimientoProveedor" />
+      </end1>
+      <end2 multiplicity="Many" name="ManoObras" class="MantenimientoProveedors" relation-class="ManoObras" lazy="False" p1:Guid="d43fc63c-5a6a-44de-862f-fb13bc0a98bd">
+        <property name="IdmantenimientoProveedor" />
+      </end2>
+    </association>
+    <association name="DetaMovimientos_TransactionDetailCxps" cardinality="OneToMany" p1:Guid="2024d2fe-609c-4337-a8a2-5470ebe28c75">
+      <end1 multiplicity="ZeroOrOne" name="DetaMovimientos" class="TransactionDetailCxps" relation-class="DetaMovimientos" constrained="True" lazy="False" p1:Guid="81ce68da-2de1-408f-a323-ca39c8f9a971">
+        <property name="Iddetamovimientos" />
+      </end1>
+      <end2 multiplicity="Many" name="TransactionDetailCxps" class="DetaMovimientos" relation-class="TransactionDetailCxps" lazy="False" p1:Guid="5ca425c5-5a80-4a92-8c9a-4da5617bb189">
+        <property name="Iddetamovimiento" />
+      </end2>
+    </association>
+    <association name="TransactionCxps_TransactionDetailCxps" cardinality="OneToMany" p1:Guid="b74addb5-098b-4813-949f-159e22904379">
+      <end1 multiplicity="ZeroOrOne" name="TransactionCxps" class="TransactionDetailCxps" relation-class="TransactionCxps" constrained="True" lazy="False" p1:Guid="d54296c7-c47f-4642-b943-d3c55689f1a5">
+        <property name="IdtransactionCxp" />
+      </end1>
+      <end2 multiplicity="Many" name="TransactionDetailCxps" class="TransactionCxps" relation-class="TransactionDetailCxps" lazy="False" p1:Guid="c1f0bf08-c5bd-4028-a319-935204019157">
+        <property name="IdtrasactionCxp" />
+      </end2>
+    </association>
+    <association name="CxpTipoOrigens_TransactionCxps" cardinality="OneToMany" p1:Guid="17a93e08-e85e-4402-8589-1a881e2ccf4b">
+      <end1 multiplicity="One" name="CxpTipoOrigens" class="TransactionCxps" relation-class="CxpTipoOrigens" constrained="True" lazy="False" p1:Guid="cfd658f6-a7f3-4fde-b9c2-21e7c5235cb1">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="TransactionCxps" class="CxpTipoOrigens" relation-class="TransactionCxps" lazy="False" p1:Guid="26fae523-5974-45f6-803f-3319d62b3175">
+        <property name="TipoOrigen" />
+      </end2>
+    </association>
+    <association name="Usuarios_MovimientoInventarios" cardinality="OneToMany" p1:Guid="6332d5c1-a1de-4eec-a0e1-805410466b9a">
+      <end1 multiplicity="ZeroOrOne" name="Usuarios" class="MovimientoInventarios" relation-class="Usuarios" constrained="True" lazy="False" p1:Guid="faa6383b-0711-40c8-8a5c-68c8bc1e1a59">
+        <property name="Idusuario" />
+      </end1>
+      <end2 multiplicity="Many" name="MovimientoInventarios" class="Usuarios" relation-class="MovimientoInventarios" lazy="False" p1:Guid="11aaf86f-2b3c-4808-848f-69cc28f96e3b">
+        <property name="CreatedBy" />
+      </end2>
+    </association>
+    <association name="Productos_MovimientoInventarios" cardinality="OneToMany" on-delete="Restrict" p1:Guid="f5276073-aba8-4ecf-a3de-9ce5fdef32ff">
+      <end1 multiplicity="One" name="Productos" class="MovimientoInventarios" relation-class="Productos" constrained="True" lazy="False" p1:Guid="e4d726a5-08c4-4890-b5ac-2cf7ce9ab0f2">
+        <property name="IdProducto" />
+      </end1>
+      <end2 multiplicity="Many" name="MovimientoInventarios" class="Productos" relation-class="MovimientoInventarios" lazy="False" p1:Guid="32f54e27-5b3c-4be6-ae77-3339ab8aa777">
+        <property name="IdProducto" />
+      </end2>
+    </association>
+    <association name="UnidadesMedidas_MovimientoInventarios" cardinality="OneToMany" on-delete="Restrict" p1:Guid="c6054017-6d28-4003-a1e7-aef97e72adce">
+      <end1 multiplicity="One" name="UnidadesMedidas" class="MovimientoInventarios" relation-class="UnidadesMedidas" constrained="True" lazy="False" p1:Guid="e244d171-71a8-475e-8cc0-fda741b06231">
+        <property name="IdUnidad" />
+      </end1>
+      <end2 multiplicity="Many" name="MovimientoInventarios" class="UnidadesMedidas" relation-class="MovimientoInventarios" lazy="False" p1:Guid="7531c821-d32b-495e-a83b-7f5755e7dce3">
+        <property name="IdUnidadMedida" />
+      </end2>
+    </association>
+    <association name="Conductors_CuotaConfiguracions" cardinality="OneToOne" on-delete="Cascade" p1:Guid="d312b844-1d97-40c0-bc39-1d8d4d887ccc">
+      <end1 multiplicity="ZeroOrOne" name="Conductors" class="CuotaConfiguracions" relation-class="Conductors" constrained="True" lazy="False" p1:Guid="df09eef6-6303-4597-8776-6b84430ae617">
+        <property name="Idconductor" />
+      </end1>
+      <end2 multiplicity="One" name="CuotaConfiguracions" class="Conductors" relation-class="CuotaConfiguracions" constrained="False" lazy="False" p1:Guid="d1f857fa-0e4b-4ba2-86f9-c82015683720">
+        <property name="Idconductor" />
+      </end2>
+    </association>
+    <association name="Conductors_CuotaDiarias" cardinality="OneToMany" on-delete="Restrict" p1:Guid="db42e263-5271-4e05-8b4a-f33e766cdc44">
+      <end1 multiplicity="One" name="Conductors" class="CuotaDiarias" relation-class="Conductors" constrained="True" lazy="False" p1:Guid="5d8b4435-f2f2-4ec4-9bf0-1456a36607f7">
+        <property name="Idconductor" />
+      </end1>
+      <end2 multiplicity="Many" name="CuotaDiarias" class="Conductors" relation-class="CuotaDiarias" lazy="False" p1:Guid="bc5752e6-51fc-4854-999d-48897b945bb3">
+        <property name="Idconductor" />
+      </end2>
+    </association>
+    <association name="Conductors_VehiculoConductors" cardinality="OneToMany" on-delete="Restrict" p1:Guid="5b3a69e0-db1a-42b2-b58d-32014d66b30a">
+      <end1 multiplicity="One" name="Conductors" class="VehiculoConductors" relation-class="Conductors" constrained="True" lazy="False" p1:Guid="fb02996e-961d-42aa-930f-649bbe4f0c50">
+        <property name="Idconductor" />
+      </end1>
+      <end2 multiplicity="Many" name="VehiculoConductors" class="Conductors" relation-class="VehiculoConductors" lazy="False" p1:Guid="42d62f2f-6fd6-4fec-b4dd-ad6c3bf8f03f">
+        <property name="Idconductor" />
+      </end2>
+    </association>
+    <association name="Zonas_VehiculoConductors" cardinality="OneToMany" p1:Guid="6d69305b-6914-40de-a87e-85a9fb57d4e4">
+      <end1 multiplicity="ZeroOrOne" name="Zonas" class="VehiculoConductors" relation-class="Zonas" constrained="True" lazy="False" p1:Guid="1b17c4fe-1d0b-4c6d-9f9d-a2876bf47bdd">
+        <property name="Idzonas" />
+      </end1>
+      <end2 multiplicity="Many" name="VehiculoConductors" class="Zonas" relation-class="VehiculoConductors" lazy="False" p1:Guid="5d00f143-1dbc-4d55-83fa-d8bec51c8ff0">
+        <property name="Idzona" />
+      </end2>
+    </association>
+    <association name="Conductors_ConductorLicencias" cardinality="OneToMany" on-delete="Cascade" p1:Guid="14f7be84-0965-4c6d-904c-36c9689bfddb">
+      <end1 multiplicity="One" name="Conductors" class="ConductorLicencias" relation-class="Conductors" constrained="True" lazy="False" p1:Guid="f0ebd4b7-458b-45e3-b1d8-fe03141c6e8f">
+        <property name="Idconductor" />
+      </end1>
+      <end2 multiplicity="Many" name="ConductorLicencias" class="Conductors" relation-class="ConductorLicencias" lazy="False" p1:Guid="3f822080-65f8-4f95-8baa-814ffc70cdcf">
+        <property name="Idconductor" />
+      </end2>
+    </association>
+    <association name="Conductors_ConductorIdentificacions" cardinality="OneToMany" on-delete="Cascade" p1:Guid="c4ba33df-04f1-4952-8328-3e3398f9acf5">
+      <end1 multiplicity="One" name="Conductors" class="ConductorIdentificacions" relation-class="Conductors" constrained="True" lazy="False" p1:Guid="b53fa195-830c-4edd-8a37-be2560e290af">
+        <property name="Idconductor" />
+      </end1>
+      <end2 multiplicity="Many" name="ConductorIdentificacions" class="Conductors" relation-class="ConductorIdentificacions" lazy="False" p1:Guid="88877993-79a2-4c99-9aae-2accde454ec6">
+        <property name="Idconductor" />
+      </end2>
+    </association>
+    <association name="Vehiculos_SeguroVehiculars" cardinality="OneToMany" on-delete="Restrict" p1:Guid="479de9af-624f-4fbe-9f79-cb76d1744ad8">
+      <end1 multiplicity="One" name="Vehiculos" class="SeguroVehiculars" relation-class="Vehiculos" constrained="True" lazy="False" p1:Guid="d660572a-dae9-45f6-ae57-7465c768f81a">
+        <property name="Idvehiculo" />
+      </end1>
+      <end2 multiplicity="Many" name="SeguroVehiculars" class="Vehiculos" relation-class="SeguroVehiculars" lazy="False" p1:Guid="631cd38b-91b8-4e4a-9274-f8d2636d4834">
+        <property name="Idvehiculo" />
+      </end2>
+    </association>
+    <association name="Aseguradoras_SeguroVehiculars" cardinality="OneToMany" on-delete="Restrict" p1:Guid="212e8018-ddd2-4299-aceb-fdead4b05ef2">
+      <end1 multiplicity="One" name="Aseguradoras" class="SeguroVehiculars" relation-class="Aseguradoras" constrained="True" lazy="False" p1:Guid="5c99c2ea-de7d-4903-9af7-0fb3d68ee8b1">
+        <property name="Idaseguradora" />
+      </end1>
+      <end2 multiplicity="Many" name="SeguroVehiculars" class="Aseguradoras" relation-class="SeguroVehiculars" lazy="False" p1:Guid="0311ab6d-fdb8-4eda-afa5-c7845753f11c">
+        <property name="Idaseguradora" />
+      </end2>
+    </association>
+    <association name="TipoSeguros_SeguroVehiculars" cardinality="OneToMany" p1:Guid="e61f4ce3-4432-417e-9ec4-85d8d634648e">
+      <end1 multiplicity="One" name="TipoSeguros" class="SeguroVehiculars" relation-class="TipoSeguros" constrained="True" lazy="False" p1:Guid="856edcbe-0c5d-4413-a1f7-026659384404">
+        <property name="Idtiposeguro" />
+      </end1>
+      <end2 multiplicity="Many" name="SeguroVehiculars" class="TipoSeguros" relation-class="SeguroVehiculars" lazy="False" p1:Guid="114240c7-8ab6-475a-b490-7a4a252e8d38">
+        <property name="TipoSeguro" />
+      </end2>
+    </association>
+  </associations>
+</efcore>

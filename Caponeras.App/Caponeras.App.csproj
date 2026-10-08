@@ -1,0 +1,89 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net10.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
+        <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+        <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
+        <ApplicationIcon>Resources\Images\rickshaw_8342896.ico</ApplicationIcon>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Remove="Views\Caja\NewFolder\**" />
+        <EmbeddedResource Remove="Views\Caja\NewFolder\**" />
+        <None Remove="Views\Caja\NewFolder\**" />
+        <Page Remove="Views\Caja\NewFolder\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="Resources\Images\rickshaw_8342896.ico" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="DevExpress.Win.Design" Version="25.2.8" />
+        <PackageReference Include="DevExpress.Win.Scheduler.es" Version="25.2.8" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.11" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.11" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.11" />
+        <PackageReference Include="NLog" Version="6.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Caponeras.Insfraestructura\Caponeras.Insfraestructura.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="Properties\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Properties\Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="App.config">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="appsettings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="NLog.config">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Resources\Images\trash.svg">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Resources\Styles\Alert.html">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Resources\Styles\AlertError.css">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Resources\Styles\AlertInfo.css">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Resources\Styles\AlertSuccess.css">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Resources\Styles\AlertWarning.css">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="ViewModels\CategoriaProductos\" />
+      <Folder Include="ViewModels\UnidadMedida\" />
+    </ItemGroup>
+
+</Project>
