@@ -1,6 +1,9 @@
-﻿using Caponeras.App.ViewModels.Mantenimiento;
+﻿using Caponeras.App.Dto;
+using Caponeras.App.ViewModels.Mantenimiento;
 using Caponeras.App.Views.Layouts;
+using Caponeras.Data.Models;
 using System;
+using System.ComponentModel;
 using System.Linq;
 using Caponeras.App.Helpers;
 using DevExpress.XtraGrid.Views.Grid;
@@ -16,6 +19,7 @@ namespace Caponeras.App.Views.Mantenimiento
             _viewModel = viewModel;
             DataContext = _viewModel;
             InitializeComponent();
+            gridViewPagoManoObra.ShowingEditor += gridViewPagoManoObra_ShowingEditor;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -41,6 +45,14 @@ namespace Caponeras.App.Views.Mantenimiento
             {
                 btnAceptar.Enabled = true;
             }
+        }
+
+        private void gridViewPagoManoObra_ShowingEditor(object sender, CancelEventArgs e)
+        {
+            if (gridViewPagoManoObra.FocusedColumn == colMontoAplicar &&
+                gridViewPagoManoObra.GetFocusedRow() is ManoObraProveedorDto manoObra &&
+                manoObra.Estado == TipoManoObra.Pagada)
+                e.Cancel = true;
         }
 
         private void gridViewPagoManoObra_ValidateRow(object sender,

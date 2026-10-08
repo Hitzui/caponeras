@@ -33,13 +33,14 @@ public class MantenimientoService
             .Include(mp => mp.MantenimientoProveedors)
             .Join(_context.TransactionCxps, mp => mp.IdManoObra, cxp => cxp.IdOrigen, (mp, cxp) => new { mp, cxp })
             .Where(x => x.mp.MantenimientoProveedors.Idmantenimiento == idmantenimiento &&
-                        x.cxp.TipoOrigen == (int)EnumTipoCxp.ManoObra && x.cxp.Estado == EstadoCxp.PARCIAL)
+                        x.mp.Estado != TipoManoObra.Anulada &&
+                        x.cxp.TipoOrigen == (int)EnumTipoCxp.ManoObra && x.cxp.Estado != EstadoCxp.ANULADA)
             .Select(x => new ManoObraProveedorDto(
                 x.mp.IdManoObra,
                 x.mp.MantenimientoProveedors.Idproveedor,
                 x.mp.MantenimientoProveedors.Proveedores.Nombre,
                 x.mp.DescripcionTrabajo,
-                x.mp.Estado,
+                x.cxp.Estado == EstadoCxp.PAGADA ? TipoManoObra.Pagada : TipoManoObra.Pendiente,
                 x.mp.Monto,
                 x.mp.Observaciones,
                 x.mp.Fecha,

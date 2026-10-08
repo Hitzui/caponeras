@@ -138,6 +138,7 @@
             // colEstado
             // 
             colEstado.FieldName = "Estado";
+            colEstado.Caption = "Estado de pago";
             colEstado.Name = "colEstado";
             colEstado.OptionsColumn.AllowEdit = false;
             colEstado.OptionsColumn.ReadOnly = true;
