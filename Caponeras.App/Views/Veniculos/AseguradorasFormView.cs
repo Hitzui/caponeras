@@ -17,6 +17,11 @@ namespace Caponeras.App.Views.Veniculos
 
         private async void AseguradorasFormView_Load(object sender, EventArgs e)
         {
+            await LoadAgenciasAsync();
+        }
+
+        private async Task LoadAgenciasAsync()
+        {
             try
             {
                 await _viewModel.Load();
@@ -28,88 +33,14 @@ namespace Caponeras.App.Views.Veniculos
             }
         }
 
-        private void gridViewAseguradoras_EditFormHidden(object sender,
-            DevExpress.XtraGrid.Views.Grid.EditFormHiddenEventArgs e)
+        public async Task AddAseguradoraAsync()
         {
-            if (e.Result == DevExpress.XtraGrid.Views.Grid.EditFormResult.Cancel)
-                return;
-
-            _ = SaveFromEditFormAsync(e);
+            using var form = new AseguradoraEditFormView(_viewModel, new AseguradorasDto { Activo = true });
+            if (form.ShowDialog(this) == DialogResult.OK)
+                await LoadAgenciasAsync();
         }
 
-        private async Task SaveFromEditFormAsync(DevExpress.XtraGrid.Views.Grid.EditFormHiddenEventArgs e)
-        {
-            try
-            {
-                AseguradorasDto dto;
-                if (e.RowHandle < 0)
-                {
-                    dto = new AseguradorasDto { Activo = true };
-                }
-                else if (gridViewAseguradoras.GetRow(e.RowHandle) is AseguradorasDto selected)
-                {
-                    dto = selected;
-                }
-                else
-                {
-                    return;
-                }
-
-                string ReadValue(string field, string current)
-                {
-                    try
-                    {
-                        return e.BindableControls[field].Text.Trim();
-                    }
-                    catch (KeyNotFoundException)
-                    {
-                        return current;
-                    }
-                }
-
-                dto.Nombre = ReadValue(nameof(AseguradorasDto.Nombre), dto.Nombre);
-                dto.NombreCorto = ReadValue(nameof(AseguradorasDto.NombreCorto), dto.NombreCorto);
-                dto.Telefono = ReadValue(nameof(AseguradorasDto.Telefono), dto.Telefono);
-                dto.Correo = ReadValue(nameof(AseguradorasDto.Correo), dto.Correo);
-                dto.SitioWeb = ReadValue(nameof(AseguradorasDto.SitioWeb), dto.SitioWeb);
-                dto.Direccion = ReadValue(nameof(AseguradorasDto.Direccion), dto.Direccion);
-                try
-                {
-                    if (bool.TryParse(e.BindableControls[nameof(AseguradorasDto.Activo)].Text, out var activo))
-                        dto.Activo = activo;
-                }
-                catch (KeyNotFoundException)
-                {
-                    // The new-row edit form initializes new agencies as active.
-                }
-
-                var saved = await _viewModel.Save(dto);
-                if (saved > 0)
-                {
-                    await _viewModel.Load();
-                    _viewModel.ShowMessage(TypeAlert.Success, "Agencias de seguros", "Los datos se guardaron correctamente.");
-                }
-                else
-                {
-                    _viewModel.ShowMessage(TypeAlert.Error, "Agencias de seguros",
-                        string.IsNullOrWhiteSpace(_viewModel.ErrorMessage)
-                            ? "No fue posible guardar la agencia."
-                            : _viewModel.ErrorMessage);
-                }
-            }
-            catch (Exception ex)
-            {
-                _viewModel.ShowMessage(TypeAlert.Error, "Agencias de seguros", ex.GetBaseException().Message);
-            }
-        }
-
-        public void AddAseguradora()
-        {
-            gridViewAseguradoras.AddNewRow();
-            gridViewAseguradoras.ShowEditForm();
-        }
-
-        public void EditarAseguradoraSeleccionada()
+        public async Task EditarAseguradoraSeleccionadaAsync()
         {
             if (gridViewAseguradoras.GetFocusedRow() is not AseguradorasDto)
             {
@@ -117,7 +48,9 @@ namespace Caponeras.App.Views.Veniculos
                 return;
             }
 
-            gridViewAseguradoras.ShowEditForm();
+            using var form = new AseguradoraEditFormView(_viewModel, (AseguradorasDto)gridViewAseguradoras.GetFocusedRow());
+            if (form.ShowDialog(this) == DialogResult.OK)
+                await LoadAgenciasAsync();
         }
 
         public async Task EliminarAseguradoraSeleccionadaAsync()

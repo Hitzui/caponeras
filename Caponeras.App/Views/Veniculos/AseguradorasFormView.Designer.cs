@@ -60,15 +60,8 @@
             gridViewAseguradoras.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colNombre, colNombreCorto, colTelefono, colCorreo, colSitioWeb, colDireccion, colActivo });
             gridViewAseguradoras.GridControl = gridControl1;
             gridViewAseguradoras.Name = "gridViewAseguradoras";
-            gridViewAseguradoras.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
-            gridViewAseguradoras.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
-            gridViewAseguradoras.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
-            gridViewAseguradoras.OptionsEditForm.FormCaptionFormat = "Datos de la agencia vendedora";
-            gridViewAseguradoras.OptionsEditForm.ShowOnDoubleClick = DevExpress.Utils.DefaultBoolean.True;
-            gridViewAseguradoras.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
-            gridViewAseguradoras.OptionsEditForm.ShowOnF2Key = DevExpress.Utils.DefaultBoolean.True;
-            gridViewAseguradoras.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
-            gridViewAseguradoras.EditFormHidden += gridViewAseguradoras_EditFormHidden;
+            gridViewAseguradoras.OptionsBehavior.Editable = false;
+            gridViewAseguradoras.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
             gridViewAseguradoras.KeyDown += gridViewAseguradoras_KeyDown;
             // 
             // aseguradorasDtoBindingSource

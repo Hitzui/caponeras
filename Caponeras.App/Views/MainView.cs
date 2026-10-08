@@ -246,18 +246,18 @@ namespace Caponeras.App.Views
             _viewModel.AseguradorasOnClick(splashScreenManager1, ribbonPageGroupVehiculosOpciones);
         }
 
-        private void barButtonItemAgregarAseguradora_ItemClick(object sender,
+        private async void barButtonItemAgregarAseguradora_ItemClick(object sender,
             DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (ActiveMdiChild is Veniculos.AseguradorasFormView view)
-                view.AddAseguradora();
+                await view.AddAseguradoraAsync();
         }
 
-        private void barButtonItemEditarAseguradora_ItemClick(object sender,
+        private async void barButtonItemEditarAseguradora_ItemClick(object sender,
             DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (ActiveMdiChild is Veniculos.AseguradorasFormView view)
-                view.EditarAseguradoraSeleccionada();
+                await view.EditarAseguradoraSeleccionadaAsync();
         }
 
         private async void barButtonItemEliminarAseguradora_ItemClick(object sender,
