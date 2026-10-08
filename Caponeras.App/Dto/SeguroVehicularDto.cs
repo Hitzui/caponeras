@@ -25,6 +25,9 @@ public class SeguroVehicularDto : INotifyPropertyChanged
     private VehiculosDto? _vehiculos;
     private AseguradorasDto? _aseguradoras;
     private TipoSeguroDto? _tipoSeguros;
+    private string _vehiculoDescripcion = string.Empty;
+    private string _aseguradoraNombre = string.Empty;
+    private string _tipoSeguroNombre = string.Empty;
 
     public SeguroVehicularDto()
     {
@@ -62,6 +65,9 @@ public class SeguroVehicularDto : INotifyPropertyChanged
         _vehiculos = new VehiculosDto(model.Vehiculos);
         _aseguradoras = new AseguradorasDto(model.Aseguradoras);
         _tipoSeguros = new TipoSeguroDto(model.TipoSeguros);
+        _vehiculoDescripcion = $"{model.Vehiculos?.Codigo} · {model.Vehiculos?.Placa} · {model.Vehiculos?.Marca} {model.Vehiculos?.Modelo}";
+        _aseguradoraNombre = model.Aseguradoras?.Nombre ?? string.Empty;
+        _tipoSeguroNombre = model.TipoSeguros?.Nombre ?? string.Empty;
     }
     public int Idseguro
     {
@@ -146,6 +152,32 @@ public class SeguroVehicularDto : INotifyPropertyChanged
         get => _estado;
         set => SetField(ref _estado, value);
     }
+
+    public string VehiculoDescripcion
+    {
+        get => _vehiculoDescripcion;
+        set => SetField(ref _vehiculoDescripcion, value);
+    }
+
+    public string AseguradoraNombre
+    {
+        get => _aseguradoraNombre;
+        set => SetField(ref _aseguradoraNombre, value);
+    }
+
+    public string TipoSeguroNombre
+    {
+        get => _tipoSeguroNombre;
+        set => SetField(ref _tipoSeguroNombre, value);
+    }
+
+    public string EstadoDescripcion => Estado != 1
+        ? "Inactivo"
+        : FechaVencimiento.Date < DateTime.Today
+            ? "Vencido"
+            : FechaInicio.Date > DateTime.Today
+                ? "Programado"
+                : "Vigente";
 
     public DateTime? CreatedAt
     {

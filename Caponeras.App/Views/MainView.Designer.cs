@@ -67,6 +67,7 @@
             barButtonItemReportesCadetes = new DevExpress.XtraBars.BarButtonItem();
             barButtonItemReporteDiaCaja = new DevExpress.XtraBars.BarButtonItem();
             barButtonItemAseguradoras = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItemSegurosVehiculares = new DevExpress.XtraBars.BarButtonItem();
             barButtonItemPagos = new DevExpress.XtraBars.BarButtonItem();
             barButtonItemAsignacionesVehiculoDiarias = new DevExpress.XtraBars.BarButtonItem();
             btnReportesInventario = new DevExpress.XtraBars.BarButtonItem();
@@ -102,9 +103,9 @@
             // ribbonControl1
             // 
             ribbonControl1.ExpandCollapseItem.Id = 0;
-            ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbonControl1.ExpandCollapseItem, barButtonItemAgencias, barButtonItemCajas, barButtonItemConductores, barButtonItemVehiculos, barButtonItemAsignarVehiculoCadete, barButtonItemAddCadete, barButtonItemEditConductor, barButtonItemAgregarVehiculo, barButtonItemEditVehiculo, barButtonItemMantenimientosVehiculo, barButtonItemIventario, barButtonItemCompras, barButtonItem4, barButtonItemUm, barButtonItemCategoriaProductos, barButtonItemAddProducto, barButtonItemEdit, barButtonItemDeleteProducto, barButtonItemRecargarMantenimiento, barButtonItemProveedores, barButtonItemMcaja, barButtonItemRealizarMovimiento, barButtonItemAperturarCaja, barButtonItemCerrarCaja, barButtonItemMovCaja, barButtonItemRubros, barButtonItemAddAdministrar, barButtonItemEditAdministrar, barButtonItemDeleteAdministrar, barButtonItemAsignacionesVehiculo, barButtonItemListaCadetes, barButtonItemConfigurarCuotaCadete, barButtonItemRealiarPagoCadete, barButtonItemReportesCadetes, barButtonItemReporteDiaCaja, barButtonItemAseguradoras, barButtonItemPagos, barButtonItemAsignacionesVehiculoDiarias, btnReportesInventario, barButtonItem1, barButtonItem2, barButtonItem3 });
+            ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbonControl1.ExpandCollapseItem, barButtonItemAgencias, barButtonItemCajas, barButtonItemConductores, barButtonItemVehiculos, barButtonItemAsignarVehiculoCadete, barButtonItemAddCadete, barButtonItemEditConductor, barButtonItemAgregarVehiculo, barButtonItemEditVehiculo, barButtonItemMantenimientosVehiculo, barButtonItemIventario, barButtonItemCompras, barButtonItem4, barButtonItemUm, barButtonItemCategoriaProductos, barButtonItemAddProducto, barButtonItemEdit, barButtonItemDeleteProducto, barButtonItemRecargarMantenimiento, barButtonItemProveedores, barButtonItemMcaja, barButtonItemRealizarMovimiento, barButtonItemAperturarCaja, barButtonItemCerrarCaja, barButtonItemMovCaja, barButtonItemRubros, barButtonItemAddAdministrar, barButtonItemEditAdministrar, barButtonItemDeleteAdministrar, barButtonItemAsignacionesVehiculo, barButtonItemListaCadetes, barButtonItemConfigurarCuotaCadete, barButtonItemRealiarPagoCadete, barButtonItemReportesCadetes, barButtonItemReporteDiaCaja, barButtonItemAseguradoras, barButtonItemSegurosVehiculares, barButtonItemPagos, barButtonItemAsignacionesVehiculoDiarias, btnReportesInventario, barButtonItem1, barButtonItem2, barButtonItem3 });
             ribbonControl1.Location = new Point(0, 0);
-            ribbonControl1.MaxItemId = 44;
+            ribbonControl1.MaxItemId = 45;
             ribbonControl1.Name = "ribbonControl1";
             ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1, ribbonPage2, ribbonPageCadetes, Op });
             ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2019;
@@ -396,12 +397,20 @@
             // 
             // barButtonItemAseguradoras
             // 
-            barButtonItemAseguradoras.Caption = "Aeguradoras";
+            barButtonItemAseguradoras.Caption = "Aseguradoras";
             barButtonItemAseguradoras.Id = 37;
             barButtonItemAseguradoras.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItemAseguradoras.ImageOptions.SvgImage");
             barButtonItemAseguradoras.Name = "barButtonItemAseguradoras";
             barButtonItemAseguradoras.ItemClick += barButtonItemAseguradoras_ItemClick;
+            //
+            // barButtonItemSegurosVehiculares
             // 
+            barButtonItemSegurosVehiculares.Caption = "Seguros";
+            barButtonItemSegurosVehiculares.Id = 44;
+            barButtonItemSegurosVehiculares.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItemAseguradoras.ImageOptions.SvgImage");
+            barButtonItemSegurosVehiculares.Name = "barButtonItemSegurosVehiculares";
+            barButtonItemSegurosVehiculares.ItemClick += barButtonItemSegurosVehiculares_ItemClick;
+            //
             // barButtonItemPagos
             // 
             barButtonItemPagos.Caption = "Pagos";
@@ -478,6 +487,7 @@
             ribbonPageGroup3.ItemLinks.Add(barButtonItemAgregarVehiculo);
             ribbonPageGroup3.ItemLinks.Add(barButtonItemEditVehiculo);
             ribbonPageGroup3.ItemLinks.Add(barButtonItemAseguradoras);
+            ribbonPageGroup3.ItemLinks.Add(barButtonItemSegurosVehiculares);
             ribbonPageGroup3.Name = "ribbonPageGroup3";
             ribbonPageGroup3.Text = "Vehiculos";
             // 
@@ -700,6 +710,7 @@
         private ToolStripLabel lblMaestroCaja;
         private DevExpress.XtraBars.BarButtonItem barButtonItemReporteDiaCaja;
         private DevExpress.XtraBars.BarButtonItem barButtonItemAseguradoras;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemSegurosVehiculares;
         private DevExpress.XtraBars.BarButtonItem barButtonItemPagos;
         private DevExpress.XtraBars.BarButtonItem barButtonItemAsignacionesVehiculoDiarias;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;

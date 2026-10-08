@@ -251,6 +251,8 @@ namespace Caponeras.App.Views
         {
             if (ActiveMdiChild is Veniculos.AseguradorasFormView view)
                 await view.AddAseguradoraAsync();
+            else if (ActiveMdiChild is Veniculos.SegurosVehicularesView segurosView)
+                await segurosView.AgregarSeguroAsync();
         }
 
         private async void barButtonItemEditarAseguradora_ItemClick(object sender,
@@ -258,6 +260,8 @@ namespace Caponeras.App.Views
         {
             if (ActiveMdiChild is Veniculos.AseguradorasFormView view)
                 await view.EditarAseguradoraSeleccionadaAsync();
+            else if (ActiveMdiChild is Veniculos.SegurosVehicularesView segurosView)
+                await segurosView.EditarSeguroSeleccionadoAsync();
         }
 
         private async void barButtonItemEliminarAseguradora_ItemClick(object sender,
@@ -265,6 +269,14 @@ namespace Caponeras.App.Views
         {
             if (ActiveMdiChild is Veniculos.AseguradorasFormView view)
                 await view.EliminarAseguradoraSeleccionadaAsync();
+            else if (ActiveMdiChild is Veniculos.SegurosVehicularesView segurosView)
+                await segurosView.EliminarSeguroSeleccionadoAsync();
+        }
+
+        private void barButtonItemSegurosVehiculares_ItemClick(object sender,
+            DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            _viewModel.SegurosVehicularesOnClick(splashScreenManager1, ribbonPageGroupVehiculosOpciones);
         }
 
         private void barButtonItemPagos_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

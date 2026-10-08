@@ -401,6 +401,14 @@ namespace Caponeras.App.ViewModels
             view.FormClosed += (s, e) => { ribbonPageGroupVehiculosOpciones.Visible = false; };
         }
 
+        public void SegurosVehicularesOnClick(SplashScreenManager splashScreenManager,
+            RibbonPageGroup ribbonPageGroupVehiculosOpciones)
+        {
+            ribbonPageGroupVehiculosOpciones.Visible = true;
+            var view = _navigation.Show<SegurosVehicularesView>(splash: splashScreenManager);
+            view.FormClosed += (s, e) => { ribbonPageGroupVehiculosOpciones.Visible = false; };
+        }
+
         public void PagosOnClick(SplashScreenManager splashScreenManager)
         {
             _navigation.Show<PagosFormView>(splash: splashScreenManager);
