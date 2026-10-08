@@ -30,12 +30,12 @@ public class AseguradorasDto : INotifyPropertyChanged
     public AseguradorasDto(Aseguradoras model)
     {
         _idaseguradora = model.Idaseguradora;
-        _nombre = model.Nombre;
-        _nombreCorto = model.NombreCorto;
-        _telefono = model.Telefono;
-        _correo = model.Correo;
-        _sitioWeb = model.SitioWeb;
-        _direccion = model.Direccion;
+        _nombre = model.Nombre ?? string.Empty;
+        _nombreCorto = model.NombreCorto ?? string.Empty;
+        _telefono = model.Telefono ?? string.Empty;
+        _correo = model.Correo ?? string.Empty;
+        _sitioWeb = model.SitioWeb ?? string.Empty;
+        _direccion = model.Direccion ?? string.Empty;
         _activo = model.Activo;
         _createdAt = model.CreatedAt;
         _updatedAt = model.UpdatedAt;
