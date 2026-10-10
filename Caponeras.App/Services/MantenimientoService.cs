@@ -114,7 +114,7 @@ public class MantenimientoService
             if (string.IsNullOrWhiteSpace(mantenimiento.Titulo) || mantenimiento.Idtipomantenimiento <= 0 ||
                 mantenimiento.FechaFin <= mantenimiento.FechaInicio)
             {
-                ErrorMessage = "Indique el tipo, título y un intervalo de fechas válido para el mantenimiento.";
+                ErrorMessage = "Indique el tipo, título y un rango válido de fecha y hora de inicio y fin para el mantenimiento.";
                 return -1;
             }
 

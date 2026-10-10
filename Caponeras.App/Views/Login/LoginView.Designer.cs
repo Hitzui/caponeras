@@ -1,163 +1,308 @@
-﻿namespace Caponeras.App.Views.Login
+namespace Caponeras.App.Views.Login
 {
     partial class LoginView
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginView));
-            pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            htmlContentControl1 = new DevExpress.XtraEditors.HtmlContentControl();
-            txtPassword = new DevExpress.XtraEditors.TextEdit();
+            panelBrand = new Panel();
+            pictureLogo = new PictureBox();
+            lblBrandName = new DevExpress.XtraEditors.LabelControl();
+            lblBrandSubtitle = new DevExpress.XtraEditors.LabelControl();
+            lblBrandFootnote = new DevExpress.XtraEditors.LabelControl();
+            panelLogin = new Panel();
+            lblEyebrow = new DevExpress.XtraEditors.LabelControl();
+            lblWelcome = new DevExpress.XtraEditors.LabelControl();
+            lblDescription = new DevExpress.XtraEditors.LabelControl();
+            lblUsername = new DevExpress.XtraEditors.LabelControl();
             txtUsername = new DevExpress.XtraEditors.TextEdit();
-            panel1 = new Panel();
-            labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)pictureEdit1.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)htmlContentControl1).BeginInit();
-            htmlContentControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)txtPassword.Properties).BeginInit();
+            lblPassword = new DevExpress.XtraEditors.LabelControl();
+            txtPassword = new DevExpress.XtraEditors.TextEdit();
+            btnLogin = new DevExpress.XtraEditors.SimpleButton();
+            btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            lblFooter = new DevExpress.XtraEditors.LabelControl();
+            panelBrand.SuspendLayout();
+            panelLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtUsername.Properties).BeginInit();
-            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtPassword.Properties).BeginInit();
             SuspendLayout();
-            // 
-            // pictureEdit1
-            // 
-            pictureEdit1.EditValue = Properties.Resources.rickshaw_83428961;
-            pictureEdit1.Location = new Point(110, 82);
-            pictureEdit1.Name = "pictureEdit1";
-            pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            pictureEdit1.Size = new Size(241, 207);
-            pictureEdit1.TabIndex = 0;
-            // 
-            // htmlContentControl1
-            // 
-            htmlContentControl1.Controls.Add(txtPassword);
-            htmlContentControl1.Controls.Add(txtUsername);
-            htmlContentControl1.HtmlTemplate.Styles = resources.GetString("htmlContentControl1.HtmlTemplate.Styles");
-            htmlContentControl1.HtmlTemplate.Template = resources.GetString("htmlContentControl1.HtmlTemplate.Template");
-            htmlContentControl1.Location = new Point(27, 325);
-            htmlContentControl1.LookAndFeel.SkinName = "WXI";
-            htmlContentControl1.LookAndFeel.UseDefaultLookAndFeel = false;
-            htmlContentControl1.Name = "htmlContentControl1";
-            htmlContentControl1.Size = new Size(416, 301);
-            htmlContentControl1.TabIndex = 5;
-            htmlContentControl1.ElementMouseClick += htmlContentControl1_ElementMouseClick;
-            // 
-            // txtPassword
-            // 
-            txtPassword.Location = new Point(47, 141);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            txtPassword.Properties.PasswordChar = '*';
-            txtPassword.Size = new Size(322, 18);
-            txtPassword.TabIndex = 7;
-            // 
+            //
+            // panelBrand
+            //
+            panelBrand.BackColor = Color.FromArgb(18, 59, 69);
+            panelBrand.Controls.Add(lblBrandFootnote);
+            panelBrand.Controls.Add(lblBrandSubtitle);
+            panelBrand.Controls.Add(lblBrandName);
+            panelBrand.Controls.Add(pictureLogo);
+            panelBrand.Dock = DockStyle.Left;
+            panelBrand.Location = new Point(0, 0);
+            panelBrand.Name = "panelBrand";
+            panelBrand.Size = new Size(292, 520);
+            panelBrand.TabIndex = 0;
+            //
+            // pictureLogo
+            //
+            pictureLogo.BackColor = Color.Transparent;
+            pictureLogo.Image = Properties.Resources.rickshaw_83428961;
+            pictureLogo.Location = new Point(71, 127);
+            pictureLogo.Name = "pictureLogo";
+            pictureLogo.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureLogo.Size = new Size(150, 150);
+            pictureLogo.TabIndex = 0;
+            pictureLogo.TabStop = false;
+            //
+            // lblBrandName
+            //
+            lblBrandName.Appearance.Font = new Font("Segoe UI", 23F, FontStyle.Bold);
+            lblBrandName.Appearance.ForeColor = Color.White;
+            lblBrandName.Appearance.Options.UseFont = true;
+            lblBrandName.Appearance.Options.UseForeColor = true;
+            lblBrandName.Appearance.Options.UseTextOptions = true;
+            lblBrandName.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            lblBrandName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            lblBrandName.Location = new Point(18, 302);
+            lblBrandName.Name = "lblBrandName";
+            lblBrandName.Size = new Size(256, 42);
+            lblBrandName.TabIndex = 1;
+            lblBrandName.Text = "Caponeras";
+            //
+            // lblBrandSubtitle
+            //
+            lblBrandSubtitle.Appearance.Font = new Font("Segoe UI", 10F);
+            lblBrandSubtitle.Appearance.ForeColor = Color.FromArgb(190, 217, 219);
+            lblBrandSubtitle.Appearance.Options.UseFont = true;
+            lblBrandSubtitle.Appearance.Options.UseForeColor = true;
+            lblBrandSubtitle.Appearance.Options.UseTextOptions = true;
+            lblBrandSubtitle.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            lblBrandSubtitle.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            lblBrandSubtitle.Location = new Point(26, 349);
+            lblBrandSubtitle.Name = "lblBrandSubtitle";
+            lblBrandSubtitle.Size = new Size(240, 24);
+            lblBrandSubtitle.TabIndex = 2;
+            lblBrandSubtitle.Text = "Gestión de transporte, más simple.";
+            //
+            // lblBrandFootnote
+            //
+            lblBrandFootnote.Appearance.Font = new Font("Segoe UI", 8.5F);
+            lblBrandFootnote.Appearance.ForeColor = Color.FromArgb(151, 184, 187);
+            lblBrandFootnote.Appearance.Options.UseFont = true;
+            lblBrandFootnote.Appearance.Options.UseForeColor = true;
+            lblBrandFootnote.Appearance.Options.UseTextOptions = true;
+            lblBrandFootnote.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            lblBrandFootnote.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            lblBrandFootnote.Location = new Point(26, 474);
+            lblBrandFootnote.Name = "lblBrandFootnote";
+            lblBrandFootnote.Size = new Size(240, 20);
+            lblBrandFootnote.TabIndex = 3;
+            lblBrandFootnote.Text = "PLATAFORMA DE ADMINISTRACIÓN";
+            //
+            // panelLogin
+            //
+            panelLogin.BackColor = Color.White;
+            panelLogin.Controls.Add(lblFooter);
+            panelLogin.Controls.Add(btnCancel);
+            panelLogin.Controls.Add(btnLogin);
+            panelLogin.Controls.Add(txtPassword);
+            panelLogin.Controls.Add(lblPassword);
+            panelLogin.Controls.Add(txtUsername);
+            panelLogin.Controls.Add(lblUsername);
+            panelLogin.Controls.Add(lblDescription);
+            panelLogin.Controls.Add(lblWelcome);
+            panelLogin.Controls.Add(lblEyebrow);
+            panelLogin.Dock = DockStyle.Fill;
+            panelLogin.Location = new Point(292, 0);
+            panelLogin.Name = "panelLogin";
+            panelLogin.Padding = new Padding(48, 0, 48, 0);
+            panelLogin.Size = new Size(468, 520);
+            panelLogin.TabIndex = 1;
+            //
+            // lblEyebrow
+            //
+            lblEyebrow.Appearance.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblEyebrow.Appearance.ForeColor = Color.FromArgb(14, 145, 125);
+            lblEyebrow.Appearance.Options.UseFont = true;
+            lblEyebrow.Appearance.Options.UseForeColor = true;
+            lblEyebrow.Location = new Point(52, 84);
+            lblEyebrow.Name = "lblEyebrow";
+            lblEyebrow.Size = new Size(118, 15);
+            lblEyebrow.TabIndex = 0;
+            lblEyebrow.Text = "ACCESO AL SISTEMA";
+            //
+            // lblWelcome
+            //
+            lblWelcome.Appearance.Font = new Font("Segoe UI", 25F, FontStyle.Bold);
+            lblWelcome.Appearance.ForeColor = Color.FromArgb(35, 47, 52);
+            lblWelcome.Appearance.Options.UseFont = true;
+            lblWelcome.Appearance.Options.UseForeColor = true;
+            lblWelcome.Location = new Point(48, 115);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(193, 46);
+            lblWelcome.TabIndex = 1;
+            lblWelcome.Text = "Bienvenido";
+            //
+            // lblDescription
+            //
+            lblDescription.Appearance.Font = new Font("Segoe UI", 10F);
+            lblDescription.Appearance.ForeColor = Color.FromArgb(112, 124, 129);
+            lblDescription.Appearance.Options.UseFont = true;
+            lblDescription.Appearance.Options.UseForeColor = true;
+            lblDescription.Location = new Point(52, 166);
+            lblDescription.Name = "lblDescription";
+            lblDescription.Size = new Size(232, 17);
+            lblDescription.TabIndex = 2;
+            lblDescription.Text = "Ingresa tus datos para continuar.";
+            //
+            // lblUsername
+            //
+            lblUsername.Appearance.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            lblUsername.Appearance.ForeColor = Color.FromArgb(55, 66, 71);
+            lblUsername.Appearance.Options.UseFont = true;
+            lblUsername.Appearance.Options.UseForeColor = true;
+            lblUsername.Location = new Point(52, 218);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(115, 17);
+            lblUsername.TabIndex = 3;
+            lblUsername.Text = "Nombre de usuario";
+            //
             // txtUsername
-            // 
+            //
             txtUsername.EnterMoveNextControl = true;
-            txtUsername.Location = new Point(47, 46);
+            txtUsername.Location = new Point(52, 242);
             txtUsername.Name = "txtUsername";
-            txtUsername.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            txtUsername.Size = new Size(322, 18);
-            txtUsername.TabIndex = 6;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(50, 48, 49);
-            panel1.Controls.Add(labelControl1);
-            panel1.Controls.Add(simpleButton1);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(480, 40);
-            panel1.TabIndex = 6;
-            // 
-            // labelControl1
-            // 
-            labelControl1.Appearance.Font = new Font("Tahoma", 14F);
-            labelControl1.Appearance.ForeColor = Color.White;
-            labelControl1.Appearance.Options.UseFont = true;
-            labelControl1.Appearance.Options.UseForeColor = true;
-            labelControl1.Location = new Point(172, 10);
-            labelControl1.Name = "labelControl1";
-            labelControl1.Size = new Size(140, 23);
-            labelControl1.TabIndex = 1;
-            labelControl1.Text = "INICIAR SESIÓN";
-            // 
-            // simpleButton1
-            // 
-            simpleButton1.Appearance.BackColor = Color.FromArgb(50, 48, 49);
-            simpleButton1.Appearance.BorderColor = Color.FromArgb(50, 48, 49);
-            simpleButton1.Appearance.Options.UseBackColor = true;
-            simpleButton1.Appearance.Options.UseBorderColor = true;
-            simpleButton1.AutoSize = true;
-            simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-            simpleButton1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton1.ImageOptions.SvgImage");
-            simpleButton1.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.Full;
-            simpleButton1.ImageOptions.SvgImageSize = new Size(28, 28);
-            simpleButton1.Location = new Point(431, 4);
-            simpleButton1.Name = "simpleButton1";
-            simpleButton1.Size = new Size(34, 32);
-            simpleButton1.TabIndex = 0;
-            simpleButton1.Click += simpleButton1_Click;
-            // 
+            txtUsername.Properties.Appearance.BackColor = Color.FromArgb(247, 249, 250);
+            txtUsername.Properties.Appearance.Font = new Font("Segoe UI", 11F);
+            txtUsername.Properties.Appearance.Options.UseBackColor = true;
+            txtUsername.Properties.Appearance.Options.UseFont = true;
+            txtUsername.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            txtUsername.Properties.NullValuePrompt = "Escribe tu usuario";
+            txtUsername.Size = new Size(364, 28);
+            txtUsername.TabIndex = 4;
+            //
+            // lblPassword
+            //
+            lblPassword.Appearance.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            lblPassword.Appearance.ForeColor = Color.FromArgb(55, 66, 71);
+            lblPassword.Appearance.Options.UseFont = true;
+            lblPassword.Appearance.Options.UseForeColor = true;
+            lblPassword.Location = new Point(52, 293);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(67, 17);
+            lblPassword.TabIndex = 5;
+            lblPassword.Text = "Contraseña";
+            //
+            // txtPassword
+            //
+            txtPassword.Location = new Point(52, 317);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Properties.Appearance.BackColor = Color.FromArgb(247, 249, 250);
+            txtPassword.Properties.Appearance.Font = new Font("Segoe UI", 11F);
+            txtPassword.Properties.Appearance.Options.UseBackColor = true;
+            txtPassword.Properties.Appearance.Options.UseFont = true;
+            txtPassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            txtPassword.Properties.NullValuePrompt = "Escribe tu contraseña";
+            txtPassword.Properties.PasswordChar = '●';
+            txtPassword.Size = new Size(364, 28);
+            txtPassword.TabIndex = 6;
+            //
+            // btnLogin
+            //
+            btnLogin.Appearance.BackColor = Color.FromArgb(14, 145, 125);
+            btnLogin.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnLogin.Appearance.ForeColor = Color.White;
+            btnLogin.Appearance.Options.UseBackColor = true;
+            btnLogin.Appearance.Options.UseFont = true;
+            btnLogin.Appearance.Options.UseForeColor = true;
+            btnLogin.AppearanceHovered.BackColor = Color.FromArgb(11, 121, 105);
+            btnLogin.AppearanceHovered.Options.UseBackColor = true;
+            btnLogin.Location = new Point(52, 376);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(364, 44);
+            btnLogin.TabIndex = 7;
+            btnLogin.Text = "Iniciar sesión";
+            btnLogin.Click += btnLogin_Click;
+            //
+            // btnCancel
+            //
+            btnCancel.Appearance.BackColor = Color.White;
+            btnCancel.Appearance.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnCancel.Appearance.ForeColor = Color.FromArgb(93, 108, 113);
+            btnCancel.Appearance.Options.UseBackColor = true;
+            btnCancel.Appearance.Options.UseFont = true;
+            btnCancel.Appearance.Options.UseForeColor = true;
+            btnCancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            btnCancel.Location = new Point(52, 430);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(364, 36);
+            btnCancel.TabIndex = 8;
+            btnCancel.Text = "Salir";
+            btnCancel.Click += btnCancel_Click;
+            //
+            // lblFooter
+            //
+            lblFooter.Appearance.Font = new Font("Segoe UI", 8.5F);
+            lblFooter.Appearance.ForeColor = Color.FromArgb(146, 156, 160);
+            lblFooter.Appearance.Options.UseFont = true;
+            lblFooter.Appearance.Options.UseForeColor = true;
+            lblFooter.Appearance.Options.UseTextOptions = true;
+            lblFooter.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            lblFooter.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            lblFooter.Location = new Point(52, 481);
+            lblFooter.Name = "lblFooter";
+            lblFooter.Size = new Size(364, 18);
+            lblFooter.TabIndex = 9;
+            lblFooter.Text = "Acceso seguro para usuarios autorizados";
+            //
             // LoginView
-            // 
-            AutoScaleDimensions = new SizeF(6F, 13F);
+            //
+            AcceptButton = btnLogin;
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(480, 638);
-            Controls.Add(panel1);
-            Controls.Add(htmlContentControl1);
-            Controls.Add(pictureEdit1);
+            BackColor = Color.White;
+            CancelButton = btnCancel;
+            ClientSize = new Size(760, 520);
+            Controls.Add(panelLogin);
+            Controls.Add(panelBrand);
             FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             IconOptions.Icon = (Icon)resources.GetObject("LoginView.IconOptions.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "LoginView";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "LoginView";
-            ((System.ComponentModel.ISupportInitialize)pictureEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)htmlContentControl1).EndInit();
-            htmlContentControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)txtPassword.Properties).EndInit();
+            Text = "Caponeras | Iniciar sesión";
+            panelBrand.ResumeLayout(false);
+            panelBrand.PerformLayout();
+            panelLogin.ResumeLayout(false);
+            panelLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)txtUsername.Properties).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtPassword.Properties).EndInit();
             ResumeLayout(false);
         }
 
-        #endregion
-
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
-        private DevExpress.XtraEditors.HtmlContentControl htmlContentControl1;
+        private Panel panelBrand;
+        private PictureBox pictureLogo;
+        private DevExpress.XtraEditors.LabelControl lblBrandName;
+        private DevExpress.XtraEditors.LabelControl lblBrandSubtitle;
+        private DevExpress.XtraEditors.LabelControl lblBrandFootnote;
+        private Panel panelLogin;
+        private DevExpress.XtraEditors.LabelControl lblEyebrow;
+        private DevExpress.XtraEditors.LabelControl lblWelcome;
+        private DevExpress.XtraEditors.LabelControl lblDescription;
+        private DevExpress.XtraEditors.LabelControl lblUsername;
         private DevExpress.XtraEditors.TextEdit txtUsername;
+        private DevExpress.XtraEditors.LabelControl lblPassword;
         private DevExpress.XtraEditors.TextEdit txtPassword;
-        private Panel panel1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.SimpleButton btnLogin;
+        private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private DevExpress.XtraEditors.LabelControl lblFooter;
     }
 }

@@ -28,6 +28,23 @@ public class SegurosVehicularesService
         return policies.Select(s => new SeguroVehicularDto(s)).ToList();
     }
 
+    public async Task<List<SeguroVehicularDto>> GetExpiringWithinDays(int days)
+    {
+        var today = DateTime.Today;
+        var throughDate = today.AddDays(days);
+        var policies = await _context.SeguroVehiculars.AsNoTracking()
+            .Include(s => s.Vehiculos)
+            .Include(s => s.Aseguradoras)
+            .Include(s => s.TipoSeguros)
+            .Where(s => s.Estado == 1 &&
+                        s.FechaVencimiento >= today &&
+                        s.FechaVencimiento < throughDate.AddDays(1))
+            .OrderBy(s => s.FechaVencimiento)
+            .ToListAsync();
+
+        return policies.Select(s => new SeguroVehicularDto(s)).ToList();
+    }
+
     public Task<List<VehiculosDto>> GetVehiculos(int? includeId = null)
     {
         return _context.Vehiculos.AsNoTracking()

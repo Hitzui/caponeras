@@ -61,7 +61,7 @@
             // 
             radioGroup.Location = new Point(5, 24);
             radioGroup.Name = "radioGroup";
-            radioGroup.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] { new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Vehiculo Asignado"), new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Pagos Realizados Rango"), new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Pagos Realizados Por Día") });
+            radioGroup.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] { new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Vehículos asignados (rango)"), new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Consolidado cuotas, cadetes y turnos (rango)"), new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Resumen diario de recaudación"), new DevExpress.XtraEditors.Controls.RadioGroupItem(3, "Ausencias de cadetes (rango)"), new DevExpress.XtraEditors.Controls.RadioGroupItem(4, "Cadetes y licencias") });
             radioGroup.Properties.ItemVertAlignment = DevExpress.XtraEditors.RadioItemVertAlignment.Top;
             radioGroup.Size = new Size(308, 243);
             radioGroup.TabIndex = 0;

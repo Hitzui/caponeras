@@ -158,6 +158,54 @@ public class ConductoresService
             .FirstOrDefaultAsync();
     }
 
+    public async Task<ConductorVehiculoDto?> GetVehiculoAsignadoByDate(int idconductor, DateTime fecha)
+    {
+        fecha = fecha.Date;
+        var asignaciones = _context.VehiculoConductors.AsNoTracking()
+            .Include(vc => vc.Vehiculos)
+            .Include(vc => vc.Zonas)
+            .Where(vc => vc.Idconductor == idconductor && vc.Activo == 1 && vc.DeletedAt == null);
+
+        // Una asignación que cubre únicamente este día reemplaza la asignación general por rango.
+        var asignacionesDelDia = await asignaciones
+            .Where(vc => vc.FechaInicio == fecha && vc.FechaFin == fecha)
+            .OrderByDescending(vc => vc.Id)
+            .ToListAsync();
+
+        if (asignacionesDelDia.Count > 1)
+            throw new InvalidOperationException("El cadete tiene varias asignaciones específicas para esta fecha. Revise el calendario.");
+
+        var seleccionada = asignacionesDelDia.SingleOrDefault();
+        if (seleccionada is null)
+        {
+            var asignacionesPorRango = await asignaciones
+                .Where(vc => vc.FechaInicio <= fecha && (vc.FechaFin == null || vc.FechaFin >= fecha))
+                .OrderByDescending(vc => vc.FechaInicio)
+                .ThenByDescending(vc => vc.Id)
+                .ToListAsync();
+
+            if (asignacionesPorRango.Count > 1)
+                throw new InvalidOperationException("El cadete tiene más de un vehículo asignado para esta fecha. Revise el calendario.");
+
+            seleccionada = asignacionesPorRango.SingleOrDefault();
+        }
+
+        if (seleccionada is null)
+            return null;
+
+        return new ConductorVehiculoDto
+        {
+            IdConductor = seleccionada.Idconductor,
+            IdVehiculo = seleccionada.Idvehiculo,
+            CodigoVehiculo = seleccionada.Vehiculos.Codigo,
+            Placa = seleccionada.Vehiculos.Placa,
+            IdZona = seleccionada.Idzona,
+            Zona = seleccionada.Zonas?.Nombre,
+            FechaInicio = seleccionada.FechaInicio,
+            FechaFin = seleccionada.FechaFin
+        };
+    }
+
     public Task<CuotaDiariasDto?> GetCuotaDiariaByConductor(int idconductor, DateTime fecha)
     {
         var fechaInicio = fecha.Date;
@@ -207,15 +255,31 @@ public class ConductoresService
                 throw new Exception("No se ha configurado una cuota diaria para este conductor.");
             }
 
-            var asignacionesVigentes = await _context.VehiculoConductors
+            var asignacionesActivas = _context.VehiculoConductors
                 .AsNoTracking()
                 .Where(vc => vc.Idconductor == idconductor &&
                              vc.Activo == 1 &&
-                             vc.DeletedAt == null &&
-                             vc.FechaInicio < fecha.AddDays(1) &&
-                             (vc.FechaFin == null || vc.FechaFin >= fecha))
-                .OrderByDescending(vc => vc.FechaInicio)
+                             vc.DeletedAt == null);
+
+            // Priorizar la cobertura exacta del día sobre el tramo de asignación regular.
+            var asignacionesDelDia = await asignacionesActivas
+                .Where(vc => vc.FechaInicio == fecha && vc.FechaFin == fecha)
+                .OrderByDescending(vc => vc.Id)
                 .ToListAsync();
+
+            if (asignacionesDelDia.Count > 1)
+                throw new Exception("El conductor tiene varias asignaciones específicas para esa fecha. Revise sus asignaciones.");
+
+            var asignacionesVigentes = asignacionesDelDia;
+            if (asignacionesVigentes.Count == 0)
+            {
+                asignacionesVigentes = await asignacionesActivas
+                    .Where(vc => vc.FechaInicio <= fecha && (vc.FechaFin == null || vc.FechaFin >= fecha))
+                    .OrderByDescending(vc => vc.FechaInicio)
+                    .ThenByDescending(vc => vc.Id)
+                    .ToListAsync();
+            }
+
             if (asignacionesVigentes.Count == 0)
             {
                 throw new Exception("El conductor no tiene un vehículo asignado para la fecha seleccionada.");
@@ -243,7 +307,7 @@ public class ConductoresService
             }
             else
             {
-                await ActualizarCuota(monto, observaciones, parametros, cuotaDiaria, fecha);
+                await ActualizarCuota(monto, observaciones, parametros, cuotaDiaria, fecha, vehiculoAsignado);
             }
 
             await _context.SaveChangesAsync();
@@ -261,7 +325,7 @@ public class ConductoresService
     private async Task ActualizarCuota(decimal monto,
         string observaciones,
         Parametros parametros,
-        CuotaDiarias cuotaDiaria, DateTime fecha)
+        CuotaDiarias cuotaDiaria, DateTime fecha, VehiculoConductors vehiculoAsignado)
     {
         var cadete = await _context.Conductors.FindAsync(cuotaDiaria.Idconductor);
         if (cadete is null)
@@ -278,6 +342,7 @@ public class ConductoresService
         }
 
         cuotaDiaria.MontoEntregado = nuevoMonto;
+        cuotaDiaria.IdVehiculo = vehiculoAsignado.Idvehiculo;
 
         cuotaDiaria.Diferencia = cuotaDiaria.MontoCuota - cuotaDiaria.MontoEntregado;
 

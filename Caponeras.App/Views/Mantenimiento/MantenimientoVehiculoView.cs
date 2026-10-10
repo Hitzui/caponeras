@@ -60,6 +60,13 @@ namespace Caponeras.App.Views.Mantenimiento
                 if (e.Appointment.Id is null)
                 {
                     e.Appointment.SetId(0);
+                    if (e.Appointment.AllDay)
+                    {
+                        var fecha = e.Appointment.Start.Date;
+                        e.Appointment.AllDay = false;
+                        e.Appointment.Start = fecha.AddHours(8);
+                        e.Appointment.End = fecha.AddHours(9);
+                    }
                 }
 
                 splashScreenManager1.ShowWaitForm();

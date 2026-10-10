@@ -51,6 +51,7 @@
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell19 = new DevExpress.XtraReports.UI.XRTableCell();
             this.bottomMarginBand1 = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
@@ -70,6 +71,7 @@
             this.xrTableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell17 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell18 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell20 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.parDesde = new DevExpress.XtraReports.Parameters.Parameter();
             this.parHasta = new DevExpress.XtraReports.Parameters.Parameter();
@@ -114,6 +116,7 @@
             this.xrTableCell1,
             this.xrTableCell7,
             this.xrTableCell2,
+            this.xrTableCell19,
             this.xrTableCell3,
             this.xrTableCell4,
             this.xrTableCell5,
@@ -190,6 +193,18 @@
             this.xrTableCell6.Text = "xrTableCell6";
             this.xrTableCell6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrTableCell6.Weight = 2D;
+            // 
+            // xrTableCell19
+            // 
+            this.xrTableCell19.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrTableCell19.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Dias]")});
+            this.xrTableCell19.Multiline = true;
+            this.xrTableCell19.Name = "xrTableCell19";
+            this.xrTableCell19.StylePriority.UseBorders = false;
+            this.xrTableCell19.Text = "xrTableCell19";
+            this.xrTableCell19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrTableCell19.Weight = 0.9D;
             // 
             // bottomMarginBand1
             // 
@@ -284,7 +299,7 @@
             this.xrLabel5.SizeF = new System.Drawing.SizeF(714F, 23F);
             this.xrLabel5.StylePriority.UseFont = false;
             this.xrLabel5.StylePriority.UseTextAlignment = false;
-            this.xrLabel5.Text = "CONTROL INGRESO DE TURNO";
+            this.xrLabel5.Text = "CONSOLIDADO DE CUOTAS, CADETES Y TURNOS";
             this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel4
@@ -357,6 +372,7 @@
             this.xrTableCell13,
             this.xrTableCell8,
             this.xrTableCell14,
+            this.xrTableCell20,
             this.xrTableCell15,
             this.xrTableCell16,
             this.xrTableCell17,
@@ -422,6 +438,16 @@
             this.xrTableCell18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrTableCell18.Weight = 2D;
             // 
+            // xrTableCell20
+            // 
+            this.xrTableCell20.Borders = DevExpress.XtraPrinting.BorderSide.Top;
+            this.xrTableCell20.Multiline = true;
+            this.xrTableCell20.Name = "xrTableCell20";
+            this.xrTableCell20.StylePriority.UseBorders = false;
+            this.xrTableCell20.Text = "Turnos";
+            this.xrTableCell20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrTableCell20.Weight = 0.9D;
+            // 
             // xrLabel1
             // 
             this.xrLabel1.BackColor = System.Drawing.Color.Teal;
@@ -429,7 +455,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Zona]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ZonaReporte]")});
             this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Times New Roman", 12F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrLabel1.ForeColor = System.Drawing.Color.White;
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
@@ -450,7 +476,7 @@
             this.parDesde.AllowNull = true;
             this.parDesde.Description = "Parameter1";
             this.parDesde.Name = "parDesde";
-            this.parDesde.Type = typeof(global::System.DateOnly);
+            this.parDesde.Type = typeof(global::System.DateTime);
             this.parDesde.ValueInfo = "2026-07-15";
             // 
             // parHasta
@@ -458,7 +484,7 @@
             this.parHasta.AllowNull = true;
             this.parHasta.Description = "Parameter1";
             this.parHasta.Name = "parHasta";
-            this.parHasta.Type = typeof(global::System.DateOnly);
+            this.parHasta.Type = typeof(global::System.DateTime);
             this.parHasta.ValueInfo = "2026-07-15";
             // 
             // ReportFooter
@@ -489,7 +515,7 @@
             // xrLabel12
             // 
             this.xrLabel12.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TotalEntregado]/[CuotaEsperada]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(sumSum([CuotaEsperada]) <= 0, 0, sumSum([TotalEntregado]) / sumSum([CuotaEsperada]))")});
             this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(594.9999F, 0F);
             this.xrLabel12.Multiline = true;
             this.xrLabel12.Name = "xrLabel12";
@@ -631,5 +657,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel12;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell8;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell19;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell20;
     }
 }

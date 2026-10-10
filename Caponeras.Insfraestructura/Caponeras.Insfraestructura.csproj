@@ -11,7 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Caponeras.Data\Caponeras.Data.csproj" />
+    <ProjectReference Include="..\Caponeras.Data\Caponeras.Data.csproj">
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
 
   <ItemGroup>

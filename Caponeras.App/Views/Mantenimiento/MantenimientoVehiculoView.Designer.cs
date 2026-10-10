@@ -64,8 +64,10 @@
             schedulerControl.Start = new DateTime(2026, 2, 1, 0, 0, 0, 0);
             schedulerControl.TabIndex = 0;
             schedulerControl.Views.DayView.TimeRulers.Add(timeRuler1);
+            schedulerControl.Views.DayView.TimeScale = TimeSpan.FromMinutes(30);
             schedulerControl.Views.FullWeekView.Enabled = true;
             schedulerControl.Views.FullWeekView.TimeRulers.Add(timeRuler2);
+            schedulerControl.Views.FullWeekView.TimeScale = TimeSpan.FromMinutes(30);
             schedulerControl.Views.GanttView.Enabled = false;
             schedulerControl.Views.WeekView.Enabled = false;
             schedulerControl.Views.WorkWeekView.TimeRulers.Add(timeRuler3);

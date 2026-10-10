@@ -25,8 +25,11 @@ using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
 using NLog;
 using System.Diagnostics;
+using System.Globalization;
+using System.IO;
 
 namespace Caponeras.App.ViewModels
 {
@@ -36,13 +39,35 @@ namespace Caponeras.App.ViewModels
         private readonly INavigationService _navigation;
         private readonly IServiceProvider _serviceProvider;
         private readonly ISelectionService _selectionService;
+        private readonly SegurosVehicularesService _segurosVehicularesService;
+        private readonly IConfiguration _configuration;
 
         public MainViewModel(INavigationService navigation, ISelectionService selectionService,
-            IServiceProvider serviceProvider)
+            IServiceProvider serviceProvider, SegurosVehicularesService segurosVehicularesService,
+            IConfiguration configuration)
         {
             _navigation = navigation;
             _selectionService = selectionService;
             _serviceProvider = serviceProvider;
+            _segurosVehicularesService = segurosVehicularesService;
+            _configuration = configuration;
+        }
+
+        public async Task<List<SeguroVehicularDto>> GetDailyExpiringPoliciesAsync()
+        {
+            var markerPath = Path.Combine(Application.LocalUserAppDataPath, "aviso-seguros.txt");
+            var todayMarker = DateTime.Today.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+            if (File.Exists(markerPath) &&
+                await File.ReadAllTextAsync(markerPath) == todayMarker)
+                return new List<SeguroVehicularDto>();
+
+            var configuredDays = _configuration.GetValue<int?>("Seguros:DiasAvisoVencimiento") ?? 3;
+            var days = configuredDays >= 0 ? configuredDays : 3;
+            var policies = await _segurosVehicularesService.GetExpiringWithinDays(days);
+
+            Directory.CreateDirectory(Path.GetDirectoryName(markerPath)!);
+            await File.WriteAllTextAsync(markerPath, todayMarker);
+            return policies;
         }
 
         private async Task ExecuteDeleteAsync<TViewModel, TDto>()
@@ -417,6 +442,11 @@ namespace Caponeras.App.ViewModels
         public void AsignacionesVehiculoDiariasOnClick(SplashScreenManager splashScreenManager)
         {
             _navigation.Show<AsignacionesVehiculoFechaView>(splashScreenManager);
+        }
+
+        public void ControlAusenciasCadetesOnClick(SplashScreenManager splashScreenManager)
+        {
+            _navigation.Show<ControlAusenciasCadetesView>(splash: splashScreenManager);
         }
 
         public void ReportesProductosInventariosOnClick(SplashScreenManager splashScreenManager)

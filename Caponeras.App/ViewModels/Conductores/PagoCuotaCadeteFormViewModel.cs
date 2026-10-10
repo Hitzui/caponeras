@@ -11,6 +11,7 @@ public class PagoCuotaCadeteFormViewModel : BaseViewModel
     private ConductoresService _conductoresService;
     private ConductoresDto? _conductor;
     private CuotaDiariasDto? _cuotaDiaria;
+    private ConductorVehiculoDto? _asignacionVehiculo;
 
     public PagoCuotaCadeteFormViewModel(ConductoresService conductoresService, INavigationService navigationService)
     {
@@ -28,6 +29,12 @@ public class PagoCuotaCadeteFormViewModel : BaseViewModel
     {
         get => _conductor;
         set => SetProperty(ref _conductor, value, nameof(ConductoresDto));
+    }
+
+    public ConductorVehiculoDto? AsignacionVehiculoDto
+    {
+        get => _asignacionVehiculo;
+        private set => SetProperty(ref _asignacionVehiculo, value, nameof(AsignacionVehiculoDto));
     }
 
     public async Task LoadConductor()
@@ -67,6 +74,16 @@ public class PagoCuotaCadeteFormViewModel : BaseViewModel
 
         CuotaDiariasDto =
             await _conductoresService.GetCuotaDiariaByConductor(ConductorDto.Idconductor, fecha);
+    }
+
+    public async Task LoadAsignacionVehiculo(DateTime fecha)
+    {
+        AsignacionVehiculoDto = null;
+        if (ConductorDto is null)
+            return;
+
+        AsignacionVehiculoDto = await _conductoresService.GetVehiculoAsignadoByDate(
+            ConductorDto.Idconductor, fecha.Date);
     }
 
     public async Task<bool> RegistrarPago(decimal monto, string observaciones, DateTime fecha)

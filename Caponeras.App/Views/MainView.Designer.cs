@@ -70,7 +70,11 @@
             barButtonItemSegurosVehiculares = new DevExpress.XtraBars.BarButtonItem();
             barButtonItemPagos = new DevExpress.XtraBars.BarButtonItem();
             barButtonItemAsignacionesVehiculoDiarias = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItemControlAusencias = new DevExpress.XtraBars.BarButtonItem();
             btnReportesInventario = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -79,6 +83,7 @@
             ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            ribbonPageGroupVehiculosOpciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageCadetes = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -92,10 +97,6 @@
             lblUsuario = new ToolStripLabel();
             toolStripSeparator1 = new ToolStripSeparator();
             lblMaestroCaja = new ToolStripLabel();
-            ribbonPageGroupVehiculosOpciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)ribbonControl1).BeginInit();
             toolStrip1.SuspendLayout();
             SuspendLayout();
@@ -103,9 +104,9 @@
             // ribbonControl1
             // 
             ribbonControl1.ExpandCollapseItem.Id = 0;
-            ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbonControl1.ExpandCollapseItem, barButtonItemAgencias, barButtonItemCajas, barButtonItemConductores, barButtonItemVehiculos, barButtonItemAsignarVehiculoCadete, barButtonItemAddCadete, barButtonItemEditConductor, barButtonItemAgregarVehiculo, barButtonItemEditVehiculo, barButtonItemMantenimientosVehiculo, barButtonItemIventario, barButtonItemCompras, barButtonItem4, barButtonItemUm, barButtonItemCategoriaProductos, barButtonItemAddProducto, barButtonItemEdit, barButtonItemDeleteProducto, barButtonItemRecargarMantenimiento, barButtonItemProveedores, barButtonItemMcaja, barButtonItemRealizarMovimiento, barButtonItemAperturarCaja, barButtonItemCerrarCaja, barButtonItemMovCaja, barButtonItemRubros, barButtonItemAddAdministrar, barButtonItemEditAdministrar, barButtonItemDeleteAdministrar, barButtonItemAsignacionesVehiculo, barButtonItemListaCadetes, barButtonItemConfigurarCuotaCadete, barButtonItemRealiarPagoCadete, barButtonItemReportesCadetes, barButtonItemReporteDiaCaja, barButtonItemAseguradoras, barButtonItemSegurosVehiculares, barButtonItemPagos, barButtonItemAsignacionesVehiculoDiarias, btnReportesInventario, barButtonItem1, barButtonItem2, barButtonItem3 });
+            ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbonControl1.ExpandCollapseItem, barButtonItemAgencias, barButtonItemCajas, barButtonItemConductores, barButtonItemVehiculos, barButtonItemAsignarVehiculoCadete, barButtonItemAddCadete, barButtonItemEditConductor, barButtonItemAgregarVehiculo, barButtonItemEditVehiculo, barButtonItemMantenimientosVehiculo, barButtonItemIventario, barButtonItemCompras, barButtonItem4, barButtonItemUm, barButtonItemCategoriaProductos, barButtonItemAddProducto, barButtonItemEdit, barButtonItemDeleteProducto, barButtonItemRecargarMantenimiento, barButtonItemProveedores, barButtonItemMcaja, barButtonItemRealizarMovimiento, barButtonItemAperturarCaja, barButtonItemCerrarCaja, barButtonItemMovCaja, barButtonItemRubros, barButtonItemAddAdministrar, barButtonItemEditAdministrar, barButtonItemDeleteAdministrar, barButtonItemAsignacionesVehiculo, barButtonItemListaCadetes, barButtonItemConfigurarCuotaCadete, barButtonItemRealiarPagoCadete, barButtonItemReportesCadetes, barButtonItemReporteDiaCaja, barButtonItemAseguradoras, barButtonItemSegurosVehiculares, barButtonItemPagos, barButtonItemAsignacionesVehiculoDiarias, barButtonItemControlAusencias, btnReportesInventario, barButtonItem1, barButtonItem2, barButtonItem3 });
             ribbonControl1.Location = new Point(0, 0);
-            ribbonControl1.MaxItemId = 45;
+            ribbonControl1.MaxItemId = 46;
             ribbonControl1.Name = "ribbonControl1";
             ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1, ribbonPage2, ribbonPageCadetes, Op });
             ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2019;
@@ -165,6 +166,7 @@
             // 
             barButtonItemEditConductor.Caption = "Editar";
             barButtonItemEditConductor.Id = 7;
+            barButtonItemEditConductor.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItemEditConductor.ImageOptions.SvgImage");
             barButtonItemEditConductor.Name = "barButtonItemEditConductor";
             barButtonItemEditConductor.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
             barButtonItemEditConductor.ItemClick += barButtonItemEditConductor_ItemClick;
@@ -402,15 +404,15 @@
             barButtonItemAseguradoras.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItemAseguradoras.ImageOptions.SvgImage");
             barButtonItemAseguradoras.Name = "barButtonItemAseguradoras";
             barButtonItemAseguradoras.ItemClick += barButtonItemAseguradoras_ItemClick;
-            //
+            // 
             // barButtonItemSegurosVehiculares
             // 
             barButtonItemSegurosVehiculares.Caption = "Seguros";
             barButtonItemSegurosVehiculares.Id = 44;
-            barButtonItemSegurosVehiculares.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItemAseguradoras.ImageOptions.SvgImage");
+            barButtonItemSegurosVehiculares.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItemSegurosVehiculares.ImageOptions.SvgImage");
             barButtonItemSegurosVehiculares.Name = "barButtonItemSegurosVehiculares";
             barButtonItemSegurosVehiculares.ItemClick += barButtonItemSegurosVehiculares_ItemClick;
-            //
+            // 
             // barButtonItemPagos
             // 
             barButtonItemPagos.Caption = "Pagos";
@@ -427,6 +429,14 @@
             barButtonItemAsignacionesVehiculoDiarias.Name = "barButtonItemAsignacionesVehiculoDiarias";
             barButtonItemAsignacionesVehiculoDiarias.ItemClick += barButtonItemAsignacionesVehiculoDiarias_ItemClick;
             // 
+            // barButtonItemControlAusencias
+            // 
+            barButtonItemControlAusencias.Caption = "Control de ausencias";
+            barButtonItemControlAusencias.Id = 45;
+            barButtonItemControlAusencias.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItemControlAusencias.ImageOptions.SvgImage");
+            barButtonItemControlAusencias.Name = "barButtonItemControlAusencias";
+            barButtonItemControlAusencias.ItemClick += barButtonItemControlAusencias_ItemClick;
+            // 
             // btnReportesInventario
             // 
             btnReportesInventario.Caption = "Reportes";
@@ -434,6 +444,30 @@
             btnReportesInventario.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnReportesInventario.ImageOptions.SvgImage");
             btnReportesInventario.Name = "btnReportesInventario";
             btnReportesInventario.ItemClick += btnReportesInventario_ItemClick;
+            // 
+            // barButtonItem1
+            // 
+            barButtonItem1.Caption = "Agregar";
+            barButtonItem1.Id = 41;
+            barButtonItem1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem1.ImageOptions.SvgImage");
+            barButtonItem1.Name = "barButtonItem1";
+            barButtonItem1.ItemClick += barButtonItemAgregarAseguradora_ItemClick;
+            // 
+            // barButtonItem2
+            // 
+            barButtonItem2.Caption = "Editar";
+            barButtonItem2.Id = 42;
+            barButtonItem2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem2.ImageOptions.SvgImage");
+            barButtonItem2.Name = "barButtonItem2";
+            barButtonItem2.ItemClick += barButtonItemEditarAseguradora_ItemClick;
+            // 
+            // barButtonItem3
+            // 
+            barButtonItem3.Caption = "Eliminar";
+            barButtonItem3.Id = 43;
+            barButtonItem3.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem3.ImageOptions.SvgImage");
+            barButtonItem3.Name = "barButtonItem3";
+            barButtonItem3.ItemClick += barButtonItemEliminarAseguradora_ItemClick;
             // 
             // ribbonPage1
             // 
@@ -498,6 +532,15 @@
             ribbonPageGroup5.Name = "ribbonPageGroup5";
             ribbonPageGroup5.Text = "Mantenimiento";
             // 
+            // ribbonPageGroupVehiculosOpciones
+            // 
+            ribbonPageGroupVehiculosOpciones.ItemLinks.Add(barButtonItem1);
+            ribbonPageGroupVehiculosOpciones.ItemLinks.Add(barButtonItem2);
+            ribbonPageGroupVehiculosOpciones.ItemLinks.Add(barButtonItem3);
+            ribbonPageGroupVehiculosOpciones.Name = "ribbonPageGroupVehiculosOpciones";
+            ribbonPageGroupVehiculosOpciones.Text = "Opciones";
+            ribbonPageGroupVehiculosOpciones.Visible = false;
+            // 
             // ribbonPageCadetes
             // 
             ribbonPageCadetes.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup4, ribbonPageGroup9 });
@@ -516,6 +559,7 @@
             ribbonPageGroup4.ItemLinks.Add(barButtonItemRealiarPagoCadete);
             ribbonPageGroup4.ItemLinks.Add(barButtonItemPagos);
             ribbonPageGroup4.ItemLinks.Add(barButtonItemAsignacionesVehiculoDiarias);
+            ribbonPageGroup4.ItemLinks.Add(barButtonItemControlAusencias);
             ribbonPageGroup4.Name = "ribbonPageGroup4";
             ribbonPageGroup4.Text = "Administrar";
             // 
@@ -571,7 +615,7 @@
             // 
             toolStrip1.Dock = DockStyle.Bottom;
             toolStrip1.Items.AddRange(new ToolStripItem[] { lblUsuario, toolStripSeparator1, lblMaestroCaja });
-            toolStrip1.Location = new Point(0, 535);
+            toolStrip1.Location = new Point(0, 537);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.RenderMode = ToolStripRenderMode.Professional;
             toolStrip1.Size = new Size(932, 25);
@@ -595,44 +639,11 @@
             lblMaestroCaja.Size = new Size(86, 22);
             lblMaestroCaja.Text = "toolStripLabel1";
             // 
-            // ribbonPageGroupVehiculosOpciones
-            // 
-            ribbonPageGroupVehiculosOpciones.ItemLinks.Add(barButtonItem1);
-            ribbonPageGroupVehiculosOpciones.ItemLinks.Add(barButtonItem2);
-            ribbonPageGroupVehiculosOpciones.ItemLinks.Add(barButtonItem3);
-            ribbonPageGroupVehiculosOpciones.Name = "ribbonPageGroupVehiculosOpciones";
-            ribbonPageGroupVehiculosOpciones.Text = "Opciones";
-            ribbonPageGroupVehiculosOpciones.Visible = false;
-            // 
-            // barButtonItem1
-            // 
-            barButtonItem1.Caption = "Agregar";
-            barButtonItem1.Id = 41;
-            barButtonItem1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem1.ImageOptions.SvgImage");
-            barButtonItem1.Name = "barButtonItem1";
-            barButtonItem1.ItemClick += barButtonItemAgregarAseguradora_ItemClick;
-            // 
-            // barButtonItem2
-            // 
-            barButtonItem2.Caption = "Editar";
-            barButtonItem2.Id = 42;
-            barButtonItem2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem2.ImageOptions.SvgImage");
-            barButtonItem2.Name = "barButtonItem2";
-            barButtonItem2.ItemClick += barButtonItemEditarAseguradora_ItemClick;
-            // 
-            // barButtonItem3
-            // 
-            barButtonItem3.Caption = "Eliminar";
-            barButtonItem3.Id = 43;
-            barButtonItem3.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem3.ImageOptions.SvgImage");
-            barButtonItem3.Name = "barButtonItem3";
-            barButtonItem3.ItemClick += barButtonItemEliminarAseguradora_ItemClick;
-            // 
             // MainView
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(932, 560);
+            ClientSize = new Size(932, 562);
             Controls.Add(toolStrip1);
             Controls.Add(ribbonControl1);
             IconOptions.Image = (Image)resources.GetObject("MainView.IconOptions.Image");
@@ -713,6 +724,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemSegurosVehiculares;
         private DevExpress.XtraBars.BarButtonItem barButtonItemPagos;
         private DevExpress.XtraBars.BarButtonItem barButtonItemAsignacionesVehiculoDiarias;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemControlAusencias;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
         private DevExpress.XtraBars.BarButtonItem btnReportesInventario;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;

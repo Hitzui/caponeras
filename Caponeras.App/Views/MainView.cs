@@ -284,14 +284,46 @@ namespace Caponeras.App.Views
             _viewModel.PagosOnClick(splashScreenManager1);
         }
 
-        private void MainView_Shown(object sender, EventArgs e)
+        private async void MainView_Shown(object sender, EventArgs e)
         {
             DataContext = _viewModel;
+            try
+            {
+                var policies = await _viewModel.GetDailyExpiringPoliciesAsync();
+                if (policies.Count == 0)
+                    return;
+
+                var message = string.Join(Environment.NewLine, policies.Select(policy =>
+                {
+                    var daysRemaining = (policy.FechaVencimiento.Date - DateTime.Today).Days;
+                    var expiryText = daysRemaining == 0
+                        ? "vence hoy"
+                        : $"vence en {daysRemaining} día(s)";
+                    return $"• {policy.NumeroPoliza} | {policy.VehiculoDescripcion} | " +
+                           $"{policy.AseguradoraNombre} | {policy.TipoSeguroNombre} | " +
+                           $"{policy.FechaVencimiento:dd/MM/yyyy} ({expiryText})";
+                }));
+
+                XtraMessageBox.Show(this,
+                    $"Hay pólizas de seguro próximas a vencer:{Environment.NewLine}{Environment.NewLine}{message}",
+                    "Advertencia de vencimiento de seguros",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"No fue posible consultar pólizas próximas a vencer: {ex}");
+            }
         }
 
         private void barButtonItemAsignacionesVehiculoDiarias_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             _viewModel.AsignacionesVehiculoDiariasOnClick(splashScreenManager1);
+        }
+
+        private void barButtonItemControlAusencias_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            _viewModel.ControlAusenciasCadetesOnClick(splashScreenManager1);
         }
 
         private void btnReportesInventario_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

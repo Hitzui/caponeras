@@ -42,6 +42,9 @@
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
             txtCodigo = new DevExpress.XtraEditors.TextEdit();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            txtZona = new DevExpress.XtraEditors.TextEdit();
+            labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            lblAsignacion = new DevExpress.XtraEditors.LabelControl();
             groupControl3 = new DevExpress.XtraEditors.GroupControl();
             labelControl10 = new DevExpress.XtraEditors.LabelControl();
             txtFecha = new DevExpress.XtraEditors.DateEdit();
@@ -69,6 +72,7 @@
             groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtPlaca.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtCodigo.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtZona.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl3).BeginInit();
             groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtFecha.Properties).BeginInit();
@@ -136,9 +140,12 @@
             groupControl2.Controls.Add(labelControl3);
             groupControl2.Controls.Add(txtCodigo);
             groupControl2.Controls.Add(labelControl4);
+            groupControl2.Controls.Add(txtZona);
+            groupControl2.Controls.Add(labelControl11);
+            groupControl2.Controls.Add(lblAsignacion);
             groupControl2.Location = new Point(12, 106);
             groupControl2.Name = "groupControl2";
-            groupControl2.Size = new Size(470, 73);
+            groupControl2.Size = new Size(470, 114);
             groupControl2.TabIndex = 4;
             groupControl2.Text = "Caponera";
             // 
@@ -173,6 +180,31 @@
             labelControl4.Size = new Size(37, 13);
             labelControl4.TabIndex = 0;
             labelControl4.Text = "Código:";
+            //
+            // txtZona
+            //
+            txtZona.Location = new Point(88, 50);
+            txtZona.Name = "txtZona";
+            txtZona.Properties.ReadOnly = true;
+            txtZona.Size = new Size(252, 20);
+            txtZona.TabIndex = 4;
+            //
+            // labelControl11
+            //
+            labelControl11.Location = new Point(52, 53);
+            labelControl11.Name = "labelControl11";
+            labelControl11.Size = new Size(30, 13);
+            labelControl11.TabIndex = 5;
+            labelControl11.Text = "Zona:";
+            //
+            // lblAsignacion
+            //
+            lblAsignacion.Appearance.ForeColor = Color.DimGray;
+            lblAsignacion.Appearance.Options.UseForeColor = true;
+            lblAsignacion.Location = new Point(88, 77);
+            lblAsignacion.Name = "lblAsignacion";
+            lblAsignacion.Size = new Size(360, 13);
+            lblAsignacion.TabIndex = 6;
             // 
             // groupControl3
             // 
@@ -188,7 +220,7 @@
             groupControl3.Controls.Add(labelControl5);
             groupControl3.Controls.Add(txtCuota);
             groupControl3.Controls.Add(labelControl6);
-            groupControl3.Location = new Point(12, 185);
+            groupControl3.Location = new Point(12, 226);
             groupControl3.Name = "groupControl3";
             groupControl3.Size = new Size(470, 190);
             groupControl3.TabIndex = 5;
@@ -369,7 +401,7 @@
             btnAceptar.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             btnAceptar.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAceptar.ImageOptions.SvgImage");
             btnAceptar.ImageOptions.SvgImageSize = new Size(16, 16);
-            btnAceptar.Location = new Point(384, 411);
+            btnAceptar.Location = new Point(384, 452);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(98, 23);
             btnAceptar.TabIndex = 6;
@@ -385,7 +417,7 @@
             btnCancelar.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             btnCancelar.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnCancelar.ImageOptions.SvgImage");
             btnCancelar.ImageOptions.SvgImageSize = new Size(16, 16);
-            btnCancelar.Location = new Point(73, 411);
+            btnCancelar.Location = new Point(73, 452);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(110, 23);
             btnCancelar.TabIndex = 7;
@@ -396,7 +428,7 @@
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(494, 446);
+            ClientSize = new Size(494, 487);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Controls.Add(groupControl3);
@@ -418,6 +450,7 @@
             groupControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)txtPlaca.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtCodigo.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtZona.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)groupControl3).EndInit();
             groupControl3.ResumeLayout(false);
             groupControl3.PerformLayout();
@@ -447,6 +480,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.TextEdit txtCodigo;
         private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.TextEdit txtZona;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.LabelControl lblAsignacion;
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private DevExpress.XtraEditors.TextEdit txtMonto;
         private DevExpress.XtraEditors.LabelControl labelControl5;
