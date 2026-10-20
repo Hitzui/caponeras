@@ -24,9 +24,14 @@ namespace Caponeras.App.Views.Login
             lblWelcome = new DevExpress.XtraEditors.LabelControl();
             lblDescription = new DevExpress.XtraEditors.LabelControl();
             lblUsername = new DevExpress.XtraEditors.LabelControl();
+            panelUsernameField = new Panel();
+            btnUsernameIcon = new DevExpress.XtraEditors.SimpleButton();
             txtUsername = new DevExpress.XtraEditors.TextEdit();
             lblPassword = new DevExpress.XtraEditors.LabelControl();
+            panelPasswordField = new Panel();
+            btnPasswordIcon = new DevExpress.XtraEditors.SimpleButton();
             txtPassword = new DevExpress.XtraEditors.TextEdit();
+            btnTogglePassword = new DevExpress.XtraEditors.SimpleButton();
             btnLogin = new DevExpress.XtraEditors.SimpleButton();
             btnCancel = new DevExpress.XtraEditors.SimpleButton();
             lblFooter = new DevExpress.XtraEditors.LabelControl();
@@ -111,9 +116,9 @@ namespace Caponeras.App.Views.Login
             panelLogin.Controls.Add(lblFooter);
             panelLogin.Controls.Add(btnCancel);
             panelLogin.Controls.Add(btnLogin);
-            panelLogin.Controls.Add(txtPassword);
+            panelLogin.Controls.Add(panelPasswordField);
             panelLogin.Controls.Add(lblPassword);
-            panelLogin.Controls.Add(txtUsername);
+            panelLogin.Controls.Add(panelUsernameField);
             panelLogin.Controls.Add(lblUsername);
             panelLogin.Controls.Add(lblDescription);
             panelLogin.Controls.Add(lblWelcome);
@@ -173,19 +178,40 @@ namespace Caponeras.App.Views.Login
             lblUsername.TabIndex = 3;
             lblUsername.Text = "Nombre de usuario";
             //
+            // panelUsernameField
+            //
+            panelUsernameField.BackColor = Color.White;
+            panelUsernameField.Controls.Add(txtUsername);
+            panelUsernameField.Controls.Add(btnUsernameIcon);
+            panelUsernameField.Location = new Point(52, 239);
+            panelUsernameField.Name = "panelUsernameField";
+            panelUsernameField.Size = new Size(364, 42);
+            panelUsernameField.TabIndex = 4;
+            panelUsernameField.Paint += MaterialField_Paint;
+            //
+            // btnUsernameIcon
+            //
+            btnUsernameIcon.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            btnUsernameIcon.Location = new Point(7, 5);
+            btnUsernameIcon.Name = "btnUsernameIcon";
+            btnUsernameIcon.Size = new Size(32, 32);
+            btnUsernameIcon.TabIndex = 0;
+            btnUsernameIcon.TabStop = false;
+            btnUsernameIcon.ToolTip = "Usuario";
+            //
             // txtUsername
             //
             txtUsername.EnterMoveNextControl = true;
-            txtUsername.Location = new Point(52, 242);
+            txtUsername.Location = new Point(44, 7);
             txtUsername.Name = "txtUsername";
             txtUsername.Properties.Appearance.BackColor = Color.FromArgb(247, 249, 250);
             txtUsername.Properties.Appearance.Font = new Font("Segoe UI", 11F);
             txtUsername.Properties.Appearance.Options.UseBackColor = true;
             txtUsername.Properties.Appearance.Options.UseFont = true;
-            txtUsername.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            txtUsername.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             txtUsername.Properties.NullValuePrompt = "Escribe tu usuario";
-            txtUsername.Size = new Size(364, 28);
-            txtUsername.TabIndex = 4;
+            txtUsername.Size = new Size(310, 28);
+            txtUsername.TabIndex = 0;
             //
             // lblPassword
             //
@@ -199,19 +225,51 @@ namespace Caponeras.App.Views.Login
             lblPassword.TabIndex = 5;
             lblPassword.Text = "Contraseña";
             //
+            // panelPasswordField
+            //
+            panelPasswordField.BackColor = Color.White;
+            panelPasswordField.Controls.Add(txtPassword);
+            panelPasswordField.Controls.Add(btnTogglePassword);
+            panelPasswordField.Controls.Add(btnPasswordIcon);
+            panelPasswordField.Location = new Point(52, 314);
+            panelPasswordField.Name = "panelPasswordField";
+            panelPasswordField.Size = new Size(364, 42);
+            panelPasswordField.TabIndex = 6;
+            panelPasswordField.Paint += MaterialField_Paint;
+            //
+            // btnPasswordIcon
+            //
+            btnPasswordIcon.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            btnPasswordIcon.Location = new Point(7, 5);
+            btnPasswordIcon.Name = "btnPasswordIcon";
+            btnPasswordIcon.Size = new Size(32, 32);
+            btnPasswordIcon.TabIndex = 0;
+            btnPasswordIcon.TabStop = false;
+            btnPasswordIcon.ToolTip = "Contraseña";
+            //
             // txtPassword
             //
-            txtPassword.Location = new Point(52, 317);
+            txtPassword.Location = new Point(44, 7);
             txtPassword.Name = "txtPassword";
             txtPassword.Properties.Appearance.BackColor = Color.FromArgb(247, 249, 250);
             txtPassword.Properties.Appearance.Font = new Font("Segoe UI", 11F);
             txtPassword.Properties.Appearance.Options.UseBackColor = true;
             txtPassword.Properties.Appearance.Options.UseFont = true;
-            txtPassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            txtPassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             txtPassword.Properties.NullValuePrompt = "Escribe tu contraseña";
             txtPassword.Properties.PasswordChar = '●';
-            txtPassword.Size = new Size(364, 28);
-            txtPassword.TabIndex = 6;
+            txtPassword.Size = new Size(274, 28);
+            txtPassword.TabIndex = 0;
+            //
+            // btnTogglePassword
+            //
+            btnTogglePassword.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            btnTogglePassword.Location = new Point(322, 5);
+            btnTogglePassword.Name = "btnTogglePassword";
+            btnTogglePassword.Size = new Size(32, 32);
+            btnTogglePassword.TabIndex = 1;
+            btnTogglePassword.TabStop = false;
+            btnTogglePassword.ToolTip = "Mostrar contraseña";
             //
             // btnLogin
             //
@@ -298,9 +356,14 @@ namespace Caponeras.App.Views.Login
         private DevExpress.XtraEditors.LabelControl lblWelcome;
         private DevExpress.XtraEditors.LabelControl lblDescription;
         private DevExpress.XtraEditors.LabelControl lblUsername;
+        private Panel panelUsernameField;
+        private DevExpress.XtraEditors.SimpleButton btnUsernameIcon;
         private DevExpress.XtraEditors.TextEdit txtUsername;
         private DevExpress.XtraEditors.LabelControl lblPassword;
+        private Panel panelPasswordField;
+        private DevExpress.XtraEditors.SimpleButton btnPasswordIcon;
         private DevExpress.XtraEditors.TextEdit txtPassword;
+        private DevExpress.XtraEditors.SimpleButton btnTogglePassword;
         private DevExpress.XtraEditors.SimpleButton btnLogin;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.LabelControl lblFooter;

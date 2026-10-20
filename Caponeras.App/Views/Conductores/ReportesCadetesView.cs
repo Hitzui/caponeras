@@ -17,7 +17,29 @@ namespace Caponeras.App.Views.Conductores
             InitializeComponent();
             txtFechaHasta.DateTime = DateTime.Today;
             txtFechaDesde.DateTime = DateTime.Today.AddDays(-6);
+            radioGroup.SelectedIndexChanged += (_, _) => UpdateReportSelection();
             radioGroup.SelectedIndex = 1;
+            UpdateReportSelection();
+        }
+
+        private void UpdateReportSelection()
+        {
+            var index = radioGroup.SelectedIndex;
+            var isLicenses = index == 4;
+            var isDaily = index == 2;
+            labelControl1.Visible = !isLicenses;
+            txtFechaDesde.Visible = !isLicenses;
+            lblfechaHasta.Visible = !isLicenses && !isDaily;
+            txtFechaHasta.Visible = !isLicenses && !isDaily;
+            lblDescripcionReporte.Text = index switch
+            {
+                0 => "Asignaciones de vehículos para el período seleccionado.",
+                1 => "Cuotas, pagos y turnos consolidados por cadete.",
+                2 => "Recaudación y cuotas de una fecha específica.",
+                3 => "Ausencias registradas durante el período seleccionado.",
+                4 => "Licencias registradas de los cadetes activos.",
+                _ => "Define las fechas del reporte seleccionado."
+            };
         }
 
         private async void btnVerReporte_Click(object sender, EventArgs e)
@@ -34,11 +56,19 @@ namespace Caponeras.App.Views.Conductores
                     return;
                 }
 
-                if (radioGroup.SelectedIndex != 4 &&
-                    (txtFechaDesde.EditValue is null || txtFechaHasta.EditValue is null))
+                if (radioGroup.SelectedIndex != 4 && txtFechaDesde.EditValue is null)
                 {
                     XtraMessageBox.Show(
                         "Debe seleccionar las fechas del reporte.",
+                        "Rango de fechas",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+                if ((radioGroup.SelectedIndex is 0 or 1 or 3) && txtFechaHasta.EditValue is null)
+                {
+                    XtraMessageBox.Show(
+                        "Debe seleccionar la fecha final del rango.",
                         "Rango de fechas",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);

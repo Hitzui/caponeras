@@ -13,6 +13,7 @@ using Caponeras.App.Views.Compras;
 using Caponeras.App.Views.Conductores;
 using Caponeras.App.Views.Inventario;
 using Caponeras.App.Views.Mantenimiento;
+using Caponeras.App.Views.Reportes;
 using Caponeras.App.Views.Mcaja;
 using Caponeras.App.Views.Productos;
 using Caponeras.App.Views.Proveedores;
@@ -426,6 +427,11 @@ namespace Caponeras.App.ViewModels
             view.FormClosed += (s, e) => { ribbonPageGroupVehiculosOpciones.Visible = false; };
         }
 
+        public void ReportesMantenimientosOnClick(SplashScreenManager splashScreenManager)
+        {
+            _navigation.Show<ReporteMantenimientosView>(splashScreenManager);
+        }
+
         public void SegurosVehicularesOnClick(SplashScreenManager splashScreenManager,
             RibbonPageGroup ribbonPageGroupVehiculosOpciones)
         {
@@ -442,6 +448,11 @@ namespace Caponeras.App.ViewModels
         public void AsignacionesVehiculoDiariasOnClick(SplashScreenManager splashScreenManager)
         {
             _navigation.Show<AsignacionesVehiculoFechaView>(splashScreenManager);
+        }
+
+        public void CuotasDiariasOnClick(SplashScreenManager splashScreenManager)
+        {
+            _navigation.Show<CuotasDiariasView>(splashScreenManager);
         }
 
         public void ControlAusenciasCadetesOnClick(SplashScreenManager splashScreenManager)

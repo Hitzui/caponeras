@@ -248,13 +248,6 @@ public class ConductoresService
             if (!cadeteActivo)
                 throw new Exception("No se puede registrar la cuota: el cadete está inactivo o ya no existe.");
 
-            var cuotaConfiguracion = await _context.CuotaConfiguracions
-                .FirstOrDefaultAsync(cc => cc.Idconductor == idconductor && cc.Activo);
-            if (cuotaConfiguracion is null)
-            {
-                throw new Exception("No se ha configurado una cuota diaria para este conductor.");
-            }
-
             var asignacionesActivas = _context.VehiculoConductors
                 .AsNoTracking()
                 .Where(vc => vc.Idconductor == idconductor &&
@@ -296,6 +289,11 @@ public class ConductoresService
 
             if (cuotaDiaria == null)
             {
+                var cuotaConfiguracion = await _context.CuotaConfiguracions
+                    .FirstOrDefaultAsync(cc => cc.Idconductor == idconductor && cc.Activo);
+                if (cuotaConfiguracion is null)
+                    throw new Exception("No se ha configurado ni registrado una cuota diaria para este conductor.");
+
                 await AgregarCuota(
                     monto, 
                     observaciones, 

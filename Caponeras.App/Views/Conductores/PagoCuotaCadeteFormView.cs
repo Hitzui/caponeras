@@ -28,6 +28,7 @@ namespace Caponeras.App.Views.Conductores
         private async void PagoCuotaCadeteFormView_Load(object sender, EventArgs e)
         {
             _initializing = true;
+            txtFecha.Enabled = false;
             btnAceptar.Enabled = false;
             try
             {
@@ -63,6 +64,7 @@ namespace Caponeras.App.Views.Conductores
             finally
             {
                 _initializing = false;
+                txtFecha.Enabled = _viewModel.ConductorDto is not null;
             }
         }
 
@@ -131,39 +133,50 @@ namespace Caponeras.App.Views.Conductores
 
         private async Task LoadDataForDateAsync(DateTime fecha)
         {
+            txtFecha.Enabled = false;
+            btnAceptar.Enabled = false;
             txtCodigo.Text = string.Empty;
             txtPlaca.Text = string.Empty;
             txtZona.Text = string.Empty;
             lblAsignacion.Text = "Buscando asignación para la fecha...";
 
-            await _viewModel.LoadAsignacionVehiculo(fecha);
-            await _viewModel.LoadCuotaDiaria(fecha);
-
-            var asignacion = _viewModel.AsignacionVehiculoDto;
-            if (asignacion is null)
+            try
             {
-                lblAsignacion.Text = "Sin vehículo asignado para esta fecha";
-            }
-            else
-            {
-                txtCodigo.Text = asignacion.CodigoVehiculo ?? string.Empty;
-                txtPlaca.Text = asignacion.Placa ?? string.Empty;
-                txtZona.Text = asignacion.Zona ?? "(sin zona asignada)";
-                var asignacionDelDia = asignacion.FechaInicio?.Date == fecha.Date &&
-                                       asignacion.FechaFin?.Date == fecha.Date;
-                lblAsignacion.Text = asignacionDelDia
-                    ? "Asignación específica para este día"
-                    : "Asignación según rango de fechas";
-            }
+                await _viewModel.LoadAsignacionVehiculo(fecha);
+                await _viewModel.LoadCuotaDiaria(fecha);
 
-            MostrarCuotaDiaria();
-            btnAceptar.Enabled = _viewModel.ConductorDto is { Estado: not EstadoCadete.INACTIVO } &&
-                                 asignacion is not null;
+                var asignacion = _viewModel.AsignacionVehiculoDto;
+                if (asignacion is null)
+                {
+                    lblAsignacion.Text = "Sin vehículo asignado para esta fecha";
+                }
+                else
+                {
+                    txtCodigo.Text = asignacion.CodigoVehiculo ?? string.Empty;
+                    txtPlaca.Text = asignacion.Placa ?? string.Empty;
+                    txtZona.Text = asignacion.Zona ?? "(sin zona asignada)";
+                    var asignacionDelDia = asignacion.FechaInicio?.Date == fecha.Date &&
+                                           asignacion.FechaFin?.Date == fecha.Date;
+                    lblAsignacion.Text = asignacionDelDia
+                        ? "Asignación específica para este día"
+                        : "Asignación según rango de fechas";
+                }
+
+                MostrarCuotaDiaria();
+            }
+            finally
+            {
+                txtFecha.Enabled = _viewModel.ConductorDto is not null;
+                btnAceptar.Enabled = _viewModel.ConductorDto is { Estado: not EstadoCadete.INACTIVO } &&
+                                     _viewModel.AsignacionVehiculoDto is not null;
+            }
         }
 
         private void MostrarCuotaDiaria()
         {
             var cuotaDiaria = _viewModel.CuotaDiariasDto;
+            if (cuotaDiaria is not null)
+                txtCuota.Text = cuotaDiaria.MontoCuota.ToString("C");
             txtMontoPagado.EditValue = cuotaDiaria?.MontoEntregado ?? 0m;
             arcScaleComponent1.Value = cuotaDiaria is null ? 0f : (float)cuotaDiaria.Porcentaje;
         }

@@ -321,6 +321,11 @@ namespace Caponeras.App.Views
             _viewModel.AsignacionesVehiculoDiariasOnClick(splashScreenManager1);
         }
 
+        private void barButtonItemCuotasDiarias_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            _viewModel.CuotasDiariasOnClick(splashScreenManager1);
+        }
+
         private void barButtonItemControlAusencias_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             _viewModel.ControlAusenciasCadetesOnClick(splashScreenManager1);
@@ -329,6 +334,12 @@ namespace Caponeras.App.Views
         private void btnReportesInventario_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             _viewModel.ReportesProductosInventariosOnClick(splashScreenManager1);
+        }
+
+        private void barButtonItemReportesMantenimiento_ItemClick(object sender,
+            DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            _viewModel.ReportesMantenimientosOnClick(splashScreenManager1);
         }
     }
 }

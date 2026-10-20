@@ -50,11 +50,23 @@
         <Compile Update="Views\Conductores\ControlAusenciasCadetesView.Designer.cs">
             <DependentUpon>ControlAusenciasCadetesView.cs</DependentUpon>
         </Compile>
+        <Compile Update="Views\Conductores\CuotasDiariasView.cs">
+            <SubType>Form</SubType>
+        </Compile>
+        <Compile Update="Views\Conductores\CuotasDiariasView.Designer.cs">
+            <DependentUpon>CuotasDiariasView.cs</DependentUpon>
+        </Compile>
         <Compile Update="Views\Conductores\BuscarCadeteAusenciaDialog.cs">
             <SubType>Form</SubType>
         </Compile>
         <Compile Update="Views\Conductores\BuscarCadeteAusenciaDialog.Designer.cs">
             <DependentUpon>BuscarCadeteAusenciaDialog.cs</DependentUpon>
+        </Compile>
+        <Compile Update="Views\Reportes\Mantenimiento\ReporteMantenimientosView.cs">
+            <SubType>Form</SubType>
+        </Compile>
+        <Compile Update="Views\Reportes\Mantenimiento\ReporteMantenimientosView.Designer.cs">
+            <DependentUpon>ReporteMantenimientosView.cs</DependentUpon>
         </Compile>
     </ItemGroup>
 
